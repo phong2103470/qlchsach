@@ -26,7 +26,7 @@
 
 <body>
     <script type="text/javascript">
-        const loading_icon_url = 'https://cdn0.fahasa.com/skin/frontend/ma_vanese/fahasa/images/ring_loader.gif';
+        const loading_icon_url = 'https://mir-s3-cdn-cf.behance.net/project_modules/max_632/04de2e31234507.564a1d23645bf.gif';
     </script>
 
     <header>
@@ -139,13 +139,13 @@
                 <div class="pt-2">
                     <a href="#">
                         <img class="border_radius_normal rounded-2" style="width: 100%;"
-                            src="https://cdn0.fahasa.com/media/wysiwyg/Thang-02-2023/Fahasa_T2_mainbanner_Subbanner_392x156.jpg " />
+                            src="{{('public/frontend/img/banner/banner-4.jpg')}}" />
                     </a>
                 </div>
                 <div class="pt-2">
                     <a href="#">
                         <img class="border_radius_normal rounded-2" style="width: 100%;"
-                            src="https://cdn0.fahasa.com/media/wysiwyg/Thang-02-2023/FahasaT2_flashsale_Subbanner_392x156.jpg" />
+                            src="{{('public/frontend/img/banner/banner-5.jpg')}}" />
                     </a>
                 </div>
             </div>
