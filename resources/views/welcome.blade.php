@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fanasa - Cửa hàng bán sách trực tuyến</title>
-    <link rel="shortcut icon" href="{{('public/frontend/img/Fanasa-logo.png')}}" type="image/x-icon" />
+    <title>Faa - Cửa hàng bán sách trực tuyến</title>
+    <link rel="shortcut icon" href="{{('public/frontend/img/logo.png')}}" type="image/x-icon" />
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
@@ -31,7 +31,7 @@
 
     <header>
         <div id="top_banner" style="background-color:#DFC8FF">
-            <img src="https://cdn0.fahasa.com/media/wysiwyg/Thang-02-2023/Fahasa_T2_mainbanner_Header_1263x60.jpg"
+            <img src="{{('public/frontend/img/banner/banner-top.jpg')}}"
                 alt="" />
         </div>
         <nav class="navbar navbar-expand-lg navbar-light bg-light py-3 sticky-top">
@@ -43,7 +43,7 @@
                     <span id="bar" class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <a href="index.html"><img src="{{('public/frontend/img/Fanasa-basic.png')}}" alt=""></a>
+                    <a href="index.html"><img src="{{('public/frontend/img/Faa-basic.png')}}" alt=""></a>
 
                     <ul class="navbar-nav ml-auto text-right">
                         <li class="nav-item">
@@ -110,15 +110,15 @@
                     <!-- The slideshow/carousel -->
                     <div class="carousel-inner ">
                         <div class="carousel-item active">
-                            <img src="https://cdn0.fahasa.com/media/magentothem/banner7/fahasaT3_Bo1_slider_840x320.png"
+                            <img src="{{('public/frontend/img/banner/banner-1.png')}}"
                                 class="d-block w-100 rounded-2 ">
                         </div>
                         <div class="carousel-item">
-                            <img src="https://cdn0.fahasa.com/media/magentothem/banner7/Fahasa_T2_mainbanner_Slide_840x320.jpg"
+                            <img src="{{('public/frontend/img/banner/banner-2.jpg')}}"
                                 class="d-block w-100 rounded-2 ">
                         </div>
                         <div class="carousel-item">
-                            <img src="https://cdn0.fahasa.com/media/magentothem/banner7/AZVietNam022023_840x320.jpg"
+                            <img src="{{('public/frontend/img/banner/banner-3.jpg')}}"
                                 class="d-block w-100 rounded-2 ">
                         </div>
                     </div>
@@ -158,7 +158,7 @@
     <footer class="mt-5 py-5">
         <div class="row container-fluid mx-auto pt-5">
             <div class="footer-one col-lg-3 col-md-6 col-12 center mb-3">
-                <img src="{{('public/frontend/img/Fanasa-color.png')}}" alt="">
+                <img src="{{('public/frontend/img/Faa-color.png')}}" alt="">
                 <p class="pt-3">................................................</p>
                 <div class="copyright mt-1 mb-5">
                     <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
@@ -204,7 +204,7 @@
             </div>
         </div>
         <div class="center">
-            <p>rymo eCommerce Ⓒ 2021. All Rights Recieved</p>
+            <p>Faa Ⓒ All Rights Recieved</p>
         </div>
     </footer>
 
