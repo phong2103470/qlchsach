@@ -37,6 +37,7 @@ class AdminController extends Controller
             }*/
             Session::put('NV_HOTEN',$result->NV_HOTEN);
             Session::put('NV_MA',$result->NV_MA);
+            Session::put('NV_ANHDAIDIEN',$result->NV_ANHDAIDIEN);
             return Redirect::to('/dashboard');
         }else{
                 Session::put('message','Mật khẩu hoặc tài khoản sai. Vui lòng nhập lại!');
@@ -47,6 +48,7 @@ class AdminController extends Controller
     public function logout(Request $request){
         Session::put('NV_HOTEN',null);
         Session::put('NV_MA',null);
+        Session::put('NV_ANHDAIDIEN',null);
         return Redirect::to('/admin');
     }
 }

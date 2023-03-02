@@ -77,7 +77,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <!-- user login dropdown start-->
         <li class="dropdown">
             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                <img alt='' src="{{asset('public/backend/images/2.png')}}">
+			
+                <img alt='' src="public/backend/images/nhanvien/
+					<?php
+						$avt= Session::get('NV_ANHDAIDIEN');
+						if ($avt) {
+							echo $avt;
+						}
+					?>
+					">
                 <span class="username">
 
 					<?php
@@ -118,7 +126,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <li class="sub-menu">
                     <a href="javascript:;">
                         <i class="fa fa-book"></i>
-                        <span>Danh mục sản phẩm</span>
+                        <span>Quản lý sách</span>
                     </a>
                     <ul class="sub">
 						<li><a href="typography.html">Thêm danh mục</a></li>

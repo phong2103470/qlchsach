@@ -9,6 +9,7 @@
 					</div>
 					 <div class="col-md-8 market-update-left">
 					 <h4>Tổng số đơn hàng đã đặt</h4>
+
 					<h3>13,500</h3>
 					<a href="#"><p>Xem thêm</p></a>
 				  </div>
