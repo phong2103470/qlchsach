@@ -3,10 +3,11 @@ Author: W3layout
 Author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
+https://fontawesome.com/v4/icons/
 -->
 <!DOCTYPE html>
 <head>
-<title>FANASA - Trang quản lý admin</title>
+<title>FAA - Trang quản lý admin</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="Visitors Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
@@ -39,13 +40,33 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!--logo start-->
 <div class="brand">
     <a href="index.html" class="logo">
-        FANASA
+        FAA
     </a>
     <div class="sidebar-toggle-box">
         <div class="fa fa-bars"></div>
     </div>
 </div>
+
 <!--logo end-->
+<div class="nav notify-row" id="top_menu">
+    <!--  notification start -->
+    <ul class="nav top-menu">
+        <!-- settings start -->
+        <li class="dropdown">
+            <a data-toggle="dropdown" class="dropdown-toggle" href="#" style="border-radius: 1.5em;">
+				<i class="fa fa-calendar-o"></i>
+				<?php
+				$date_array = getdate();
+				$formated_date  = "Hôm nay là: ";
+				$formated_date .= $date_array['mday'] . "/";
+				$formated_date .= $date_array['mon'] . "/";
+				$formated_date .= $date_array['year'];
+				print $formated_date;
+				?>
+			</a>
+		</li>
+	</ul>
+</div>
 
 <div class="top-nav clearfix">
     <!--search & user info start-->
@@ -56,7 +77,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <!-- user login dropdown start-->
         <li class="dropdown">
             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                <img alt="" src="{{asset('public/backend/images/2.png')}}">
+                <img alt='' src="{{asset('public/backend/images/2.png')}}">
                 <span class="username">
 
 					<?php
@@ -104,8 +125,59 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<li><a href="glyphicon.html">Liệt kê danh mục</a></li>
                     </ul>
                 </li>
+				<li class="sub-menu">
+                    <a href="javascript:;">
+						<i class="fa fa-th-list"></i>
+                        <span>Quản lý thể loại sách</span>
+                    </a>
+                    <ul class="sub">
+						<li><a href="typography.html">Thêm thể loại sách</a></li>
+						<li><a href="glyphicon.html">Liệt kê thể loại sách</a></li>
+                    </ul>
+                </li>
+				<li class="sub-menu">
+                    <a href="javascript:;">
+						<i class="fa fa-th-list"></i>
+                        <span>Quản lý nhà xuất bản sách</span>
+                    </a>
+                    <ul class="sub">
+						<li><a href="typography.html">Thêm thể nhà xuất bản</a></li>
+						<li><a href="glyphicon.html">Liệt kê thể nhà xuất bản</a></li>
+                    </ul>
+                </li>
+				<li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa fa-database"></i>
+                        <span>Quản lý đơn đặt hàng</span>
+                    </a>
+                    <ul class="sub">
+						<li><a href="typography.html">Thêm danh mục</a></li>
+						<li><a href="glyphicon.html">Liệt kê danh mục</a></li>
+                    </ul>
+                </li>
+				<li class="sub-menu">
+                    <a href="javascript:;">
+						<i class="fa fa-cubes"></i>
+                        <span>Quản lý lô</span>
+                    </a>
+                    <ul class="sub">
+						<li><a href="typography.html">Thêm danh mục</a></li>
+						<li><a href="glyphicon.html">Liệt kê danh mục</a></li>
+                    </ul>
+                </li>
+				<li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa fa-bar-chart-o"></i>
+                        <span>Thống kê</span>
+                    </a>
+                    <ul class="sub">
+						<li><a href="typography.html">Thêm danh mục</a></li>
+						<li><a href="glyphicon.html">Liệt kê danh mục</a></li>
+                    </ul>
+                </li>
                 
             </ul>            </div>
+			
         <!-- sidebar menu end-->
     </div>
 </aside>
@@ -117,8 +189,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     </section>
  <!-- footer -->
 		  <div class="footer">
-			<div class="wthree-copyright">
-			 
+			<div class="wthree-copyright text-center">
+			Faa Ⓒ All Rights Recieved
 			</div>
 		  </div>
   <!-- / footer -->

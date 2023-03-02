@@ -282,6 +282,7 @@ ul.top-menu > li > a {
     -webkit-border-radius: 50%;
     padding-right: 8px !important;
 }
+
 ul.top-menu>li>a:hover,ul.top-menu>li>a:focus {
     background:#fa9fa4;
     text-decoration:none;

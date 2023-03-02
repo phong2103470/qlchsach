@@ -313,6 +313,9 @@
 .fa-book:before {
   content: "\f02d";
 }
+.fa-books:before {
+  content: "\f5db";
+}
 .fa-bookmark:before {
   content: "\f02e";
 }
