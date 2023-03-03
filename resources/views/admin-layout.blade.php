@@ -129,9 +129,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <span>Quản lý sách</span>
                     </a>
                     <ul class="sub">
-						<li><a href="typography.html">Thêm danh mục</a></li>
-						<li><a href="glyphicon.html">Liệt kê danh mục</a></li>
-                    </ul>
+						<li><a href="typography.html">Thêm sách</a></li>
+						<li><a href="glyphicon.html">Liệt kê sách</a></li>
+                    </ul>  
                 </li>
 				<li class="sub-menu">
                     <a href="javascript:;">
@@ -139,8 +139,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <span>Quản lý thể loại sách</span>
                     </a>
                     <ul class="sub">
-						<li><a href="typography.html">Thêm thể loại sách</a></li>
-						<li><a href="glyphicon.html">Liệt kê thể loại sách</a></li>
+						<li><a href="{{URL::to('/add-category-product')}}">Thêm thể loại sách</a></li>
+						<li><a href="{{URL::to('/all-category-product')}}">Liệt kê thể loại sách</a></li>
                     </ul>
                 </li>
 				<li class="sub-menu">
@@ -149,8 +149,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <span>Quản lý nhà xuất bản sách</span>
                     </a>
                     <ul class="sub">
-						<li><a href="typography.html">Thêm thể nhà xuất bản</a></li>
-						<li><a href="glyphicon.html">Liệt kê thể nhà xuất bản</a></li>
+						<li><a href="{{URL::to('/add-brand-product')}}">Thêm nhà xuất bản</a></li>
+						<li><a href="{{URL::to('/all-brand-product')}}">Liệt kê nhà xuất bản</a></li>
                     </ul>
                 </li>
 				<li class="sub-menu">
@@ -195,12 +195,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<section class="wrapper">
          @yield('admin-content')
     </section>
- <!-- footer -->
+ <!-- footer 
 		  <div class="footer">
 			<div class="wthree-copyright text-center">
 			Faa Ⓒ All Rights Recieved
 			</div>
-		  </div>
+		  </div>-->
   <!-- / footer -->
 </section>
 <!--main content end-->
