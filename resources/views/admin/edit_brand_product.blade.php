@@ -8,13 +8,7 @@
                         </header>
                         <div class="panel-body">
                             @foreach($edit_brand_product as $key => $edit_value)
-                            <?php
-                            $message = Session::get('message');
-                            if($message){
-                                echo '<span class="text-alert">'.$message.'</span>';
-                                Session::put('message',null);
-                            }
-                            ?>
+            
                             <div class="position-center">
                                 <form role="form" action="{{URL::to('/update-brand-product/'.$edit_value->NXB_MA)}}" method="post">
                                     {{csrf_field() }}
@@ -22,12 +16,12 @@
                                     <label for="exampleInputEmail1">Tên nhà xuất bản</label>
                                     <input type="text" value="{{$edit_value->NXB_TEN}}" name="brand_product_name" class="form-control" id="exampleInputEmail1" placeholder="Tên nhà xuất bản">
                                 </div>
-                                <div class="form-group">
+                                <!--<div class="form-group">
                                     <label for="exampleInputPassword1">Mã nhà xuất bản</label>
                                     <textarea class="form-control" name="brand_product_id" rows=1 cols=1 id="exampleInputPassword1" place='Mã nhà xuất bản'>
                                     {{$edit_value->NXB_MA}}</textarea>
                                     
-                                </div>
+                                </div>-->
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">Số điện thoại</label>
                                     <input  type ="text" value="{{$edit_value->NXB_SODIENTHOAI}}" class="form-control" name="brand_product_phone" id="exampleInputPassword1" placeholder="Số điện thoại nhà xuất bản">

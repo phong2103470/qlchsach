@@ -42,7 +42,7 @@ class CategoryProduct extends Controller
 
     public function update_category_product(Request $request, $TLS_MA){
         $data = array();
-        $data['TLS_MA'] = $request->category_product_desc;
+        //$data['TLS_MA'] = $request->category_product_desc;
         $data['TLS_TEN'] = $request->category_product_name;
         DB::table('the_loai_sach')->where('TLS_MA',$TLS_MA)->update($data);
         Session::put('message','Cập nhật thể loại sách thành công');

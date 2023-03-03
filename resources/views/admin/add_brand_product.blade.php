@@ -21,10 +21,10 @@
                                     <label for="exampleInputEmail1">Tên thể nhà xuất bản</label>
                                     <input type="text" name="brand_product_name" class="form-control" id="exampleInputEmail1" placeholder="Tên nhà xuất bản">
                                 </div>
-                                <div class="form-group">
+                                <!--<div class="form-group">
                                     <label for="exampleInputPassword1">Mã thể nhà xuất bản</label>
                                     <input class="form-control" name="brand_product_id" id="exampleInputPassword1" placeholder="Mã nhà xuất bản">
-                                </div>
+                                </div>-->
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">Số điện thoại</label>
                                     <input  type ="text" class="form-control" name="brand_product_phone" id="exampleInputPassword1" placeholder="Số điện thoại nhà xuất bản">
