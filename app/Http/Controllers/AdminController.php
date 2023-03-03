@@ -16,6 +16,8 @@ class AdminController extends Controller
     }
     
     public function show_dashboard(){
+        $users = DB::table('khach_hang')->count();
+        Session::put('SO_NGUOI_DUNG',$users);
     	return view('admin.dashboard');
     }
 

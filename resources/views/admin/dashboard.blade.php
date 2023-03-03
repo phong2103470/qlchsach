@@ -49,7 +49,14 @@
 					</div>
 					<div class="col-md-8 market-update-left">
 						<h4>Số người dùng</h4>
-						<h3>1,500</h3>
+						<h3>
+						<?php
+							$users= Session::get('SO_NGUOI_DUNG');
+							if ($users) {
+								echo $users;
+							}
+						?>
+						</h3>
 						<a href="#"><p>Xem thêm</p></a>
 					</div>
 				  <div class="clearfix"> </div>
