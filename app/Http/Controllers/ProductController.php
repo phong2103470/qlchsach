@@ -14,13 +14,24 @@ use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
+    public function AuthLogin(){
+        $NV_MA = Session::get('NV_MA');
+        if($NV_MA){
+            return Redirect::to('dashboard');
+        }else{
+            return Redirect::to('admin')->send();
+        }
+    }
+
     public function add_product(){
+        $this->AuthLogin();
         $brand_product = DB::table('nha_xuat_ban')->orderby('NXB_MA')->get(); 
         $lang_product = DB::table('ngon_ngu')->orderby('NN_MA')->get(); 
         return view('admin.add_product')->with('brand_product', $brand_product)->with('lang_product', $lang_product);
 
     }
     public function all_product(){ //Hien thi tat ca
+        $this->AuthLogin();
 
         $all_product = DB::table('sach')
         ->join('nha_xuat_ban','nha_xuat_ban.NXB_MA','=','sach.NXB_MA')
@@ -31,6 +42,7 @@ class ProductController extends Controller
     }
 
     public function save_product(Request $request){//thêm sách
+        $this->AuthLogin();
         $data = array();
         //$data['SACH_MA'] = $request->product_desc;
         $data['SACH_TEN'] = $request->SACH_TEN;
@@ -52,6 +64,7 @@ class ProductController extends Controller
     }
 
     public function edit_product($SACH_MA){
+        $this->AuthLogin();
         $brand_product = DB::table('nha_xuat_ban')->orderby('NXB_MA')->get(); 
         $lang_product = DB::table('ngon_ngu')->orderby('NN_MA')->get(); 
         $edit_product = DB::table('sach')->where('SACH_MA',$SACH_MA)->get();
@@ -60,6 +73,7 @@ class ProductController extends Controller
     }
 
     public function update_product(Request $request, $SACH_MA){
+        $this->AuthLogin();
         $data = array();
         //$data['SACH_MA'] = $request->product_desc;
         $data['SACH_TEN'] = $request->SACH_TEN;
@@ -78,6 +92,7 @@ class ProductController extends Controller
     }
 
     public function delete_product($SACH_MA){
+        $this->AuthLogin();
         DB::table('sach')->where('SACH_MA',$SACH_MA)->delete();
         Session::put('message','Xóa sách thành công');
         return Redirect::to('all-product');

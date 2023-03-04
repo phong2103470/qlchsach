@@ -11,11 +11,21 @@ session_start();
 
 class AdminController extends Controller
 {
+    public function AuthLogin(){
+        $NV_MA = Session::get('NV_MA');
+        if($NV_MA){
+            return Redirect::to('dashboard');
+        }else{
+            return Redirect::to('admin')->send();
+        }
+    }
+
     public function index(){
     	return view('admin-login');
     }
     
     public function show_dashboard(){
+        $this->AuthLogin();
         $users = DB::table('khach_hang')->count();
         Session::put('SO_NGUOI_DUNG',$users);
     	return view('admin.dashboard');
@@ -48,6 +58,7 @@ class AdminController extends Controller
     }
 
     public function logout(Request $request){
+        $this->AuthLogin();
         Session::put('NV_HOTEN',null);
         Session::put('NV_MA',null);
         Session::put('NV_ANHDAIDIEN',null);
