@@ -48,8 +48,10 @@ class BrandProduct extends Controller
 
     public function update_brand_product(Request $request, $NXB_MA){
         $data = array();
+        //$data['tên trong csdl'] = $request->phần name trong form nhập;
+
         //$data['NXB_MA'] = $request->brand_product_id;
-        $data['NXB_TEN'] = $request->brand_product_name;
+        $data['NXB_TEN'] = $request->brand_product_name; 
         $data['NXB_SODIENTHOAI'] = $request->brand_product_phone;
         $data['NXB_DIACHI'] = $request->brand_product_address;
         $data['NXB_EMAIL'] = $request->brand_product_email;

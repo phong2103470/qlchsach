@@ -129,8 +129,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <span>Quản lý sách</span>
                     </a>
                     <ul class="sub">
-						<li><a href="typography.html">Thêm sách</a></li>
-						<li><a href="glyphicon.html">Liệt kê sách</a></li>
+						<li><a href="{{URL::to('/add-product')}}">Thêm sách</a></li>
+						<li><a href="{{URL::to('/all-product')}}">Liệt kê sách</a></li>
                     </ul>  
                 </li>
 				<li class="sub-menu">

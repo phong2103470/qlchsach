@@ -41,3 +41,12 @@ Route::get('/all-brand-product', 'App\Http\Controllers\BrandProduct@all_brand_pr
 
 Route::post('/save-brand-product', 'App\Http\Controllers\BrandProduct@save_brand_product');
 Route::post('/update-brand-product/{NXB_MA}', 'App\Http\Controllers\BrandProduct@update_brand_product');
+
+//Product
+Route::get('/add-product', 'App\Http\Controllers\ProductController@add_product');
+Route::get('/edit-product/{SACH_MA}', 'App\Http\Controllers\ProductController@edit_product');
+Route::get('/delete-product/{SACH_MA}', 'App\Http\Controllers\ProductController@delete_product');
+Route::get('/all-product', 'App\Http\Controllers\ProductController@all_product');
+
+Route::post('/save-product', 'App\Http\Controllers\ProductController@save_product');
+Route::post('/update-product/{SACH_MA}', 'App\Http\Controllers\ProductController@update_product');
