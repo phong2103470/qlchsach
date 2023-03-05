@@ -15,7 +15,7 @@
                             }
                             ?>
                             <div class="position-center">
-                                <form role="form" action="{{URL::to('/save-product-image')}}" method="post">
+                                <form role="form" action="{{URL::to('/save-product-image')}}" method="post" enctype= "multipart/form-data">
                                     {{csrf_field() }}
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Tên hình ảnh sách</label>
@@ -23,7 +23,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Đường dẫn hình ảnh sách</label>
-                                    <input type="text" name="HAS_DUONGDAN" class="form-control" id="exampleInputEmail1" placeholder="Tên hình ảnh sách">
+                                    <input type="file" name="HAS_DUONGDAN" class="form-control" id="exampleInputEmail1" placeholder="Tên hình ảnh sách">
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">Hình ảnh của sách</label>

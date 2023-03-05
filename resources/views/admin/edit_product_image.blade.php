@@ -10,7 +10,7 @@
                             @foreach($edit_product_image as $key => $edit_value)
                            
                             <div class="position-center">
-                                <form role="form" action="{{URL::to('/update-product-image/'.$edit_value->HAS_MA)}}" method="post">
+                                <form role="form" action="{{URL::to('/update-product-image/'.$edit_value->HAS_MA)}}" method="post" enctype= "multipart/form-data">
                                     {{csrf_field() }}
                                     <div class="form-group">
                                     <label for="exampleInputEmail1">Tên hình ảnh sách</label>
@@ -18,7 +18,11 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Đường dẫn hình ảnh sách</label>
-                                    <input type="text" name="HAS_DUONGDAN" class="form-control" id="exampleInputEmail1"  value="{{$edit_value->HAS_DUONGDAN}}">
+                                    <input type="file" name="HAS_DUONGDAN" class="form-control" id="exampleInputEmail1" placeholder="Tên hình ảnh sách">
+                                    <br>
+                                    <span><label for="exampleInputEmail1">Đường dẫn hình ảnh sách ban đầu: </label> {{$edit_value->HAS_DUONGDAN}} => </span>
+                                    <img src="{{URL::to('public/frontend/img/sach/'.$edit_value->HAS_DUONGDAN)}}" height="100" width="100">
+                                    
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">Hình ảnh của sách</label>

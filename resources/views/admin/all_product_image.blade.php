@@ -24,6 +24,7 @@
             <th>Mã hình ảnh sách</th>
             <th>Tên hình ảnh sách</th>
             <th>Đường dẫn hình ảnh sách</th>
+            <th>Hình ảnh sách</th>
             <th>Tên sách</th>
             
             <th style="width:30px;"></th>
@@ -36,6 +37,7 @@
             <td>{{$prod->HAS_MA}}</td>
             <td>{{$prod->HAS_TEN}}</td>
             <td>{{$prod->HAS_DUONGDAN}}</td>
+            <td><img src="public/frontend/img/sach/{{$prod->HAS_DUONGDAN}}" height="100" width="100"></td>
             <td>{{$prod->SACH_TEN}}</td>
             <td>
               <a href="{{URL::to('/edit-product-image/'.$prod -> HAS_MA)}}" class="active styling-edit" ui-toggle-class=""><i class="fa fa-pencil-square-o text-success text-active"></i></a>

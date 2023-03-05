@@ -40,8 +40,35 @@ class ImageProductController extends Controller
         $this->AuthLogin();
         $data = array();
         $data['HAS_TEN'] = $request->HAS_TEN;
-        $data['HAS_DUONGDAN'] = $request->HAS_DUONGDAN;  
+        //$data['HAS_DUONGDAN'] = $request->HAS_DUONGDAN;  
         $data['SACH_MA'] = $request->SACH_MA;
+
+        $get_image= $request->file('HAS_DUONGDAN');
+        if($get_image){
+            /*$get_name_image = $get_image->getClientOriginalName();
+            $name_image = current(explode('.',$get_name_image));
+            $name_image
+            $new_image =  $name_image.rand(0,99).'.'.$get_image->getClientOriginalExtension();
+            $get_image->move('public/uploads/product',$new_image);
+            $data['product_image'] = $new_image;
+            DB::table('tbl_product')->insert($data);
+            Session::put('message','Thêm sản phẩm thành công');
+            return Redirect::to('add-product');*/
+
+            $name_image = $request->HAS_TEN;
+            $new_image =  $name_image.rand(0,99).'.'.$get_image->getClientOriginalExtension();
+            $get_image->move('public/frontend/img/sach',$new_image);
+            $data['HAS_DUONGDAN'] = $new_image;
+        }
+        else {
+            //$data['product_image'] = '';
+            Session::put('message','Cập nhật hình ảnh sách thất bại vì chưa thêm ảnh');
+            return Redirect::to('all-product-image');
+        }
+
+        //echo '<pre>';
+        //print_r ($data);
+        //echo '</pre>';
 
         DB::table('hinh_anh_sach')->insert($data);
         Session::put('message','Thêm hình ảnh sách thành công');
@@ -61,8 +88,22 @@ class ImageProductController extends Controller
         $data = array();
         $data = array();
         $data['HAS_TEN'] = $request->HAS_TEN;
-        $data['HAS_DUONGDAN'] = $request->HAS_DUONGDAN;  
+        //$data['HAS_DUONGDAN'] = $request->HAS_DUONGDAN;  
         $data['SACH_MA'] = $request->SACH_MA;
+
+        $get_image= $request->file('HAS_DUONGDAN');
+
+        if ($get_image){
+            $name_image = $request->HAS_TEN;
+            $new_image =  $name_image.rand(0,99).'.'.$get_image->getClientOriginalExtension();
+            $get_image->move('public/frontend/img/sach',$new_image);
+            $data['HAS_DUONGDAN'] = $new_image;
+        }
+
+        /*echo '<pre>';
+        print_r ($data);
+        echo '</pre>';*/
+
         DB::table('hinh_anh_sach')->where('HAS_MA',$HAS_MA)->update($data);
         Session::put('message','Cập nhật hình ảnh sách thành công');
         return Redirect::to('all-product-image');
