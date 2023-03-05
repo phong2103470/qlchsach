@@ -126,7 +126,7 @@
 									echo $dt;
 								}
 							?>
-						</h3>
+						VNĐ</h3>
 						<a href="#"><p>Xem thêm</p></a>
 					</div>
 				  <div class="clearfix"> </div>

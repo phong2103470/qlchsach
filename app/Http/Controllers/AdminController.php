@@ -126,7 +126,7 @@ class AdminController extends Controller
             }*/
             Session::put('NV_HOTEN',$result->NV_HOTEN);
             Session::put('NV_MA',$result->NV_MA);
-            Session::put('NV_ANHDAIDIEN',$result->NV_ANHDAIDIEN);
+            Session::put('NV_DUONGDANANHDAIDIEN',$result->NV_DUONGDANANHDAIDIEN);
             return Redirect::to('/dashboard');
         }else{
                 Session::put('message','Mật khẩu hoặc tài khoản sai. Vui lòng nhập lại!');

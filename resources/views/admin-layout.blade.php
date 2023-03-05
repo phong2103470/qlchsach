@@ -80,7 +80,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			
                 <img alt='' src="public/backend/images/nhanvien/
 					<?php
-						$avt= Session::get('NV_ANHDAIDIEN');
+						$avt= Session::get('NV_DUONGDANANHDAIDIEN');
 						if ($avt) {
 							echo $avt;
 						}
