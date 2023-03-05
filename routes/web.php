@@ -53,3 +53,12 @@ Route::get('/all-product', 'App\Http\Controllers\ProductController@all_product')
 
 Route::post('/save-product', 'App\Http\Controllers\ProductController@save_product');
 Route::post('/update-product/{SACH_MA}', 'App\Http\Controllers\ProductController@update_product');
+
+//Product Image
+Route::get('/add-product-image', 'App\Http\Controllers\ImageProductController@add_product_image');
+Route::get('/edit-product-image/{HAS_MA}', 'App\Http\Controllers\ImageProductController@edit_product_image');
+Route::get('/delete-product-image/{HAS_MA}', 'App\Http\Controllers\ImageProductController@delete_product_image');
+Route::get('/all-product-image', 'App\Http\Controllers\ImageProductController@all_product_image');
+
+Route::post('/save-product-image', 'App\Http\Controllers\ImageProductController@save_product_image');
+Route::post('/update-product-image/{HAS_MA}', 'App\Http\Controllers\ImageProductController@update_product_image');

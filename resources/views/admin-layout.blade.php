@@ -129,8 +129,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <span>Quản lý sách</span>
                     </a>
                     <ul class="sub">
+						<!-- sach -->
 						<li><a href="{{URL::to('/add-product')}}">Thêm sách</a></li>
 						<li><a href="{{URL::to('/all-product')}}">Liệt kê sách</a></li>
+						<!-- hinh_anh_sach -->
+						<li><a href="{{URL::to('/add-product-image')}}">Thêm ảnh sách</a></li>
+						<li><a href="{{URL::to('/all-product-image')}}">Liệt kê ảnh sách</a></li>
                     </ul>  
                 </li>
 				<li class="sub-menu">
@@ -139,8 +143,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <span>Quản lý thể loại sách</span>
                     </a>
                     <ul class="sub">
+						<!-- the_loai_sach -->
 						<li><a href="{{URL::to('/add-category-product')}}">Thêm thể loại sách</a></li>
 						<li><a href="{{URL::to('/all-category-product')}}">Liệt kê thể loại sách</a></li>
+						<!-- cua_sach -->
+						<li><a href="{{URL::to('/???')}}">Thêm chi tiết thể loại sách</a></li>
+						<li><a href="{{URL::to('/???')}}">Liệt kê chi tiết thể loại sách</a></li>
                     </ul>
                 </li>
 				<li class="sub-menu">
@@ -149,6 +157,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <span>Quản lý nhà xuất bản sách</span>
                     </a>
                     <ul class="sub">
+						<!-- nha_xuat_ban -->
 						<li><a href="{{URL::to('/add-brand-product')}}">Thêm nhà xuất bản</a></li>
 						<li><a href="{{URL::to('/all-brand-product')}}">Liệt kê nhà xuất bản</a></li>
                     </ul>
@@ -169,8 +178,38 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <span>Quản lý lô</span>
                     </a>
                     <ul class="sub">
-						<li><a href="typography.html">Thêm danh mục</a></li>
-						<li><a href="glyphicon.html">Liệt kê danh mục</a></li>
+						<!-- lo_nhap -->
+						<li><a href="typography.html">Thêm lô nhập</a></li>
+						<li><a href="glyphicon.html">Liệt kê lô nhập</a></li>
+						<!-- chi_tiet_lo_nhap -->
+						<li><a href="typography.html">Thêm chi tiết lô nhập</a></li>
+						<li><a href="glyphicon.html">Liệt kê chi tiết lô nhập</a></li>
+						<!-- lo_xuat -->
+						<li><a href="typography.html">Thêm lô xuất</a></li>
+						<li><a href="glyphicon.html">Liệt kê lô xuất</a></li>
+						<!-- chi_tiet_lo_xuat -->
+						<li><a href="typography.html">Thêm chi tiết lô xuất</a></li>
+						<li><a href="glyphicon.html">Liệt kê chi tiết lô xuất</a></li>
+                    </ul>
+                </li>
+				<li class="sub-menu">
+                    <a href="javascript:;">
+						<i class="fa fa-th-list"></i>
+                        <span>Các danh mục quản lý khác</span>
+                    </a>
+                    <ul class="sub">
+						<!-- ngon_ngu -->
+						<li><a href="typography.html">Thêm ngôn ngữ sách</a></li>
+						<li><a href="glyphicon.html">Liệt kê ngôn ngữ sách</a></li>
+						<!-- hinh_thuc_thanh_toan -->
+						<li><a href="typography.html">Thêm hình thức thanh toán đơn đặt hàng</a></li>
+						<li><a href="glyphicon.html">Liệt kê hình thức thanh toán đơn đặt hàng</a></li>
+						<!-- trang_thai -->
+						<li><a href="typography.html">Thêm trạng thái đơn đặt hàng</a></li>
+						<li><a href="glyphicon.html">Liệt kê trạng thái đơn đặt hàng</a></li>
+						<!-- chuc_vu -->
+						<li><a href="typography.html">Thêm chức vụ nhân viên</a></li>
+						<li><a href="glyphicon.html">Liệt kê chức vụ nhân viên</a></li>
                     </ul>
                 </li>
 				<li class="sub-menu">
