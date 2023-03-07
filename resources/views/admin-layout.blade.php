@@ -222,6 +222,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<li><a href="glyphicon.html">Liệt kê danh mục</a></li>
                     </ul>
                 </li>
+				<li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa fa-user"></i>
+                        <span>Quản lý nhân viên</span>
+                    </a>
+                    <ul class="sub">
+						<li><a href="{{URL::to('/add-employee')}}">Thêm nhân viên</a></li>
+						<li><a href="{{URL::to('/all-employee')}}">Liệt kê nhân viên</a></li>
+                    </ul>
+                </li>
                 
             </ul>            </div>
 			

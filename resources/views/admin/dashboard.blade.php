@@ -85,7 +85,7 @@
 							}
 						?>
 						</h3>
-						<a href="#"><p>Xem thêm</p></a>
+						<a href="{{URL::to('/all-employee')}}"><p>Xem thêm</p></a>
 					</div>
 				  <div class="clearfix"> </div>
 				</div>

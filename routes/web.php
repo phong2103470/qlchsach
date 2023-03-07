@@ -62,3 +62,12 @@ Route::get('/all-product-image', 'App\Http\Controllers\ImageProductController@al
 
 Route::post('/save-product-image', 'App\Http\Controllers\ImageProductController@save_product_image');
 Route::post('/update-product-image/{HAS_MA}', 'App\Http\Controllers\ImageProductController@update_product_image');
+
+//Employee
+Route::get('/add-employee', 'App\Http\Controllers\EmployeeController@add_employee');
+Route::get('/edit-employee/{NV_MA}', 'App\Http\Controllers\EmployeeController@edit_employee');
+Route::get('/delete-employee/{NV_MA}', 'App\Http\Controllers\EmployeeController@delete_employee');
+Route::get('/all-employee', 'App\Http\Controllers\EmployeeController@all_employee');
+
+Route::post('/save-employee', 'App\Http\Controllers\EmployeeController@save_employee');
+Route::post('/update-employee/{NV_MA}', 'App\Http\Controllers\EmployeeController@update_employee');
