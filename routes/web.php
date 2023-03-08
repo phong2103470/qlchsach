@@ -63,3 +63,13 @@ Route::get('/all-product-image', 'App\Http\Controllers\ImageProductController@al
 
 Route::post('/save-product-image', 'App\Http\Controllers\ImageProductController@save_product_image');
 Route::post('/update-product-image/{HAS_MA}', 'App\Http\Controllers\ImageProductController@update_product_image');
+
+
+//Product tacgia
+Route::get('/add-tacgia-product', 'App\Http\Controllers\TacgiaProduct@add_tacgia_product');
+Route::get('/edit-tacgia-product/{TG_MA}', 'App\Http\Controllers\TacgiaProduct@edit_tacgia_product');
+Route::get('/delete-tacgia-product/{TG_MA}', 'App\Http\Controllers\TacgiaProduct@delete_tacgia_product');
+Route::get('/all-tacgia-product', 'App\Http\Controllers\TacgiaProduct@all_tacgia_product');
+
+Route::post('/save-tacgia-product', 'App\Http\Controllers\TacgiaProduct@save_tacgia_product');
+Route::post('/update-tacgia-product/{TG_MA}', 'App\Http\Controllers\TacgiaProduct@update_tacgia_product');
