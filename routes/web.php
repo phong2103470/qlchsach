@@ -73,3 +73,12 @@ Route::get('/all-tacgia-product', 'App\Http\Controllers\TacgiaProduct@all_tacgia
 
 Route::post('/save-tacgia-product', 'App\Http\Controllers\TacgiaProduct@save_tacgia_product');
 Route::post('/update-tacgia-product/{TG_MA}', 'App\Http\Controllers\TacgiaProduct@update_tacgia_product');
+
+//Employee
+Route::get('/add-employee', 'App\Http\Controllers\EmployeeController@add_employee');
+Route::get('/edit-employee/{NV_MA}', 'App\Http\Controllers\EmployeeController@edit_employee');
+Route::get('/delete-employee/{NV_MA}', 'App\Http\Controllers\EmployeeController@delete_employee');
+Route::get('/all-employee', 'App\Http\Controllers\EmployeeController@all_employee');
+
+Route::post('/save-employee', 'App\Http\Controllers\EmployeeController@save_employee');
+Route::post('/update-employee/{NV_MA}', 'App\Http\Controllers\EmployeeController@update_employee');
