@@ -193,21 +193,21 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </ul>
                 </li>
 				<li class="sub-menu">
-                    <a href="javascript:;">
-						<i class="fa fa-th-list"></i>
-                        <span>Các danh mục quản lý khác</span>
+                    <a href="javascript:;"> 
+						<i class="fa fa-th-list"></i> 
+                        <span>Các danh mục quản lý khác</span> 
                     </a>
                     <ul class="sub">
-						<!-- ngon_ngu -->
-						<li><a href="typography.html">Thêm ngôn ngữ sách</a></li>
-						<li><a href="glyphicon.html">Liệt kê ngôn ngữ sách</a></li>
-						<!-- hinh_thuc_thanh_toan -->
+						<!-- tac_gia --> 
+						<li><a href="{{URL::to('/add-tacgia-product')}}">Thêm tác giả</a></li> 
+						<li><a href="{{URL::to('/all-tacgia-product')}}">Liệt kê tác giả</a></li>
+						<!-- hinh_thuc_thanh_toan --> 
 						<li><a href="typography.html">Thêm hình thức thanh toán đơn đặt hàng</a></li>
 						<li><a href="glyphicon.html">Liệt kê hình thức thanh toán đơn đặt hàng</a></li>
-						<!-- trang_thai -->
+						<!-- trang_thai -->  
 						<li><a href="typography.html">Thêm trạng thái đơn đặt hàng</a></li>
 						<li><a href="glyphicon.html">Liệt kê trạng thái đơn đặt hàng</a></li>
-						<!-- chuc_vu -->
+						<!-- chuc_vu --> 
 						<li><a href="typography.html">Thêm chức vụ nhân viên</a></li>
 						<li><a href="glyphicon.html">Liệt kê chức vụ nhân viên</a></li>
                     </ul>
@@ -268,11 +268,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	   jQuery('.small-graph-box').hover(function() {
 		  jQuery(this).find('.box-button').fadeIn('fast');
 	   }, function() {
-		  jQuery(this).find('.box-button').fadeOut('fast');
-	   });
+		  jQuery(this).find('.box-button').fadeOut('fast'); 
+	   }); 
 	   jQuery('.small-graph-box .box-close').click(function() {
-		  jQuery(this).closest('.small-graph-box').fadeOut(200);
-		  return false;
+		  jQuery(this).closest('.small-graph-box').fadeOut(200); 
+		  return false; 
 	   });
 	   
 	    //CHARTS
