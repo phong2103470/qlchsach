@@ -22,7 +22,7 @@ class ImageProductController extends Controller
 
     public function add_product_image(){
         $this->AuthLogin();
-        $product = DB::table('sach')->orderby('SACH_MA')->get(); 
+        $product = DB::table('sach')->orderby('SACH_MA')->get();
         return view('admin.add_product_image')->with('product', $product);
 
     }
@@ -40,7 +40,7 @@ class ImageProductController extends Controller
         $this->AuthLogin();
         $data = array();
         $data['HAS_TEN'] = $request->HAS_TEN;
-        //$data['HAS_DUONGDAN'] = $request->HAS_DUONGDAN;  
+        //$data['HAS_DUONGDAN'] = $request->HAS_DUONGDAN;
         $data['SACH_MA'] = $request->SACH_MA;
 
         $get_image= $request->file('HAS_DUONGDAN');
@@ -77,7 +77,7 @@ class ImageProductController extends Controller
 
     public function edit_product_image($HAS_MA){
         $this->AuthLogin();
-        $product = DB::table('sach')->orderby('SACH_MA')->get(); 
+        $product = DB::table('sach')->orderby('SACH_MA')->get();
         $edit_product_image = DB::table('hinh_anh_sach')->where('HAS_MA',$HAS_MA)->get();
         $manager_product_image = view('admin.edit_product_image')->with('edit_product_image', $edit_product_image)->with('product',$product);
         return view('admin-layout')->with('admin.edit_product_image', $manager_product_image);
@@ -88,7 +88,7 @@ class ImageProductController extends Controller
         $data = array();
         $data = array();
         $data['HAS_TEN'] = $request->HAS_TEN;
-        //$data['HAS_DUONGDAN'] = $request->HAS_DUONGDAN;  
+        //$data['HAS_DUONGDAN'] = $request->HAS_DUONGDAN;
         $data['SACH_MA'] = $request->SACH_MA;
 
         $get_image= $request->file('HAS_DUONGDAN');

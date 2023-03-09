@@ -72,4 +72,9 @@ class CategoryProduct extends Controller
         return Redirect::to('all-category-product');
 
     }
+
+    // Danh mục sản phẩm trang chủ
+    public function show_category_home($TLS_MA){
+
+    }
 }

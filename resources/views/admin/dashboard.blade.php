@@ -33,9 +33,7 @@
 						<h3>
 							<?php
 								$ddh_cxl= Session::get('SO_DDH_CXL');
-								if ($ddh_cxl) {
 									echo $ddh_cxl;
-								}
 							?>
 						</h3>
 						<a href="#"><p>Xem thêm</p></a>
@@ -123,7 +121,7 @@
 							<?php
 								$dt= Session::get('DOANH_THU');
 								if ($dt) {
-									echo $dt;
+									echo number_format($dt);
 								}
 							?>
 						VNĐ</h3>

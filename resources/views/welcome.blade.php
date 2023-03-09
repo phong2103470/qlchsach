@@ -65,8 +65,11 @@
                                 </button>
                                 <ul class="dropdown-menu">
                                     <li><a class="dropdown-item" href="shop.html">- - Tất cả sản phẩm - -</a></li>
-                                    <li><a class="dropdown-item" href="#">Hài hước</a></li>
-                                    <li><a class="dropdown-item" href="#">Kinh dị</a></li>
+
+                                    @foreach($category as $key => $cate)
+
+                                    <li><a class="dropdown-item" href="{{ URL::to('/danh-muc-san-pham/'. $cate->TLS_MA) }}">{{ $cate->TLS_TEN }}</a></li>
+                                <!--   <li><a class="dropdown-item" href="#">Kinh dị</a></li>
                                     <li><a class="dropdown-item" href="#">Kinh điển</a></li>
                                     <li><a class="dropdown-item" href="#">Ký sự</a></li>
                                     <li><a class="dropdown-item" href="#">Light novel</a></li>
@@ -79,10 +82,13 @@
                                     <li><a class="dropdown-item" href="#">Trinh thám</a></li>
                                     <li><a class="dropdown-item" href="#">Truyện tranh</a></li>
                                     <li><a class="dropdown-item" href="#">Tư duy</a></li>
-                                    <li><a class="dropdown-item" href="#">Văn học Việt Nam</a></li>
+                                    <li><a class="dropdown-item" href="#">Văn học Việt Nam</a></li> -->
+                                    @endforeach
                                 </ul>
+
                             </div>
                         </li>
+
                         <li class="nav-item">
                             <a class="nav-link" href="cart.html">Giỏ hàng</a>
                         </li>
@@ -95,6 +101,7 @@
     </header>
 
     <main class="container container-fluid pt-2">
+        
         <div class="row mx-auto">
             <div class="col-sm-8 pt-2">
                 <!-- Carousel -->
@@ -106,7 +113,7 @@
                         <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
                         <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
                     </div>
-
+                    
                     <!-- The slideshow/carousel -->
                     <div class="carousel-inner ">
                         <div class="carousel-item active">
@@ -152,7 +159,7 @@
         </div>
 
         @yield('content')
-       
+
     </main>
 
     <footer class="mt-5 py-5">
