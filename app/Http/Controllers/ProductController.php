@@ -108,8 +108,7 @@ class ProductController extends Controller
         -> join('hinh_anh_sach','sach.SACH_MA','=','hinh_anh_sach.SACH_MA')
         ->where('sach.SACH_MA', $SACH_MA)->get();
         return view('pages.product.show_details_product')->with('category', $all_category_product)
-        ->with('product_detail', $details_product)
+        ->with('product_detail', $details_product);
 
-        ;
     }
 }

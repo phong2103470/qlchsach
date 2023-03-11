@@ -8,6 +8,7 @@
         <div class="row mx-auto container-fluid col-lg-9 col-md-12 col-12">
             @foreach($all_product as $key => $product)
             <div class="product text-center col-lg-3 col-md-4 col-12">
+
                     <img class="img-fluid mb-3" src="../public/frontend/img/sach/{{$product->HAS_DUONGDAN}}" alt="">
 
                     <div class="star">
@@ -31,8 +32,9 @@
                     </div>
                     <h5 class="p-name">{{$product->SACH_TEN}}</h5>
                     <h4 class="p-price">{{number_format($product->SACH_GIA)}} đ</h4>
-                    <button class="buy-btn">MUA NGAY</button>
+                    <a href="{{ URL::to('/chi-tiet-san-pham/'. $product->SACH_MA) }}"><button class="buy-btn">MUA NGAY</button></a>
                 </div>
+            
             @endforeach
             <!--<div onclick="window.location.href='sproduct.html';" class="product text-center col-lg-3 col-md-4 col-12">
 
@@ -81,3 +83,4 @@
 
     </section>
 @endsection
+
