@@ -25,8 +25,8 @@ class ProductController extends Controller
 
     public function add_product(){
         $this->AuthLogin();
-        $brand_product = DB::table('nha_xuat_ban')->orderby('NXB_MA')->get(); 
-        $lang_product = DB::table('ngon_ngu')->orderby('NN_MA')->get(); 
+        $brand_product = DB::table('nha_xuat_ban')->orderby('NXB_MA')->get();
+        $lang_product = DB::table('ngon_ngu')->orderby('NN_MA')->get();
         return view('admin.add_product')->with('brand_product', $brand_product)->with('lang_product', $lang_product);
 
     }
@@ -65,8 +65,8 @@ class ProductController extends Controller
 
     public function edit_product($SACH_MA){
         $this->AuthLogin();
-        $brand_product = DB::table('nha_xuat_ban')->orderby('NXB_MA')->get(); 
-        $lang_product = DB::table('ngon_ngu')->orderby('NN_MA')->get(); 
+        $brand_product = DB::table('nha_xuat_ban')->orderby('NXB_MA')->get();
+        $lang_product = DB::table('ngon_ngu')->orderby('NN_MA')->get();
         $edit_product = DB::table('sach')->where('SACH_MA',$SACH_MA)->get();
         $manager_product = view('admin.edit_product')->with('edit_product', $edit_product)->with('brand_product',$brand_product)->with('lang_product',$lang_product);
         return view('admin-layout')->with('admin.edit_product', $manager_product);
@@ -97,5 +97,19 @@ class ProductController extends Controller
         Session::put('message','Xóa sách thành công');
         return Redirect::to('all-product');
 
+    }
+    //Chi Tiet San Pham
+    public function detail_product($SACH_MA){
+        $all_category_product = DB::table('the_loai_sach')->get();
+
+        $details_product = DB::table('sach')
+        ->join('nha_xuat_ban','nha_xuat_ban.NXB_MA','=','sach.NXB_MA')
+        ->join('ngon_ngu','ngon_ngu.NN_MA','=','sach.NN_MA')
+        -> join('hinh_anh_sach','sach.SACH_MA','=','hinh_anh_sach.SACH_MA')
+        ->where('sach.SACH_MA', $SACH_MA)->get();
+        return view('pages.product.show_details_product')->with('category', $all_category_product)
+        ->with('product_detail', $details_product)
+
+        ;
     }
 }

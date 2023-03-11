@@ -2,15 +2,11 @@
  @section('content')
 <section id="featured" class="my-3 py-3 row" >
         <div class="container mt-3 py-3">
-            @foreach($category_name as $key => $name)
-            <h2 class="font-weight-bold">{{ $name->TLS_TEN }}</h2>
-            @endforeach
-
+            <h2 class="font-weight-bold">Sản Phẩm</h2>
             <hr>
         </div>
         <div class="row mx-auto container-fluid col-lg-9 col-md-12 col-12">
-            @foreach($category_by_id as $key => $product)
-            <a href="{{ URL::to('/chi-tiet-san-pham/'. $product->SACH_MA) }}">
+            @foreach($all_product as $key => $product)
             <div class="product text-center col-lg-3 col-md-4 col-12">
                     <img class="img-fluid mb-3" src="../public/frontend/img/sach/{{$product->HAS_DUONGDAN}}" alt="">
 
@@ -37,8 +33,25 @@
                     <h4 class="p-price">{{number_format($product->SACH_GIA)}} đ</h4>
                     <button class="buy-btn">MUA NGAY</button>
                 </div>
-            </a>
             @endforeach
+            <!--<div onclick="window.location.href='sproduct.html';" class="product text-center col-lg-3 col-md-4 col-12">
+
+            </div>
+            <div class="product text-center col-lg-3 col-md-4 col-12">
+                <img class="img-fluid mb-3" src="img/sach/BLUE.jpg" alt="">
+                <div class="star">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <h5 class="p-name">Sport Boots</h5>
+                <h4 class="p-price">$92.00</h4>
+                <button class="buy-btn">MUA NGAY</button>
+            </div>
+            -->
+
         </div>
         <div class=" col-lg-3 col-md-12 col-12">
             <ul class="list-group rounded-2">
@@ -49,8 +62,8 @@
                 @endforeach
             </ul>
         </div>
-         <!--icon thu tu-->
-         <nav aria-label="...">
+        <!--icon thu tu-->
+        <nav aria-label="...">
             <ul class="pagination mt-5">
               <li class="page-item disabled">
                 <a class="page-link ">Previous</a>
@@ -65,5 +78,6 @@
               </li>
             </ul>
           </nav>
+
     </section>
 @endsection

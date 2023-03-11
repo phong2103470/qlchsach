@@ -31,4 +31,13 @@ class HomeController extends Controller
         return view('pages.home')->with('category', $all_category_product)->with('all_product', $all_product)
         ->with('exp_product', $exp_product);
     }
+
+    public function all_product(){
+
+        $all_category_product = DB::table('the_loai_sach')->get();
+
+        $all_product = DB::table('sach') -> join('hinh_anh_sach','sach.SACH_MA','=','hinh_anh_sach.SACH_MA')
+        ->orderby('sach.SACH_NGAYTAO','desc')->limit(12)->get();
+        return view('pages.show-all-product')->with('category', $all_category_product)->with('all_product', $all_product);
+    }
 }
