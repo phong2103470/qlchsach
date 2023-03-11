@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 //Frontend
 Route::get('/','App\Http\Controllers\HomeController@index');
 Route::get('/trang-chu', 'App\Http\Controllers\HomeController@index');
+Route::get('/danh-muc-san-pham/tat-ca', 'App\Http\Controllers\HomeController@all_product');
 
 //Home Product Categories
 Route::get('/danh-muc-san-pham/{TLS_MA}', 'App\Http\Controllers\CategoryProduct@show_category_home');
