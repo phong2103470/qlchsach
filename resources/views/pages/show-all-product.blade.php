@@ -32,7 +32,7 @@
                     </div>
                     <h5 class="p-name">{{$product->SACH_TEN}}</h5>
                     <h4 class="p-price">{{number_format($product->SACH_GIA)}} đ</h4>
-                    <a href="{{ URL::to('/chi-tiet-san-pham/'. $product->SACH_MA) }}"><button class="buy-btn">MUA NGAY</button></a>
+                    <a href="{{ URL::to('/chi-tiet-san-pham/'. $product->SACH_MA) }}"><button class="buy-btn">XEM NGAY</button></a>
                 </div>
             
             @endforeach
@@ -50,7 +50,7 @@
                 </div>
                 <h5 class="p-name">Sport Boots</h5>
                 <h4 class="p-price">$92.00</h4>
-                <button class="buy-btn">MUA NGAY</button>
+                <button class="buy-btn">XEM NGAY</button>
             </div>
             -->
 

@@ -106,9 +106,48 @@ class ProductController extends Controller
         ->join('nha_xuat_ban','nha_xuat_ban.NXB_MA','=','sach.NXB_MA')
         ->join('ngon_ngu','ngon_ngu.NN_MA','=','sach.NN_MA')
         -> join('hinh_anh_sach','sach.SACH_MA','=','hinh_anh_sach.SACH_MA')
+        //->join('cua_sach', 'sach.SACH_MA', '=', 'cua_sach.SACH_MA')
+        //->join('the_loai_sach', 'the_loai_sach.TLS_MA', '=', 'cua_sach.TLS_MA')
+        //->join('co_tac_gia', 'sach.SACH_MA', '=', 'co_tac_gia.SACH_MA')
+        //->join('tac_gia', 'tac_gia.TG_MA', '=', 'co_tac_gia.TG_MA')
+        //->orderby('sach.SACH_NGAYTAO','desc')
         ->where('sach.SACH_MA', $SACH_MA)->get();
+
+        $category_product = DB::table('sach')
+        ->join('cua_sach', 'sach.SACH_MA', '=', 'cua_sach.SACH_MA')
+        ->join('the_loai_sach', 'the_loai_sach.TLS_MA', '=', 'cua_sach.TLS_MA')
+        ->where('sach.SACH_MA', $SACH_MA)->get();
+
+        $author_product = DB::table('sach')
+        ->join('co_tac_gia', 'sach.SACH_MA', '=', 'co_tac_gia.SACH_MA')
+        ->join('tac_gia', 'tac_gia.TG_MA', '=', 'co_tac_gia.TG_MA')
+        ->where('sach.SACH_MA', $SACH_MA)->get();
+
+        foreach($category_product as $key => $value){
+            $TLS_MA = $value->TLS_MA;
+        }
+
+        $related_product = DB::table('sach')
+        ->join('nha_xuat_ban','nha_xuat_ban.NXB_MA','=','sach.NXB_MA')
+        ->join('ngon_ngu','ngon_ngu.NN_MA','=','sach.NN_MA')
+        ->join('hinh_anh_sach','sach.SACH_MA','=','hinh_anh_sach.SACH_MA')
+        ->join('cua_sach', 'sach.SACH_MA', '=', 'cua_sach.SACH_MA')
+        ->join('the_loai_sach', 'the_loai_sach.TLS_MA', '=', 'cua_sach.TLS_MA')
+        ->join('co_tac_gia', 'sach.SACH_MA', '=', 'co_tac_gia.SACH_MA')
+        ->join('tac_gia', 'tac_gia.TG_MA', '=', 'co_tac_gia.TG_MA')
+        ->where('the_loai_sach.TLS_MA', $TLS_MA)
+        ->whereNotIn('sach.SACH_MA', [$SACH_MA])
+        ->limit(4)->get();
+
+
         return view('pages.product.show_details_product')->with('category', $all_category_product)
-        ->with('product_detail', $details_product);
+        ->with('product_detail', $details_product)
+        ->with('product_relate', $related_product)
+        ->with('category_product', $category_product)
+        ->with('author_product', $author_product);
+        /*echo '<pre>';
+        print_r ($details_product);
+        echo '</pre>';*/
 
     }
 }

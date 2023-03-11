@@ -82,6 +82,7 @@ class CategoryProduct extends Controller
         ->join('hinh_anh_sach','sach.SACH_MA','=','hinh_anh_sach.SACH_MA')
         ->join('cua_sach', 'sach.SACH_MA', '=', 'cua_sach.SACH_MA')
         ->join('the_loai_sach', 'the_loai_sach.TLS_MA', '=', 'cua_sach.TLS_MA')
+
         ->orderby('sach.SACH_NGAYTAO','desc')
         ->where('the_loai_sach.TLS_MA', $TLS_MA)
         ->get();

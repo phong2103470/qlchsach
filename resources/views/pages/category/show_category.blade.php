@@ -36,9 +36,8 @@
                     <h5 class="p-name">{{$product->SACH_TEN}}</h5>
                     <h4 class="p-price">{{number_format($product->SACH_GIA)}} đ</h4>
 
-                    <a href="{{ URL::to('/chi-tiet-san-pham/'. $product->SACH_MA) }}"><button class="buy-btn">MUA NGAY</button></a>
+                    <a href="{{ URL::to('/chi-tiet-san-pham/'. $product->SACH_MA) }}"><button class="buy-btn">XEM NGAY</button></a>
                 </div>
-
             @endforeach
         </div>
         <div class=" col-lg-3 col-md-12 col-12">
