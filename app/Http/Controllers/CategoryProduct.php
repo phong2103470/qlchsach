@@ -75,6 +75,26 @@ class CategoryProduct extends Controller
 
     // Danh mục sản phẩm trang chủ
     public function show_category_home($TLS_MA){
+        $all_category_product = DB::table('the_loai_sach')->get();
 
+        $category_by_id = DB::table('sach')
+        ->join('hinh_anh_sach','sach.SACH_MA','=','hinh_anh_sach.SACH_MA')
+        ->join('cua_sach', 'sach.SACH_MA', '=', 'cua_sach.SACH_MA')
+        ->join('the_loai_sach', 'the_loai_sach.TLS_MA', '=', 'cua_sach.TLS_MA')
+        ->orderby('sach.SACH_NGAYTAO','desc')
+        ->where('the_loai_sach.TLS_MA', $TLS_MA)
+        ->get();
+
+        $category_name = DB::table('the_loai_sach')->where('the_loai_sach.TLS_MA', $TLS_MA )->get();
+
+       /* echo '<pre>';
+        print_r ($category_by_id);
+        echo '</pre>';*/
+
+        return view('pages.category.show_category')->with('category', $all_category_product)
+        ->with('category_by_id', $category_by_id)
+        ->with('category_name', $category_name);
     }
+
 }
+

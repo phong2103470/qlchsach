@@ -25,8 +25,8 @@ class ProductController extends Controller
 
     public function add_product(){
         $this->AuthLogin();
-        $brand_product = DB::table('nha_xuat_ban')->orderby('NXB_MA')->get(); 
-        $lang_product = DB::table('ngon_ngu')->orderby('NN_MA')->get(); 
+        $brand_product = DB::table('nha_xuat_ban')->orderby('NXB_MA')->get();
+        $lang_product = DB::table('ngon_ngu')->orderby('NN_MA')->get();
         return view('admin.add_product')->with('brand_product', $brand_product)->with('lang_product', $lang_product);
 
     }
@@ -65,8 +65,8 @@ class ProductController extends Controller
 
     public function edit_product($SACH_MA){
         $this->AuthLogin();
-        $brand_product = DB::table('nha_xuat_ban')->orderby('NXB_MA')->get(); 
-        $lang_product = DB::table('ngon_ngu')->orderby('NN_MA')->get(); 
+        $brand_product = DB::table('nha_xuat_ban')->orderby('NXB_MA')->get();
+        $lang_product = DB::table('ngon_ngu')->orderby('NN_MA')->get();
         $edit_product = DB::table('sach')->where('SACH_MA',$SACH_MA)->get();
         $manager_product = view('admin.edit_product')->with('edit_product', $edit_product)->with('brand_product',$brand_product)->with('lang_product',$lang_product);
         return view('admin-layout')->with('admin.edit_product', $manager_product);
@@ -96,6 +96,10 @@ class ProductController extends Controller
         DB::table('sach')->where('SACH_MA',$SACH_MA)->delete();
         Session::put('message','Xóa sách thành công');
         return Redirect::to('all-product');
+
+    }
+    //Chi Tiet San Pham
+    public function detail_product($SACH_MA){
 
     }
 }

@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Faa - Cửa hàng bán sách trực tuyến</title>
-    <link rel="shortcut icon" href="{{('public/frontend/img/logo.png')}}" type="image/x-icon" />
+    <link rel="shortcut icon" href="{{('../public/frontend/img/logo.png')}}" type="image/x-icon" />
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
@@ -31,7 +31,7 @@
 
     <header>
         <div id="top_banner" style="background-color:#DFC8FF">
-            <img src="{{('public/frontend/img/banner/banner-top.jpg')}}"
+            <img src="{{('../public/frontend/img/banner/banner-top.jpg')}}"
                 alt="" />
         </div>
         <nav class="navbar navbar-expand-lg navbar-light bg-light py-3 sticky-top">
@@ -43,7 +43,7 @@
                     <span id="bar" class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <a href="{{URL::to('/trang-chu')}}"><img src="{{('public/frontend/img/Faa-basic.png')}}" alt=""></a>
+                    <a href="{{URL::to('/trang-chu')}}"><img src="{{('../public/frontend/img/Faa-basic.png')}}" alt=""></a>
 
                     <ul class="navbar-nav ml-auto text-right">
                         <li class="nav-item">
@@ -69,20 +69,7 @@
                                     @foreach($category as $key => $cate)
 
                                     <li><a class="dropdown-item" href="{{ URL::to('/danh-muc-san-pham/'. $cate->TLS_MA) }}">{{ $cate->TLS_TEN }}</a></li>
-                                <!--   <li><a class="dropdown-item" href="#">Kinh dị</a></li>
-                                    <li><a class="dropdown-item" href="#">Kinh điển</a></li>
-                                    <li><a class="dropdown-item" href="#">Ký sự</a></li>
-                                    <li><a class="dropdown-item" href="#">Light novel</a></li>
-                                    <li><a class="dropdown-item" href="#">Ngôn tình</a></li>
-                                    <li><a class="dropdown-item" href="#">Sách học ngoại ngữ</a></li>
-                                    <li><a class="dropdown-item" href="#">Sách ngoại văn</a></li>
-                                    <li><a class="dropdown-item" href="#">Tâm lý</a></li>
-                                    <li><a class="dropdown-item" href="#">Tản văn</a></li>
-                                    <li><a class="dropdown-item" href="#">Tiểu thuyết</a></li>
-                                    <li><a class="dropdown-item" href="#">Trinh thám</a></li>
-                                    <li><a class="dropdown-item" href="#">Truyện tranh</a></li>
-                                    <li><a class="dropdown-item" href="#">Tư duy</a></li>
-                                    <li><a class="dropdown-item" href="#">Văn học Việt Nam</a></li> -->
+
                                     @endforeach
                                 </ul>
 
@@ -100,72 +87,15 @@
         </nav>
     </header>
 
-    <main class="container container-fluid pt-2">
+    <main class="container container-fluid pt-1 ">
 
-        <div class="row mx-auto">
-            <div class="col-sm-8 pt-2">
-                <!-- Carousel -->
-                <div id="demo" class="carousel slide " data-bs-ride="carousel">
-
-                    <!-- Indicators/dots -->
-                    <div class="carousel-indicators">
-                        <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
-                        <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
-                        <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
-                    </div>
-
-                    <!-- The slideshow/carousel -->
-                    <div class="carousel-inner ">
-                        <div class="carousel-item active">
-                            <img src="{{('public/frontend/img/banner/banner-1.png')}}"
-                                class="d-block w-100 rounded-2 ">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="{{('public/frontend/img/banner/banner-2.jpg')}}"
-                                class="d-block w-100 rounded-2 ">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="{{('public/frontend/img/banner/banner-3.jpg')}}"
-                                class="d-block w-100 rounded-2 ">
-                        </div>
-                    </div>
-
-                    <!-- Left and right controls/icons -->
-                    <button class="carousel-control-prev carousel-button" type="button" data-bs-target="#demo"
-                        data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon"></span>
-                    </button>
-                    <button class="carousel-control-next carousel-button" type="button" data-bs-target="#demo"
-                        data-bs-slide="next">
-                        <span class="carousel-control-next-icon"></span>
-                    </button>
-                </div>
-            </div>
-
-            <div class="row col-sm-4 banner-nho">
-                <div class="pt-2">
-                    <a href="#">
-                        <img class="border_radius_normal rounded-2" style="width: 100%;"
-                            src="{{('public/frontend/img/banner/banner-4.jpg')}}" />
-                    </a>
-                </div>
-                <div class="pt-2">
-                    <a href="#">
-                        <img class="border_radius_normal rounded-2" style="width: 100%;"
-                            src="{{('public/frontend/img/banner/banner-5.jpg')}}" />
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        @yield('content')
+    @yield('content')
 
     </main>
-
     <footer class="mt-5 py-5">
         <div class="row container-fluid mx-auto pt-5">
             <div class="footer-one col-lg-3 col-md-6 col-12 center mb-3">
-                <img src="{{('public/frontend/img/Faa-color.png')}}" alt="">
+                <img src="{{('../public/frontend/img/Faa-color.png')}}" alt="">
                 <p class="pt-3">................................................</p>
                 <div class="copyright mt-1 mb-5">
                     <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
