@@ -20,6 +20,7 @@ Route::get('/danh-muc-san-pham/tat-ca', 'App\Http\Controllers\HomeController@all
 
 //Home Product Categories
 Route::get('/danh-muc-san-pham/{TLS_MA}', 'App\Http\Controllers\CategoryProduct@show_category_home');
+Route::get('/chi-tiet-san-pham/{SACH_MA}', 'App\Http\Controllers\ProductController@detail_product');
 
 
 //---------------------------------------------------

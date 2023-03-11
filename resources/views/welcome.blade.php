@@ -101,7 +101,7 @@
     </header>
 
     <main class="container container-fluid pt-2">
-        
+
         <div class="row mx-auto">
             <div class="col-sm-8 pt-2">
                 <!-- Carousel -->
@@ -113,7 +113,7 @@
                         <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
                         <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
                     </div>
-                    
+
                     <!-- The slideshow/carousel -->
                     <div class="carousel-inner ">
                         <div class="carousel-item active">
