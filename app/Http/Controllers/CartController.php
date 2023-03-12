@@ -18,7 +18,9 @@ class CartController extends Controller
         if($KH_MA){
             return Redirect::to('show-cart');
         }else{
-            return Redirect::to('trang-chu')->send();
+            //return Redirect::to('trang-chu')->send();
+            $alert='Đăng nhập để có thể sử dụng chức năng này!';
+            return Redirect::to('trang-chu')->send()->with('alert',$alert);
         }
     }
 

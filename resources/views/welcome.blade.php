@@ -25,6 +25,7 @@
 </head>
 
 <body>
+
     <script type="text/javascript">
         const loading_icon_url = 'https://mir-s3-cdn-cf.behance.net/project_modules/max_632/04de2e31234507.564a1d23645bf.gif';
     </script>
@@ -113,6 +114,10 @@
                 </div>
             </div>
         </nav>
+        @if(session('alert'))    
+        <!--<section class='alert alert-success'>{{session('alert')}}</section>-->
+        <script language="Javascript"> alert ("{{session('alert')}}")</script>
+        @endif  
     </header>
 
     <main class="container container-fluid pt-2">
