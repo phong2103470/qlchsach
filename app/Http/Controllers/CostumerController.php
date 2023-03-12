@@ -11,6 +11,15 @@ use Illuminate\Http\Request;
 
 class CostumerController extends Controller
 {
+    public function AuthLogin(){
+        $KH_MA = Session::get('KH_MA');
+        if($KH_MA){
+            return Redirect::to('show-cart');
+        }else{
+            return Redirect::to('trang-chu')->send();
+        }
+    }
+    //Dang nhap/xuat khach hang
     public function dang_nhap(){
         $all_category_product = DB::table('the_loai_sach')->get();
 
@@ -39,6 +48,7 @@ class CostumerController extends Controller
         } 
     }
     public function logout(Request $request){
+        $this->AuthLogin();
         Session::put('KH_HOTEN',null);
         Session::put('KH_MA',null);
         Session::put('KH_DUONGDANANHDAIDIEN',null);

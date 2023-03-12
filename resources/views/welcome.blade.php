@@ -76,7 +76,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="cart.html">Giỏ hàng</a>
+                            <a class="nav-link" href="{{URL::to('/show-cart')}}">Giỏ hàng</a>
                         </li>
                         
                         <?php

@@ -20,6 +20,13 @@
 
                     <button type = "submit" class="buy-btn">THÊM GIỎ HÀNG</button>
                 </form>
+                <?php
+                            $message = Session::get('message');
+                            if($message){
+                                echo '<span class="text-alert">'.$message.'</span>';
+                                Session::put('message',null);
+                            }
+                ?>
                 <h3 class="mt-5 mb-3">Mô tả sách </h3>
                 <hr class="">
                 <p><span class="bold">Tác giả: </span>
