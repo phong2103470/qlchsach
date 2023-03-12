@@ -138,7 +138,7 @@ class AdminController extends Controller
         $this->AuthLogin();
         Session::put('NV_HOTEN',null);
         Session::put('NV_MA',null);
-        Session::put('NV_ANHDAIDIEN',null);
+        Session::put('NV_DUONGDANANHDAIDIEN',null);
         return Redirect::to('/admin');
     }
 }

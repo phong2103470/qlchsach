@@ -23,6 +23,17 @@ Route::get('/danh-muc-san-pham/{TLS_MA}', 'App\Http\Controllers\CategoryProduct@
 Route::get('/chi-tiet-san-pham/{SACH_MA}', 'App\Http\Controllers\ProductController@detail_product');
 
 
+//Login
+Route::get('/dang-nhap','App\Http\Controllers\CostumerController@dang_nhap');
+Route::get('/logout', 'App\Http\Controllers\CostumerController@logout');
+Route::post('/costumer-check', 'App\Http\Controllers\CostumerController@trang_chu');
+
+//Cart
+//Route::post('/update-cart-quantity','App\Http\Controllers\CartController@update_cart_quantity');
+//Route::post('/update-cart','App\Http\Controllers\CartController@update_cart');
+Route::post('/save-cart','App\Http\Controllers\CartController@save_cart');
+
+
 //---------------------------------------------------
 
 

@@ -1,5 +1,5 @@
 @extends('all-product')
- @section('content')
+@section('content')
 <section id="featured" class="my-3 py-3 row" >
         <div class="container mt-3 py-3">
             <h2 class="font-weight-bold">Sản Phẩm</h2>

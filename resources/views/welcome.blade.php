@@ -69,31 +69,46 @@
                                     @foreach($category as $key => $cate)
 
                                     <li><a class="dropdown-item" href="{{ URL::to('/danh-muc-san-pham/'. $cate->TLS_MA) }}">{{ $cate->TLS_TEN }}</a></li>
-                                <!--   <li><a class="dropdown-item" href="#">Kinh dị</a></li>
-                                    <li><a class="dropdown-item" href="#">Kinh điển</a></li>
-                                    <li><a class="dropdown-item" href="#">Ký sự</a></li>
-                                    <li><a class="dropdown-item" href="#">Light novel</a></li>
-                                    <li><a class="dropdown-item" href="#">Ngôn tình</a></li>
-                                    <li><a class="dropdown-item" href="#">Sách học ngoại ngữ</a></li>
-                                    <li><a class="dropdown-item" href="#">Sách ngoại văn</a></li>
-                                    <li><a class="dropdown-item" href="#">Tâm lý</a></li>
-                                    <li><a class="dropdown-item" href="#">Tản văn</a></li>
-                                    <li><a class="dropdown-item" href="#">Tiểu thuyết</a></li>
-                                    <li><a class="dropdown-item" href="#">Trinh thám</a></li>
-                                    <li><a class="dropdown-item" href="#">Truyện tranh</a></li>
-                                    <li><a class="dropdown-item" href="#">Tư duy</a></li>
-                                    <li><a class="dropdown-item" href="#">Văn học Việt Nam</a></li> -->
+
                                     @endforeach
                                 </ul>
-
                             </div>
                         </li>
 
                         <li class="nav-item">
                             <a class="nav-link" href="cart.html">Giỏ hàng</a>
                         </li>
-                        <li class="nav-item" display=hidden>
-                            <a class="nav-link" href="login.html">Đăng nhập / Đăng ký</a>
+                        
+                        <?php
+                            $name= Session::get('KH_HOTEN');
+                            if($name){  
+                                echo'<li class="nav-item">
+                                    <div class="dropdown">';
+                                    echo'<button type="button" class=" nav-item btn btn-link dropdown-toggle nav-link nav-item" data-bs-toggle="dropdown">';
+
+                                    echo $name;
+
+                                        echo '</button>
+                                        <ul class="dropdown-menu">';
+                                        echo'<li><a class="dropdown-item"  href="#"><i class=" fa fa-suitcase"></i>Tài khoản</a></li>';
+                                        echo'<li><a class="dropdown-item"  href="#"><i class="fa fa-cog"></i> Thiết lập</a></li>';
+                                        echo'<li><a class="dropdown-item"  href="'.URL::to('/logout').'"><i class="fa fa-key"></i>Đăng xuất</a></li>';
+                                    echo '</ul>
+                                    </div>
+                                </li>';
+                            }
+                        
+                        else echo '<li class="nav-item">
+                            <a class="nav-link"  href="'.URL::to('/dang-nhap').'">Đăng nhập / Đăng ký</a></li>';
+                        ?> 
+                        <li class="nav-item">
+                            
+                            <?php
+                               $avt= Session::get('KH_DUONGDANANHDAIDIEN');
+                               if ($avt) {
+                                   echo '<img style="width:3em" class ="rounded-circle" alt="" src="public/frontend/img/khachhang/'.$avt.'">';
+                               }
+                            ?>
                         </li>
                 </div>
             </div>
@@ -101,62 +116,6 @@
     </header>
 
     <main class="container container-fluid pt-2">
-
-        <div class="row mx-auto">
-            <div class="col-sm-8 pt-2">
-                <!-- Carousel -->
-                <div id="demo" class="carousel slide " data-bs-ride="carousel">
-
-                    <!-- Indicators/dots -->
-                    <div class="carousel-indicators">
-                        <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
-                        <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
-                        <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
-                    </div>
-
-                    <!-- The slideshow/carousel -->
-                    <div class="carousel-inner ">
-                        <div class="carousel-item active">
-                            <img src="{{('public/frontend/img/banner/banner-1.png')}}"
-                                class="d-block w-100 rounded-2 ">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="{{('public/frontend/img/banner/banner-2.jpg')}}"
-                                class="d-block w-100 rounded-2 ">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="{{('public/frontend/img/banner/banner-3.jpg')}}"
-                                class="d-block w-100 rounded-2 ">
-                        </div>
-                    </div>
-
-                    <!-- Left and right controls/icons -->
-                    <button class="carousel-control-prev carousel-button" type="button" data-bs-target="#demo"
-                        data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon"></span>
-                    </button>
-                    <button class="carousel-control-next carousel-button" type="button" data-bs-target="#demo"
-                        data-bs-slide="next">
-                        <span class="carousel-control-next-icon"></span>
-                    </button>
-                </div>
-            </div>
-
-            <div class="row col-sm-4 banner-nho">
-                <div class="pt-2">
-                    <a href="#">
-                        <img class="border_radius_normal rounded-2" style="width: 100%;"
-                            src="{{('public/frontend/img/banner/banner-4.jpg')}}" />
-                    </a>
-                </div>
-                <div class="pt-2">
-                    <a href="#">
-                        <img class="border_radius_normal rounded-2" style="width: 100%;"
-                            src="{{('public/frontend/img/banner/banner-5.jpg')}}" />
-                    </a>
-                </div>
-            </div>
-        </div>
 
         @yield('content')
 

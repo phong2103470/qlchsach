@@ -79,8 +79,36 @@
                         <li class="nav-item">
                             <a class="nav-link" href="cart.html">Giỏ hàng</a>
                         </li>
-                        <li class="nav-item" display=hidden>
-                            <a class="nav-link" href="login.html">Đăng nhập / Đăng ký</a>
+                        
+                        <?php
+                            $name= Session::get('KH_HOTEN');
+                            if($name){  
+                                echo'<li class="nav-item">
+                                    <div class="dropdown">';
+                                    echo'<button type="button" class=" nav-item btn btn-link dropdown-toggle nav-link nav-item" data-bs-toggle="dropdown">';
+
+                                    echo $name;
+
+                                        echo '</button>
+                                        <ul class="dropdown-menu">';
+                                        echo'<li><a class="dropdown-item"  href="#"><i class=" fa fa-suitcase"></i>Tài khoản</a></li>';
+                                        echo'<li><a class="dropdown-item"  href="#"><i class="fa fa-cog"></i> Thiết lập</a></li>';
+                                        echo'<li><a class="dropdown-item"  href="'.URL::to('/logout').'"><i class="fa fa-key"></i>Đăng xuất</a></li>';
+                                    echo '</ul>
+                                    </div>
+                                </li>';
+                            }
+                        
+                        else echo '<a class="nav-link" href="'.URL::to('/dang-nhap').'">Đăng nhập / Đăng ký</a>';
+                        ?> 
+                        <li class="nav-item">
+                            
+                            <?php
+                               $avt= Session::get('KH_DUONGDANANHDAIDIEN');
+                               if ($avt) {
+                                   echo '<img style="width:3em" class ="rounded-circle" alt="" src="../public/frontend/img/khachhang/'.$avt.'">';
+                               }
+                            ?>
                         </li>
                 </div>
             </div>
