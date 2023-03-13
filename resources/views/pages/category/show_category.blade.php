@@ -4,6 +4,9 @@
         <div class="container mt-3 py-3">
             @foreach($category_name as $key => $name)
             <h2 class="font-weight-bold">{{ $name->TLS_TEN }}</h2>
+            <?php
+              $TLS_MA=$name->TLS_MA;
+            ?>
             @endforeach
 
             <hr>
@@ -43,9 +46,13 @@
         <div class=" col-lg-3 col-md-12 col-12">
             <ul class="list-group rounded-2">
                 <li class="list-group-item center disabled text-bg-dark" ><h4>Danh mục sản phẩm</h4></li>
-                <li class="list-group-item bg-active"  ><a class="shop-list" href="{{ URL::to('/danh-muc-san-pham/tat-ca')}}" >- - Tất cả sản phẩm - -</a></li>
+                <li class="list-group-item"  ><a class="shop-list" href="{{ URL::to('/danh-muc-san-pham/tat-ca')}}" >- - Tất cả sản phẩm - -</a></li>
                 @foreach($category as $key => $cate)
-                <li class="list-group-item"><a class="shop-list" href="{{ URL::to('/danh-muc-san-pham/'. $cate->TLS_MA) }}">{{ $cate->TLS_TEN }}</a></li>
+                <li class="list-group-item
+                <?php
+                if($cate->TLS_MA == $TLS_MA) echo 'bg-active'
+                ?>
+                "><a class="shop-list" href="{{ URL::to('/danh-muc-san-pham/'. $cate->TLS_MA) }}">{{ $cate->TLS_TEN }}</a></li>
                 @endforeach
             </ul>
         </div>

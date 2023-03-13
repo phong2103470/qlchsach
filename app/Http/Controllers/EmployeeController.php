@@ -36,6 +36,9 @@ class EmployeeController extends Controller
         ->join('chuc_vu','nhanvien.CV_MA','=','chuc_vu.CV_MA')
         ->orderby('NV_MA','desc')->get();
         $manager_employee = view('admin.dashboard.all_employee')->with('all_employee', $all_employee);
+                
+        $count_employee = DB::table('nhanvien')->count('NV_MA');
+        Session::put('count_employee',$count_employee);
         return view('admin-layout')->with('admin.dashboard.all_employee', $manager_employee);
     }
 

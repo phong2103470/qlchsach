@@ -30,11 +30,11 @@ class TacgiaProduct extends Controller
     public function all_tacgia_product(){
         $this->AuthLogin();
         $all_tacgia_product = DB::table('tac_gia')->orderby('TG_MA','desc')->get();
+                
+        $count_tacgia_product = DB::table('tac_gia')->count('TG_MA');
+        Session::put('count_tacgia_product',$count_tacgia_product);
         $manager_brand_product = view('admin.all_tacgia_product')->with('all_tacgia_product', $all_tacgia_product);
         return view('admin-layout')->with('admin.all_tacgia_product', $manager_brand_product);
-
-
-
     }
 
     public function save_tacgia_product(Request $request){

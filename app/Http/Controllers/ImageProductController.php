@@ -33,6 +33,9 @@ class ImageProductController extends Controller
         ->join('sach','sach.SACH_MA','=','hinh_anh_sach.SACH_MA')
         ->orderby('HAS_MA','desc')->get();
         $manager_product_image = view('admin.all_product_image')->with('all_product_image', $all_product_image);
+                
+        $count_product_image = DB::table('hinh_anh_sach')->count('HAS_MA');
+        Session::put('count_product_image',$count_product_image);
         return view('admin-layout')->with('admin.all_product_image', $manager_product_image);
     }
 

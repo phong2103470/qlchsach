@@ -7,7 +7,7 @@ https://fontawesome.com/v4/icons/
 -->
 <!DOCTYPE html>
 <head>
-<title>FAA - Trang quản lý admin</title>
+<title>FAA - Trang quản trị bán hàng</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="Visitors Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
@@ -65,6 +65,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				?>
 			</a>
 		</li>
+		<li >
 	</ul>
 </div>
 
@@ -135,6 +136,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<!-- hinh_anh_sach -->
 						<li><a href="{{URL::to('/add-product-image')}}">Thêm ảnh sách</a></li>
 						<li><a href="{{URL::to('/all-product-image')}}">Liệt kê ảnh sách</a></li>
+						<!-- tac_gia --> 
+						<li><a href="{{URL::to('/add-tacgia-product')}}">Thêm tác giả</a></li> 
+						<li><a href="{{URL::to('/all-tacgia-product')}}">Liệt kê tác giả</a></li>
                     </ul>  
                 </li>
 				<li class="sub-menu">
@@ -198,9 +202,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <span>Các danh mục quản lý khác</span> 
                     </a>
                     <ul class="sub">
-						<!-- tac_gia --> 
-						<li><a href="{{URL::to('/add-tacgia-product')}}">Thêm tác giả</a></li> 
-						<li><a href="{{URL::to('/all-tacgia-product')}}">Liệt kê tác giả</a></li>
 						<!-- hinh_thuc_thanh_toan --> 
 						<li><a href="typography.html">Thêm hình thức thanh toán đơn đặt hàng</a></li>
 						<li><a href="glyphicon.html">Liệt kê hình thức thanh toán đơn đặt hàng</a></li>

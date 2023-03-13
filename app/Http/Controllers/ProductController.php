@@ -38,6 +38,9 @@ class ProductController extends Controller
         ->join('ngon_ngu','ngon_ngu.NN_MA','=','sach.NN_MA')
         ->orderby('SACH_MA','desc')->get();
         $manager_product = view('admin.all_product')->with('all_product', $all_product);
+                
+        $count_product = DB::table('sach')->count('SACH_MA');
+        Session::put('count_product',$count_product);
         return view('admin-layout')->with('admin.all_product', $manager_product);
     }
 

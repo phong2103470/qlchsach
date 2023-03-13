@@ -30,10 +30,10 @@ class BrandProduct extends Controller
         $this->AuthLogin();
         $all_brand_product = DB::table('nha_xuat_ban')->get();
         $manager_brand_product = view('admin.all_brand_product')->with('all_brand_product', $all_brand_product);
+        
+        $count_brand_product = DB::table('nha_xuat_ban')->count('NXB_MA');
+        Session::put('count_brand_product',$count_brand_product);
         return view('admin-layout')->with('admin.all_brand_product', $manager_brand_product);
-
-
-
     }
 
     public function save_brand_product(Request $request){

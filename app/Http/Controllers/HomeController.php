@@ -25,9 +25,9 @@ class HomeController extends Controller
     	return view('pages.home')->with('category', $all_category_product)->with('all_product', $all_product)
         ->with('product_image', $all_product_image);*/
         $all_product = DB::table('sach') -> join('hinh_anh_sach','sach.SACH_MA','=','hinh_anh_sach.SACH_MA')
-        ->orderby('sach.SACH_NGAYTAO','desc')->limit(4)->get();
+        ->orderby('sach.SACH_NGAYTAO','desc')->limit(12)->get();
         $exp_product = DB::table('sach') -> join('hinh_anh_sach','sach.SACH_MA','=','hinh_anh_sach.SACH_MA')
-        ->orderby('sach.SACH_GIA','desc')->limit(4)->get();
+        ->orderby('sach.SACH_GIA','desc')->limit(12)->get();
         return view('pages.home')->with('category', $all_category_product)->with('all_product', $all_product)
         ->with('exp_product', $exp_product);
     }

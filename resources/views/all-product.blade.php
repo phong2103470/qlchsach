@@ -177,6 +177,9 @@
         <div class="center">
             <p>Faa Ⓒ All Rights Recieved</p>
         </div>
+        <div id='top-buttom_image'>
+        <a href='#' title='Lên đầu trang'><img style='position:fixed; bottom:3%; right:3%; clip:inherit; width:6%;' alt='Lên đầu trang' src="{{('../public/frontend/img/back-top.jpg')}}"/></a><br/>
+        </div>
     </footer>
 
 </body>

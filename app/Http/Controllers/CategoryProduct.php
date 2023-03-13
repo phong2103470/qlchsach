@@ -31,6 +31,9 @@ class CategoryProduct extends Controller
         $this->AuthLogin();
         $all_category_product = DB::table('the_loai_sach')->get();
         $manager_category_product = view('admin.all_category_product')->with('all_category_product', $all_category_product);
+                
+        $count_category_product = DB::table('the_loai_sach')->count('TLS_MA');
+        Session::put('count_category_product',$count_category_product);
         return view('admin-layout')->with('admin.all_category_product', $manager_category_product);
     }
 

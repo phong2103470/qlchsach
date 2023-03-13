@@ -1,9 +1,12 @@
 @extends('admin-layout')
  @section('admin-content')
 <!-- //market-->
+<div  style="box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); background: RGB(189, 140, 153); text-align: center; color: #fff; font-family: Arial, sans-serif; font-weight: bold;">
+      <br><h1>Trang quản trị bán hàng</h1><br>
+</div>
 <div class="market-updates">
 			<div class="col-md-3 market-update-gd">
-				<div class="market-update-block clr-block-2">
+				<div class="market-update-block clr-block-1">
 					<div class="col-md-4 market-update-right">
                         <i class="fa fa-shopping-cart"></i>
 					</div>
@@ -24,7 +27,7 @@
 				</div>
 			</div>
 			<div class="col-md-3 market-update-gd">
-				<div class="market-update-block clr-block-1">
+				<div class="market-update-block clr-block-2">
 					<div class="col-md-4 market-update-right">
 						<i class="fa fa-eye" ></i>
 					</div>

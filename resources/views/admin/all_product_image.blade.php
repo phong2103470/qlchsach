@@ -12,6 +12,12 @@
           Session::put('message',null);
       }
     ?>
+        <?php
+				$count= Session::get('count_product_image');
+							if ($count) {
+								echo "Tổng số dòng dữ liệu: ".$count;
+							}
+		?>
     <div class="table-responsive">
       <table class="table table-striped b-t b-light">
         <thead>
