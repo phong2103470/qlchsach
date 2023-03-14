@@ -99,7 +99,8 @@
                                 </li>';
                             }
                         
-                        else echo '<a class="nav-link" href="'.URL::to('/dang-nhap').'">Đăng nhập / Đăng ký</a>';
+                            else echo '<li class="nav-item">
+                            <a class="nav-link"  href="'.URL::to('/dang-nhap').'">Đăng nhập / Đăng ký</a></li>';
                         ?> 
                         <li class="nav-item">
                             
