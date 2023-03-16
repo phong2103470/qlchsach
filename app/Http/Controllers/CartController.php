@@ -104,4 +104,40 @@ class CartController extends Controller
         
         return Redirect::to('show-cart');
     }
+    //Don dat hang
+    public function show_all_bill(){
+        $this->AuthLogin();
+        $KH_MA = Session::get('KH_MA');
+        $all_category_product = DB::table('the_loai_sach')->get();
+        $all_DDH=  DB::table('don_dat_hang')->where('don_dat_hang.KH_MA', $KH_MA)->get();
+        $group_DDH = DB::table('don_dat_hang')
+        ->join('chi_tiet_don_dat_hang','don_dat_hang.DDH_MA','=','chi_tiet_don_dat_hang.DDH_MA')
+        ->join('sach','sach.SACH_MA','=','chi_tiet_don_dat_hang.SACH_MA')
+        ->where('don_dat_hang.KH_MA', $KH_MA)->get();
+        return view('pages.cart.show_all_bill')->with('category', $all_category_product)
+        ->with('all_DDH', $all_DDH)->with('group_DDH', $group_DDH);
+
+    }
+    public function show_detail_bill($DDH_MA){
+        $this->AuthLogin();
+        $KH_MA = Session::get('KH_MA');
+        $all_category_product = DB::table('the_loai_sach')->get();
+        $all_DDH=  DB::table('don_dat_hang')
+        ->join('dia_chi_giao_hang','dia_chi_giao_hang.DCGH_MA','=','don_dat_hang.DCGH_MA')
+        ->join('hinh_thuc_thanh_toan','hinh_thuc_thanh_toan.HTTT_MA','=','don_dat_hang.HTTT_MA')
+        ->join('xa_phuong','dia_chi_giao_hang.XP_MA','=','xa_phuong.XP_MA')
+        ->join('huyen_quan','huyen_quan.HQ_MA','=','xa_phuong.HQ_MA')
+        ->join('tinh_thanh_pho','huyen_quan.TTP_MA','=','tinh_thanh_pho.TTP_MA')
+        ->where('don_dat_hang.DDH_MA', $DDH_MA)->get();
+
+        
+        $group_DDH = DB::table('chi_tiet_don_dat_hang')
+        ->join('sach','sach.SACH_MA','=','chi_tiet_don_dat_hang.SACH_MA')
+        ->join('hinh_anh_sach','sach.SACH_MA','=','hinh_anh_sach.SACH_MA')
+        ->where('chi_tiet_don_dat_hang.DDH_MA', $DDH_MA)->get();
+        return view('pages.cart.show_detail_bill')->with('category', $all_category_product)
+        ->with('all_DDH', $all_DDH)->with('group_DDH', $group_DDH);
+
+    }
+
 }

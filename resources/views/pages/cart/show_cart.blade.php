@@ -79,8 +79,8 @@
         </section>
 
         <section id="cart-bottom" class="container">
-            
-            <div class="total col-lg-6 col-md-6 col-12">
+        <div class="row">
+            <div class="total col-lg-8 col-md-8 col-12">
                 <div>
                     <h5>Tổng giỏ hàng</h5>
                     <div class="d-flex justify-content-between">
@@ -92,6 +92,68 @@
                     <button class="ml-auto" onclick="buy()">Đặt hàng</button>
                 </div>
             </div>
+            <div class="total col-lg-4 col-md-4 col-12">
+                <style>
+                    .code-btn {
+                    width: 100%;
+                    height: 100%;
+                    display: inline-block;
+                    position: relative;
+                    padding: 12px 24px;
+                    font-size: 16px;
+                    font-weight: bold;
+                    text-transform: uppercase;
+                    color: #fff;
+                    background-color: #000;
+                    /*background: url(https://t4.ftcdn.net/jpg/01/26/08/21/240_F_126082169_KlqWhWjl4QZRtrt9TzwZLt8U8qcBfrsq.jpg);*/
+                    border: none;
+                    border-radius: 4px;
+                    cursor: pointer;
+                    overflow: hidden;
+                    transition: all 0.3s ease;
+                    z-index: 1;
+                    }
+
+                    .code-btn::before {
+                    content: "";
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    width: 0;
+                    height: 0;
+                    background-color: rgba(255, 255, 255, 0.3);
+                    border-radius: 50%;
+                    transition: all 0.5s ease;
+                    z-index: -1;
+                    }
+
+                    .code-btn:hover::before {
+                    width: 300px;
+                    height: 300px;
+                    }
+
+                    .code-btn span {
+                    display: inline-block;
+                    }
+
+                    .arrow-icon {
+                    position: absolute;
+                    top: 50%;
+                    right: 24px;
+                    transform: translateY(-50%);
+                    fill: #fff;
+                    transition: all 0.3s ease;
+                    }
+
+                    .code-btn:hover .arrow-icon {
+                    transform: translateY(-50%) translateX(5px);
+                    }
+                </style>
+                <a href="{{URL::to('/show-all-bill')}}"><button class="code-btn">
+                <span>Xem các đơn hàng cũ</span>
+                <i class="fas fa-angle-double-right"></i>
+                </button></a>
             </div>
         </section>
 @endsection
