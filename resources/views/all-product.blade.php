@@ -92,6 +92,7 @@
                                         echo '</button>
                                         <ul class="dropdown-menu">';
                                         echo'<li><a class="dropdown-item"  href="#"><i class=" fa fa-suitcase"></i>Tài khoản</a></li>';
+                                        echo'<li><a class="dropdown-item"  href="'.URL::to('/dia-chi-giao-hang').'"><i class="fa  fa-location-dot"></i> Địa chỉ giao hàng</a></li>';
                                         echo'<li><a class="dropdown-item"  href="#"><i class="fa fa-cog"></i> Thiết lập</a></li>';
                                         echo'<li><a class="dropdown-item"  href="'.URL::to('/logout').'"><i class="fa fa-key"></i>Đăng xuất</a></li>';
                                     echo '</ul>
@@ -182,7 +183,37 @@
         <a href='#' title='Lên đầu trang'><img style='opacity: 0.2; position:fixed; bottom:3%; right:3%; clip:inherit; width:6%;' alt='Lên đầu trang' src="{{('../public/frontend/img/back-top.jpg')}}"/></a><br/>
         </div>
     </footer>
+    <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
 
+            $('.choose').on('change',function(){
+                var action = $(this).attr('id');
+                var ma_id = $(this).val();
+                var _token = $('input[name="_token"]').val();
+                var result = '';
+                // alert(action);
+                //  alert(ma_id);
+                //   alert(_token);
+
+                if(action=='TTP_MA'){
+                    result = 'HQ_MA';
+                }else{
+                    result = 'XP_MA';
+                }
+                $.ajax({
+                    url : '{{url('/select-location')}}',
+                    method: 'POST',
+                    data:{action:action,ma_id:ma_id,_token:_token},
+                    success:function(data){
+                        //alert(result);
+                    $('#'+result).html(data);     
+                    }
+                });
+            });
+
+    })
+</script>
 </body>
 
 </html>

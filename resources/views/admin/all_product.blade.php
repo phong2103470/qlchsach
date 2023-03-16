@@ -8,7 +8,7 @@
     <?php
       $message = Session::get('message');
       if($message){
-          echo '<span class="text-alert">'.$message.'</span>';
+          echo '<span class="text-alert">'.$message.'</span></br>';
           Session::put('message',null);
       }
     ?>
