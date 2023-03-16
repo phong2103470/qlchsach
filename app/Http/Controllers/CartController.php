@@ -186,18 +186,30 @@ class CartController extends Controller
         $data['DDH_TONGTIEN'] =  $request->DDH_TONGTIEN+$DCGH->XP_CHIPHIGIAOHANG;
         $data['DDH_PHISHIPTHUCTE'] = $DCGH->XP_CHIPHIGIAOHANG;
         $data['DDH_THUEVAT'] = $request->DDH_THUEVAT;
-        $data['DDH_DUONGDANHINHANHCHUYENKHOAN'] = $request->DDH_DUONGDANHINHANHCHUYENKHOAN;
+        //$data['DDH_DUONGDANHINHANHCHUYENKHOAN'] = $request->DDH_DUONGDANHINHANHCHUYENKHOAN;
+        
+        $get_image= $request->file('DDH_DUONGDANHINHANHCHUYENKHOAN');
+
         if ($request->HTTT_MA != 1 && $request->DDH_DUONGDANHINHANHCHUYENKHOAN ==NULL){
             Session::put('message','Thiếu ảnh minh chứng, đặt hàng thất bại');
             return Redirect::to('show-cart')->send();
         }
         else if ($request->HTTT_MA == 1 && $request->DDH_DUONGDANHINHANHCHUYENKHOAN !=NULL){
             $data['DDH_DUONGDANHINHANHCHUYENKHOAN'] = NULL;
+            $get_image = NULL;
+        }
+
+        if($get_image){
+
+            $get_name_image = $get_image->getClientOriginalName();
+            $name_image = current(explode('.',$get_name_image));
+
+            $new_image =  $name_image.rand(0,99).'.'.$get_image->getClientOriginalExtension();
+            $get_image->move('public/frontend/img/minhchung',$new_image);
+            $data['DDH_DUONGDANHINHANHCHUYENKHOAN'] = $new_image;
         }
 
         DB::table('don_dat_hang')->insert($data);
-        
-        
         // Truy vấn dữ liệu
         $CTGH = DB::table('chi_tiet_gio_hang')
         ->join('sach','sach.SACH_MA','=','chi_tiet_gio_hang.SACH_MA')
