@@ -85,7 +85,7 @@
                 <label for="exampleInputEmail1"><b>Hình thức thanh toán:</b></label>
                 <input type="text" name="DDH_MA" disabled value="{{$all_DDH->HTTT_TEN}}" class="form-control" id="exampleInputEmail1">
             </div>
-            @if($all_DDH->DDH_DUONGDANHINHANHCHUYENKHOAN!="null" || $all_DDH->DDH_DUONGDANHINHANHCHUYENKHOAN!='')
+            @if($all_DDH->HTTT_MA!=1)
             <div class="form-group">
                 <label for="exampleInputEmail1"><b>Hình ảnh chuyển khoản:</b></label>
                 <input type="text" name="DDH_MA" disabled value="{{$all_DDH->DDH_DUONGDANHINHANHCHUYENKHOAN}}" class="form-control" id="exampleInputEmail1">

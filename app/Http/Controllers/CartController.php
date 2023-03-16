@@ -187,9 +187,12 @@ class CartController extends Controller
         $data['DDH_PHISHIPTHUCTE'] = $DCGH->XP_CHIPHIGIAOHANG;
         $data['DDH_THUEVAT'] = $request->DDH_THUEVAT;
         $data['DDH_DUONGDANHINHANHCHUYENKHOAN'] = $request->DDH_DUONGDANHINHANHCHUYENKHOAN;
-        if ($request->HTTT_MA != "1" && $request->DDH_DUONGDANHINHANHCHUYENKHOAN =NULL){
-            Session::put('message','Nếu không đặt hàng trực tiếp phải có ảnh minh chứng');
-            return Redirect::to('show-cart');
+        if ($request->HTTT_MA != 1 && $request->DDH_DUONGDANHINHANHCHUYENKHOAN ==NULL){
+            Session::put('message','Thiếu ảnh minh chứng, đặt hàng thất bại');
+            return Redirect::to('show-cart')->send();
+        }
+        else if ($request->HTTT_MA == 1 && $request->DDH_DUONGDANHINHANHCHUYENKHOAN !=NULL){
+            $data['DDH_DUONGDANHINHANHCHUYENKHOAN'] = NULL;
         }
 
         DB::table('don_dat_hang')->insert($data);
@@ -222,10 +225,6 @@ class CartController extends Controller
             DB::table('chi_tiet_don_dat_hang')->insert($data2);
             DB::table('chi_tiet_gio_hang')->where('GH_MA', $all_cart_product->GH_MA)->where('SACH_MA',$row->SACH_MA)->delete();
         }
-        
-
-        
-
         
         //print_r ($data);
         //echo '</pre>';
