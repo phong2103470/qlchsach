@@ -89,7 +89,7 @@
                         <?php echo number_format($tong); ?> đ
                         </p>
                     </div>
-                    <button class="ml-auto" onclick="buy()">Đặt hàng</button>
+                    <a href="{{URL::to('/show-detail-order')}}"><button class="ml-auto" onclick="buy()">Đặt hàng</button></a>
                 </div>
             </div>
             <div class="total col-lg-4 col-md-4 col-12">

@@ -49,7 +49,8 @@ Route::post('/update-location/{DCGH_MA}', 'App\Http\Controllers\CostumerControll
 //Don dat hang
 Route::get('/show-all-bill','App\Http\Controllers\CartController@show_all_bill');
 Route::get('/show-detail-bill/{DDH_MA}','App\Http\Controllers\CartController@show_detail_bill');
-
+Route::get('/show-detail-order','App\Http\Controllers\CartController@show_detail_order');
+Route::post('/order','App\Http\Controllers\CartController@order');
 
 //---------------------------------------------------
 
