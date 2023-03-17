@@ -117,3 +117,40 @@ Route::get('/all-employee', 'App\Http\Controllers\EmployeeController@all_employe
 
 Route::post('/save-employee', 'App\Http\Controllers\EmployeeController@save_employee');
 Route::post('/update-employee/{NV_MA}', 'App\Http\Controllers\EmployeeController@update_employee');
+
+//lonhap
+Route::get('/add-lonhap', 'App\Http\Controllers\Lonhap@add_lonhap');
+Route::get('/edit-lonhap/{LN_MA}', 'App\Http\Controllers\Lonhap@edit_lonhap');
+Route::get('/delete-lonhap/{LN_MA}', 'App\Http\Controllers\Lonhap@delete_lonhap');
+Route::get('/all-lonhap', 'App\Http\Controllers\Lonhap@all_lonhap');
+
+Route::post('/save-lonhap', 'App\Http\Controllers\Lonhap@save_lonhap');
+Route::post('/update-lonhap/{LN_MA}', 'App\Http\Controllers\Lonhap@update_lonhap');
+
+//chitiet lonhap
+Route::get('/add-chitiet-lonhap', 'App\Http\Controllers\Chitietlonhap@add_chitiet_lonhap');
+Route::get('/edit-chitiet-lonhap/lo={LN_MA}&sach={SACH_MA}', 'App\Http\Controllers\Chitietlonhap@edit_chitiet_lonhap');
+Route::get('/delete-chitiet-lonhap/lo={LN_MA}&sach={SACH_MA}', 'App\Http\Controllers\Chitietlonhap@delete_chitiet_lonhap');
+Route::get('/all-chitiet-lonhap', 'App\Http\Controllers\Chitietlonhap@all_chitiet_lonhap');
+
+Route::post('/save-chitiet-lonhap', 'App\Http\Controllers\Chitietlonhap@save_chitiet_lonhap');
+Route::post('/update-chitiet-lonhap/lo={LN_MA}&sach={SACH_MA}', 'App\Http\Controllers\Chitietlonhap@update_chitiet_lonhap');
+
+//lonxuat
+Route::get('/add-loxuat', 'App\Http\Controllers\Loxuat@add_loxuat');
+Route::get('/edit-loxuat/{LX_MA}', 'App\Http\Controllers\Loxuat@edit_loxuat');
+Route::get('/delete-loxuat/{LX_MA}', 'App\Http\Controllers\Loxuat@delete_loxuat');
+Route::get('/all-loxuat', 'App\Http\Controllers\Loxuat@all_loxuat');
+
+Route::post('/save-loxuat', 'App\Http\Controllers\Loxuat@save_loxuat');
+Route::post('/update-loxuat/{LX_MA}', 'App\Http\Controllers\Loxuat@update_loxuat');
+
+//chitiet loxuat
+Route::get('/add-chitiet-loxuat', 'App\Http\Controllers\Chitietloxuat@add_chitiet_loxuat');
+Route::get('/edit-chitiet-loxuat/lo={LX_MA}&sach={SACH_MA}', 'App\Http\Controllers\Chitietloxuat@edit_chitiet_loxuat');
+Route::get('/delete-chitiet-loxuat/lo={LX_MA}&sach={SACH_MA}', 'App\Http\Controllers\Chitietloxuat@delete_chitiet_loxuat');
+Route::get('/all-chitiet-loxuat', 'App\Http\Controllers\Chitietloxuat@all_chitiet_loxuat');
+
+Route::post('/save-chitiet-loxuat', 'App\Http\Controllers\Chitietloxuat@save_chitiet_loxuat');
+Route::post('/update-chitiet-loxuat/lo={LX_MA}&sach={SACH_MA}', 'App\Http\Controllers\Chitietloxuat@update_chitiet_loxuat');
+

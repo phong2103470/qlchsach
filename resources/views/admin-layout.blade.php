@@ -183,17 +183,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </a>
                     <ul class="sub">
 						<!-- lo_nhap -->
-						<li><a href="typography.html">Thêm lô nhập</a></li>
-						<li><a href="glyphicon.html">Liệt kê lô nhập</a></li>
+						<li><a href="{{URL::to('/add-lonhap')}}">Thêm lô nhập</a></li> 
+						<li><a href="{{URL::to('/all-lonhap')}}">Liệt kê lô nhập</a></li>
 						<!-- chi_tiet_lo_nhap -->
-						<li><a href="typography.html">Thêm chi tiết lô nhập</a></li>
-						<li><a href="glyphicon.html">Liệt kê chi tiết lô nhập</a></li>
+						<li><a href="{{URL::to('/add-chitiet-lonhap')}}">Thêm chi tiết lô nhập</a></li> 
+						<li><a href="{{URL::to('/all-chitiet-lonhap')}}">Liệt kê chi tiết lô nhập</a></li>
 						<!-- lo_xuat -->
-						<li><a href="typography.html">Thêm lô xuất</a></li>
-						<li><a href="glyphicon.html">Liệt kê lô xuất</a></li>
+						<li><a href="{{URL::to('/add-loxuat')}}">Thêm lô xuất</a></li> 
+						<li><a href="{{URL::to('/all-loxuat')}}">Liệt kê lô xuất</a></li>
 						<!-- chi_tiet_lo_xuat -->
-						<li><a href="typography.html">Thêm chi tiết lô xuất</a></li>
-						<li><a href="glyphicon.html">Liệt kê chi tiết lô xuất</a></li>
+						<li><a href="{{URL::to('/add-chitiet-loxuat')}}">Thêm chi tiết lô xuất</a></li> 
+						<li><a href="{{URL::to('/all-chitiet-loxuat')}}">Liệt kê chi tiết lô xuất</a></li>
                     </ul>
                 </li>
 				<li class="sub-menu">
