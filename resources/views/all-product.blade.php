@@ -47,10 +47,10 @@
 
                     <ul class="navbar-nav ml-auto text-right">
                         <li class="nav-item">
-                            <form class="d-flex">
-                                <input class="form-control me-2" type="text" placeholder="Nhập sách cần tìm...">
-                                <button class="btn btn-link" type="button"><a href="search.html"><i
-                                            class="fa fa-search icon-white"></i></a></button>
+                            <form class="d-flex" action="{{ URL::to('/tim-kiem') }}" method="POST">
+                                {{ csrf_field() }}
+                                <input class="form-control me-2" type="text" name="keywords_submit" placeholder="Nhập sách cần tìm...">
+                                <button class="btn btn-link" type="submit"><i class="fa fa-search icon-white"></i></a></button>
                             </form>
                         </li>
 
