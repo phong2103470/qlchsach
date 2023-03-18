@@ -26,7 +26,7 @@
                                 <?php
                                     $NV_MA_get = Session::get('NV_MA_get');
                                 ?>
-                                @if($NV_MA_get==7)
+                                @if($NV_MA_get==1)
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">Chức vụ</label>
                                       <select name="CV_MA" class="form-control input-sm m-bot15">

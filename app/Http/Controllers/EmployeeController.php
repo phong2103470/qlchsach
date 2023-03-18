@@ -14,7 +14,7 @@ class EmployeeController extends Controller
     public function AuthLoginChu(){
         $NV_MA = Session::get('NV_MA');
         if($NV_MA){
-            if($NV_MA != 7){
+            if($NV_MA != 1){
                 return Redirect::to('dashboard')->send();
             }
             
@@ -96,7 +96,7 @@ class EmployeeController extends Controller
     public function edit_employee($NV_MA){
         $this->AuthLogin();
         $NV_MA_get = Session::get('NV_MA');
-        if($NV_MA_get!=$NV_MA&&$NV_MA_get!=7){
+        if($NV_MA_get!=$NV_MA&&$NV_MA_get!=1){
             return Redirect::to('dashboard')->send();  
         }else{
             $position = DB::table('CHUC_VU')->orderby('CV_MA')->get(); 

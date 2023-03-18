@@ -10,6 +10,7 @@ use Cart;
 use Carbon\Carbon;
 
 use Illuminate\Http\Request;
+session_start();
 
 class CartController extends Controller
 {
@@ -237,6 +238,27 @@ class CartController extends Controller
             DB::table('chi_tiet_don_dat_hang')->insert($data2);
             DB::table('chi_tiet_gio_hang')->where('GH_MA', $all_cart_product->GH_MA)->where('SACH_MA',$row->SACH_MA)->delete();
         }
+        
+        //Đưa vô chi tiết trạng thái
+        $data3 = array();
+        // Lấy từng dòng và hiển thị
+    
+            $data3['DDH_MA'] = $DDH_MA->DDH_MA;
+            $data3['TT_MA'] = 1;
+            $data3['CTTT_NGAYCAPNHAT'] = Carbon::now('Asia/Ho_Chi_Minh');
+            $data3['CTTT_GHICHU'] = "Đang chờ xử lý";
+            //print_r ($data2);
+            DB::table('chi_tiet_trang_thai')->insert($data3);
+
+        //Đưa vô được quản lý bởi
+        $data4 = array();
+        // Lấy từng dòng và hiển thị
+    
+            $data4['DDH_MA'] = $DDH_MA->DDH_MA;
+            $data4['TT_MA'] = 1;
+            $data4['NV_MA'] = 1;
+            //print_r ($data2);
+            DB::table('duoc_quan_ly_boi')->insert($data4);
         
         //print_r ($data);
         //echo '</pre>';
