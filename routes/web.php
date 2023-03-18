@@ -29,6 +29,9 @@ Route::get('/dang-nhap','App\Http\Controllers\CostumerController@dang_nhap');
 Route::get('/logout', 'App\Http\Controllers\CostumerController@logout');
 Route::post('/costumer-check', 'App\Http\Controllers\CostumerController@trang_chu');
 
+//Sign up
+Route::post('/dang-ky', 'App\Http\Controllers\CostumerController@signup');
+
 //Cart
 //Route::post('/update-cart-quantity','App\Http\Controllers\CartController@update_cart_quantity');
 //Route::post('/update-cart','App\Http\Controllers\CartController@update_cart');

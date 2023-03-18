@@ -35,12 +35,19 @@
                         <div class="signup-form"><!--sign up form-->
                             <h2 class="font-weight-bold">Đăng ký</h2>
                             <hr>
-                            <form action="#">
-                                <input type="text" placeholder="Name" />
-                                <input type="email" placeholder="Email Address" />
-                                <input type="password" placeholder="Password" />
+                            <form action="{{URL::to('/dang-ky')}}" method="post" enctype= "multipart/form-data">
+                                {{ csrf_field() }}
+                                <input type="text" class="ggg" name="KH_SODIENTHOAI" placeholder="Nhập số điện thoại" required="">
+			                    <input type="password" class="ggg" name="KH_MATKHAU" placeholder="Nhập password" required="">
+                                <input type="text" class="ggg" name="KH_HOTEN" placeholder="Nhập họ tên" required="">
+                                <input type="date" class="ggg" name="KH_NGAYSINH" placeholder="Nhập ngày sinh" required="">
+			                    <input type="text" class="ggg" name="KH_GIOITINH" placeholder="Nhập giới tính" required="">
+                                <input type="text" class="ggg" name="KH_DIACHI" placeholder="Nhập địa chỉ" required="">
+                                <input type="text" class="ggg" name="KH_EMAIL" placeholder="Nhập email" required="">
+			                    <input type="file" class="ggg" name="KH_DUONGDANANHDAIDIEN" placeholder="Chọn ảnh đại diện" required="">
                                 <button type="submit" class="btn btn-default">Đăng ký</button>
                             </form>
+
                         </div><!--/sign up form-->
                     </div>
                 </div>

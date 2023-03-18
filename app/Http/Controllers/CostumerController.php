@@ -9,6 +9,9 @@ use Illuminate\Support\Facades\Redirect;
 
 use Illuminate\Http\Request;
 
+use Carbon\Carbon;
+session_start();
+
 class CostumerController extends Controller
 {
     public function AuthLogin(){
@@ -27,7 +30,7 @@ class CostumerController extends Controller
     }
 
     public function trang_chu(Request $request){
-        
+        //Đăng nhập
     	$costum_sdt = $request->sdt;
         $costum_password = $request->password;
         
@@ -47,6 +50,7 @@ class CostumerController extends Controller
                 return Redirect::to('/dang-nhap');
         } 
     }
+
     public function logout(Request $request){
         $this->AuthLogin();
         Session::put('KH_HOTEN',null);
@@ -55,6 +59,54 @@ class CostumerController extends Controller
         return Redirect::to('/trang-chu');
     }
     
+    public function signup(Request $request){
+        //Đăng ký
+        $data = array();
+        $data['KH_SODIENTHOAI'] = $request->KH_SODIENTHOAI;
+        $data['KH_MATKHAU'] = $request->KH_MATKHAU;  
+        $data['KH_HOTEN'] = $request->KH_HOTEN;
+        $data['KH_NGAYSINH'] = $request->KH_NGAYSINH;
+        $data['KH_GIOITINH'] = $request->KH_GIOITINH;
+        $data['KH_DIACHI'] = $request->KH_DIACHI;
+        $data['KH_EMAIL'] = $request->KH_EMAIL;
+        $get_image= $request->file('KH_DUONGDANANHDAIDIEN');
+        if($get_image){
+
+            $get_name_image = $get_image->getClientOriginalName();
+            $name_image = current(explode('.',$get_name_image));
+
+            $new_image =  $name_image.rand(0,99).'.'.$get_image->getClientOriginalExtension();
+            $get_image->move('public/frontend/img/khachhang',$new_image);
+            $data['KH_DUONGDANANHDAIDIEN'] = $new_image;
+        }
+        else {
+            $data['KH_DUONGDANANHDAIDIEN'] = 'macdinh.png';
+        }
+
+        DB::table('khach_hang')->insert($data);
+
+        $KH_MA=DB::table('khach_hang')
+        ->orderby('khach_hang.KH_MA','desc')->first();
+        $data2 = array();
+        
+            $data2['GH_MA'] = $KH_MA->KH_MA;
+            $data2['KH_MA'] = $KH_MA->KH_MA;
+            $data2['GH_NGAYCAPNHATLANCUOI'] = Carbon::now('Asia/Ho_Chi_Minh');
+
+            //print_r ($data2);
+            DB::table('gio_hang')->insert($data2);
+
+        //echo '<pre>';
+        //print_r ($data);
+        //echo '</pre>';
+
+        $data3['GH_MA'] = $KH_MA->KH_MA;
+        DB::table('khach_hang')->where('KH_MA',$KH_MA->KH_MA)->update($data3);
+        
+        Session::put('message','Đăng ký thành công, giờ bạn có thể đăng nhập!');
+        return Redirect::to('/dang-nhap');
+    }
+
     //Địa chỉ giao hàng
     public function all_location(){
         $this->AuthLogin();
