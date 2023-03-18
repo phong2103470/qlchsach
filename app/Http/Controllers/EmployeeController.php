@@ -11,7 +11,7 @@ use Illuminate\Http\Request;
 
 class EmployeeController extends Controller
 {
-    public function AuthLogin(){
+    public function AuthLoginChu(){
         $NV_MA = Session::get('NV_MA');
         if($NV_MA){
             if($NV_MA != 7){
@@ -22,15 +22,23 @@ class EmployeeController extends Controller
             return Redirect::to('admin')->send();
         }
     }
+    public function AuthLogin(){
+        $NV_MA = Session::get('NV_MA');
+        if($NV_MA){
+        
+        }else{
+            return Redirect::to('admin')->send();
+        }
+    }
 
     public function add_employee(){
-        $this->AuthLogin();
+        $this->AuthLoginChu();
         $position = DB::table('CHUC_VU')->orderby('CV_MA')->get(); 
         return view('admin.dashboard.add_employee')->with('position', $position);
 
     }
     public function all_employee(){ //Hien thi tat ca
-        $this->AuthLogin();
+        $this->AuthLoginChu();
 
         $all_employee = DB::table('nhanvien')
         ->join('chuc_vu','nhanvien.CV_MA','=','chuc_vu.CV_MA')
@@ -43,7 +51,7 @@ class EmployeeController extends Controller
     }
 
     public function save_employee(Request $request){//thêm nhân viên
-        $this->AuthLogin();
+        $this->AuthLoginChu();
         $data = array();
         $data['NV_HOTEN'] = $request->NV_HOTEN;
         //$data['NV_DUONGDAN'] = $request->NV_DUONGDAN;  
@@ -87,10 +95,16 @@ class EmployeeController extends Controller
 
     public function edit_employee($NV_MA){
         $this->AuthLogin();
-        $position = DB::table('CHUC_VU')->orderby('CV_MA')->get(); 
-        $edit_employee = DB::table('nhanvien')->where('NV_MA',$NV_MA)->get();
-        $manager_employee = view('admin.dashboard.edit_employee')->with('edit_employee', $edit_employee)->with('position',$position);
-        return view('admin-layout')->with('admin.dashboard.edit_employee', $manager_employee);
+        $NV_MA_get = Session::get('NV_MA');
+        if($NV_MA_get!=$NV_MA&&$NV_MA_get!=7){
+            return Redirect::to('dashboard')->send();  
+        }else{
+            $position = DB::table('CHUC_VU')->orderby('CV_MA')->get(); 
+            $edit_employee = DB::table('nhanvien')->where('NV_MA',$NV_MA)->get();
+            Session::put('NV_MA_get',$NV_MA_get);
+            $manager_employee = view('admin.dashboard.edit_employee')->with('edit_employee', $edit_employee)->with('position',$position);
+            return view('admin-layout')->with('admin.dashboard.edit_employee', $manager_employee);
+        }    
     }
 
     public function update_employee(Request $request, $NV_MA){
@@ -98,10 +112,11 @@ class EmployeeController extends Controller
         $data = array();
         $data['NV_HOTEN'] = $request->NV_HOTEN;
         //$data['NV_DUONGDAN'] = $request->NV_DUONGDAN;  
-        $data['CV_MA'] = $request->CV_MA;
+        if($request->CV_MA) $data['CV_MA'] = $request->CV_MA;
+        
         $data['NV_SODIENTHOAI'] = $request->NV_SODIENTHOAI;
         $data['NV_DIACHI'] = $request->NV_DIACHI;
-        $data['NV_MATKHAU'] = rand(1000,1999);
+        //$data['NV_MATKHAU'] = rand(1000,1999);
         $data['NV_NGAYSINH'] = $request->NV_NGAYSINH;
         $data['NV_GIOITINH'] = $request->NV_GIOITINH;
         $data['NV_EMAIL'] = $request->NV_EMAIL;
@@ -118,7 +133,7 @@ class EmployeeController extends Controller
         }
 
         /*echo '<pre>';
-        print_r ($data);
+        print_r ($get_image);
         echo '</pre>';*/
 
         DB::table('nhanvien')->where('NV_MA',$NV_MA)->update($data);
@@ -134,4 +149,14 @@ class EmployeeController extends Controller
         return Redirect::to('all-employee');
 
     }
+
+    public function show_employee(){
+        $this->AuthLogin();
+        $NV_MA = Session::get('NV_MA');
+        $position = DB::table('CHUC_VU')->orderby('CV_MA')->get(); 
+        $edit_employee = DB::table('nhanvien')->where('NV_MA',$NV_MA)->get();
+        $manager_employee = view('admin.dashboard.show_employee')->with('edit_employee', $edit_employee)->with('position',$position);
+        return view('admin-layout')->with('admin.dashboard.show_employee', $manager_employee);
+    }
+
 }

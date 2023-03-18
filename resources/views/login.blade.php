@@ -9,7 +9,7 @@
                             <hr>
                             <form action="{{URL::to('/costumer-check')}}" method="post">
                                 {{ csrf_field() }}
-                                <input type="text" class="ggg" name="email" placeholder="Nhập email" required="">
+                                <input type="text" class="ggg" name="sdt" placeholder="Nhập số điện thoại" required="">
 			                    <input type="password" class="ggg" name="password" placeholder="Nhập password" required="">
                                 <span>
                                     <input type="checkbox" class="checkbox">

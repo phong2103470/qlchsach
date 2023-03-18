@@ -53,6 +53,11 @@ Route::get('/show-detail-bill/{DDH_MA}','App\Http\Controllers\CartController@sho
 Route::get('/show-detail-order','App\Http\Controllers\CartController@show_detail_order');
 Route::post('/order','App\Http\Controllers\CartController@order');
 
+//Account
+Route::get('/tai-khoan', 'App\Http\Controllers\CostumerController@show_account');
+Route::get('/cap-nhat-tai-khoan', 'App\Http\Controllers\CostumerController@edit_account');
+
+Route::post('/update-tai-khoan', 'App\Http\Controllers\CostumerController@update_account');
 //---------------------------------------------------
 
 
@@ -110,6 +115,7 @@ Route::post('/save-tacgia-product', 'App\Http\Controllers\TacgiaProduct@save_tac
 Route::post('/update-tacgia-product/{TG_MA}', 'App\Http\Controllers\TacgiaProduct@update_tacgia_product');
 
 //Employee
+Route::get('/show-employee', 'App\Http\Controllers\EmployeeController@show_employee');
 Route::get('/add-employee', 'App\Http\Controllers\EmployeeController@add_employee');
 Route::get('/edit-employee/{NV_MA}', 'App\Http\Controllers\EmployeeController@edit_employee');
 Route::get('/delete-employee/{NV_MA}', 'App\Http\Controllers\EmployeeController@delete_employee');

@@ -3,6 +3,12 @@
 <section id="blog-home" class="pr-5 mt-3 container center">
             <h2 class="font-weight-bold pt-3">Danh sách đơn hàng cũ</h2>
             <hr class="mx-auto">
+            <form class="d-flex" action="{{ URL::to('/tim-kiem') }}" method="POST">
+                {{ csrf_field() }}
+                <div style="width:30%">Tìm các đơn đặt hàng cũ:</div>
+                <input class="form-control me-2" type="text" name="keywords_submit" placeholder="Nhập sách cần tìm...">
+                <button class="btn btn-link" type="submit"><i class="fa fa-search icon-white"></i></a></button>
+            </form>
         <?php
       $message = Session::get('message');
       if($message){

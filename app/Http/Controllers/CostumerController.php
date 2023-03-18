@@ -28,10 +28,10 @@ class CostumerController extends Controller
 
     public function trang_chu(Request $request){
         
-    	$costum_email = $request->email;
+    	$costum_sdt = $request->sdt;
         $costum_password = $request->password;
         
-        $result = DB::table('khach_hang')->where('KH_EMAIL', $costum_email)->where('KH_MATKHAU', $costum_password)->first();
+        $result = DB::table('khach_hang')->where('KH_SODIENTHOAI', $costum_sdt)->where('KH_MATKHAU', $costum_password)->first();
         /*echo '<pre>';
         print_r ($result);
         echo '</pre>';*/
@@ -182,4 +182,52 @@ class CostumerController extends Controller
 
     }
 
+    //Account
+
+    public function show_account(){
+        $this->AuthLogin();
+        $KH_MA = Session::get('KH_MA');
+        $all_category_product = DB::table('the_loai_sach')->get();
+        $account_info = DB::table('khach_hang')->where('KH_MA',$KH_MA)->get();
+        
+        return view('pages.account.show_account')
+        ->with('category', $all_category_product)->with('account_info', $account_info);
+
+    }
+    public function edit_account(){
+        $this->AuthLogin();
+        $KH_MA = Session::get('KH_MA');
+        $all_category_product = DB::table('the_loai_sach')->get();
+        $account_info = DB::table('khach_hang')->where('KH_MA',$KH_MA)->get();
+        
+        return view('pages.account.edit_account')
+        ->with('category', $all_category_product)->with('account_info', $account_info);
+
+    }
+    public function update_account(Request $request){
+        $this->AuthLogin();
+        $KH_MA = Session::get('KH_MA');
+        $data = array();
+        $data['KH_HOTEN'] = $request->KH_HOTEN;
+        $data['KH_SODIENTHOAI'] = $request->KH_SODIENTHOAI;
+        $data['KH_NGAYSINH'] = $request->KH_NGAYSINH;
+        $data['KH_GIOITINH'] = $request->KH_GIOITINH;
+        $data['KH_DIACHI'] = $request->KH_DIACHI;
+        $data['KH_EMAIL'] = $request->KH_EMAIL;
+        $get_image= $request->file('KH_DUONGDANANHDAIDIEN');
+
+        if($get_image){
+
+            $get_name_image = $get_image->getClientOriginalName();
+            $name_image = current(explode('.',$get_name_image));
+
+            $new_image =  $name_image.rand(0,99).'.'.$get_image->getClientOriginalExtension();
+            $get_image->move('public/frontend/img/khachhang',$new_image);
+            $data['KH_DUONGDANANHDAIDIEN'] = $new_image;
+        }
+
+        DB::table('khach_hang')->where('KH_MA',$KH_MA)->update($data);
+        Session::put('message','Cập nhật thông tin thành công');
+        return Redirect::to('cap-nhat-tai-khoan');
+    }
 }
