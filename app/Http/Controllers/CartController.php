@@ -244,4 +244,34 @@ class CartController extends Controller
         Session::put('message','Đặt hàng thành công!');
         return Redirect::to('show-cart');
     }
+
+    //TTìm kiếm sách trong đơn đặt hàng
+    public function search_in_order(Request $request){
+        $this->AuthLogin();
+        $KH_MA = Session::get('KH_MA');
+
+        $keywords = $request ->keywords_submit;
+
+        $all_category_product = DB::table('the_loai_sach')->get();
+        /*$all_DDH=  DB::table('don_dat_hang')->where('don_dat_hang.KH_MA', $KH_MA)->get();
+        $group_DDH = DB::table('don_dat_hang')
+        ->join('chi_tiet_don_dat_hang','don_dat_hang.DDH_MA','=','chi_tiet_don_dat_hang.DDH_MA')
+        ->join('sach','sach.SACH_MA','=','chi_tiet_don_dat_hang.SACH_MA')
+        ->where('don_dat_hang.KH_MA', $KH_MA)
+        ->where('sach.SACH_TEN', 'like', '%'.$keywords.'%')->get();*/
+
+        $all_DDH=  DB::table('don_dat_hang')
+        ->join('chi_tiet_don_dat_hang','don_dat_hang.DDH_MA','=','chi_tiet_don_dat_hang.DDH_MA')
+        ->join('sach','sach.SACH_MA','=','chi_tiet_don_dat_hang.SACH_MA')
+        ->where('don_dat_hang.KH_MA', $KH_MA)
+        ->where('sach.SACH_TEN', 'like', '%'.$keywords.'%')->get();
+        
+        $group_DDH = DB::table('don_dat_hang')
+        ->join('chi_tiet_don_dat_hang','don_dat_hang.DDH_MA','=','chi_tiet_don_dat_hang.DDH_MA')
+        ->join('sach','sach.SACH_MA','=','chi_tiet_don_dat_hang.SACH_MA')
+        ->where('don_dat_hang.KH_MA', $KH_MA)->get();
+
+        return view('pages.cart.search_in_order')->with('category', $all_category_product)
+        ->with('all_DDH', $all_DDH)->with('group_DDH', $group_DDH);
+    }
 }

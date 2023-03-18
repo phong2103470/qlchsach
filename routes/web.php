@@ -52,6 +52,7 @@ Route::get('/show-all-bill','App\Http\Controllers\CartController@show_all_bill')
 Route::get('/show-detail-bill/{DDH_MA}','App\Http\Controllers\CartController@show_detail_bill');
 Route::get('/show-detail-order','App\Http\Controllers\CartController@show_detail_order');
 Route::post('/order','App\Http\Controllers\CartController@order');
+Route::post('/search-in-order', 'App\Http\Controllers\CartController@search_in_order');
 
 //Account
 Route::get('/tai-khoan', 'App\Http\Controllers\CostumerController@show_account');
