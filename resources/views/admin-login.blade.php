@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <head>
-<title>FAA - Trang quản trị bán hàng</title>
+<title>FAA - Trang quản trị bán sách</title>
+<link rel="shortcut icon" href="{{('public/frontend/img/logo.png')}}" type="image/x-icon" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="Visitors Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 

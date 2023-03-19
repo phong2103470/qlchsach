@@ -2,7 +2,7 @@
  @section('admin-content')
 <!-- //market-->
 <div  style="box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); background: RGB(189, 140, 153); text-align: center; color: #fff; font-family: Arial, sans-serif; font-weight: bold;">
-      <br><h1>Trang quản trị bán hàng</h1><br>
+      <br><h1>Trang quản trị bán sách</h1><br>
 </div>
 <div class="market-updates">
 			<div class="col-md-3 market-update-gd">

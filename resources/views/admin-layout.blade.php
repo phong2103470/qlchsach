@@ -7,7 +7,8 @@ https://fontawesome.com/v4/icons/
 -->
 <!DOCTYPE html>
 <head>
-<title>FAA - Trang quản trị bán hàng</title>
+<title>FAA - Trang quản trị bán sách</title>
+<link rel="shortcut icon" href="{{('public/frontend/img/logo.png')}}" type="image/x-icon" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="Visitors Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
@@ -138,6 +139,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<!-- tac_gia --> 
 						<li><a href="{{URL::to('/add-tacgia-product')}}">Thêm tác giả</a></li> 
 						<li><a href="{{URL::to('/all-tacgia-product')}}">Liệt kê tác giả</a></li>
+						<!-- co_tac_gia --> 
+						<li><a href="{{URL::to('/???')}}">Thêm tác giả của sách</a></li>
+						<li><a href="{{URL::to('/???')}}">Liệt kê tác giả của sách</a></li>
+						<!-- ngon_ngu --> 
+						<li><a href="{{URL::to('/??')}}">Thêm ngôn ngữ sách</a></li>
+						<li><a href="{{URL::to('/??')}}">Liệt kê ngôn ngữ sách</a></li>
                     </ul>  
                 </li>
 				<li class="sub-menu">
@@ -171,8 +178,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <span>Quản lý đơn đặt hàng</span>
                     </a>
                     <ul class="sub">
-						<li><a href="typography.html">Thêm danh mục</a></li>
-						<li><a href="glyphicon.html">Liệt kê danh mục</a></li>
+						<li><a href="{{URL::to('/???')}}">Cập nhật trạng thái đơn đặt hàng</a></li> <!-- chi_tiet trang_thai: edit => duoc_quan_ly_boi: add  => nếu bước này là xử lý => duoc_xu_ly: add--> 
+						<li><a href="{{URL::to('/???')}}">Liệt kê trạng thái đơn đặt hàng</a></li><!-- chi_tiet trang_thai--> 
+						<li><a href="{{URL::to('/???')}}">Liệt kê thông tin sửa đổi trạng thái đơn đặt hàng</a></li><!-- duoc_quan_ly_boi--> 
+						<li><a href="{{URL::to('/???')}}">Liệt kê người xử lý đơn hàng</a></li><!-- duoc_xu_ly--> 
+						<li><a href="{{URL::to('/???')}}">Liệt kê các đơn đặt hàng</a></li> <!-- in cả sách? số lượng? đơn giá? --> 
+						<li><a href="{{URL::to('/???')}}">Liệt kê các đơn đặt hàng chưa xử lý</a></li> <!-- in cả sách? số lượng? đơn giá? --> 
+						<!-- hinh_thuc_thanh_toan --> 
+						<li><a href="{{URL::to('/??')}}">Thêm hình thức thanh toán đơn đặt hàng</a></li>
+						<li><a href="{{URL::to('/??')}}">Liệt kê hình thức thanh toán đơn đặt hàng</a></li>
                     </ul>
                 </li>
 				<li class="sub-menu">
@@ -201,15 +215,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <span>Các danh mục quản lý khác</span> 
                     </a>
                     <ul class="sub">
-						<!-- hinh_thuc_thanh_toan --> 
-						<li><a href="typography.html">Thêm hình thức thanh toán đơn đặt hàng</a></li>
-						<li><a href="glyphicon.html">Liệt kê hình thức thanh toán đơn đặt hàng</a></li>
+						<!-- -->  
+						<li><a href="{{URL::to('/??')}}">Thêm phí ship</a></li>
+						<li><a href="{{URL::to('/??')}}">Liệt kê phí ship</a></li>
 						<!-- trang_thai -->  
-						<li><a href="typography.html">Thêm trạng thái đơn đặt hàng</a></li>
-						<li><a href="glyphicon.html">Liệt kê trạng thái đơn đặt hàng</a></li>
-						<!-- chuc_vu --> 
-						<li><a href="typography.html">Thêm chức vụ nhân viên</a></li>
-						<li><a href="glyphicon.html">Liệt kê chức vụ nhân viên</a></li>
+						<li><a href="{{URL::to('/??')}}">Thêm trạng thái đơn đặt hàng</a></li>
+						<li><a href="{{URL::to('/??')}}">Liệt kê trạng thái đơn đặt hàng</a></li>
                     </ul>
                 </li>
 				<li class="sub-menu">
@@ -225,11 +236,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<li class="sub-menu">
                     <a href="javascript:;">
                         <i class="fa fa-user"></i>
-                        <span>Quản lý nhân viên</span>
+                        <span>Quản lý tài khoản</span>
                     </a>
                     <ul class="sub">
+						<li><a href="{{URL::to('/??')}}">Thêm chức vụ</a></li>
 						<li><a href="{{URL::to('/add-employee')}}">Thêm nhân viên</a></li>
 						<li><a href="{{URL::to('/all-employee')}}">Liệt kê nhân viên</a></li>
+						<li><a href="{{URL::to('/???')}}">Liệt kê khách hàng</a></li>
                     </ul>
                 </li>
                 
