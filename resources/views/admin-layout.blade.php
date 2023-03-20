@@ -140,11 +140,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<li><a href="{{URL::to('/add-tacgia-product')}}">Thêm tác giả</a></li> 
 						<li><a href="{{URL::to('/all-tacgia-product')}}">Liệt kê tác giả</a></li>
 						<!-- co_tac_gia --> 
-						<li><a href="{{URL::to('/???')}}">Thêm tác giả của sách</a></li>
-						<li><a href="{{URL::to('/???')}}">Liệt kê tác giả của sách</a></li>
+						<li><a href="{{URL::to('/???N')}}">Thêm tác giả của sách</a></li>
+						<li><a href="{{URL::to('/???N')}}">Liệt kê tác giả của sách</a></li>
 						<!-- ngon_ngu --> 
-						<li><a href="{{URL::to('/??')}}">Thêm ngôn ngữ sách</a></li>
-						<li><a href="{{URL::to('/??')}}">Liệt kê ngôn ngữ sách</a></li>
+						<li><a href="{{URL::to('/??H')}}">Thêm ngôn ngữ sách</a></li>
+						<li><a href="{{URL::to('/??H')}}">Liệt kê ngôn ngữ sách</a></li>
                     </ul>  
                 </li>
 				<li class="sub-menu">
@@ -157,8 +157,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<li><a href="{{URL::to('/add-category-product')}}">Thêm thể loại sách</a></li>
 						<li><a href="{{URL::to('/all-category-product')}}">Liệt kê thể loại sách</a></li>
 						<!-- cua_sach -->
-						<li><a href="{{URL::to('/???')}}">Thêm chi tiết thể loại sách</a></li>
-						<li><a href="{{URL::to('/???')}}">Liệt kê chi tiết thể loại sách</a></li>
+						<li><a href="{{URL::to('/???N')}}">Thêm chi tiết thể loại sách</a></li>
+						<li><a href="{{URL::to('/???N')}}">Liệt kê chi tiết thể loại sách</a></li>
                     </ul>
                 </li>
 				<li class="sub-menu">
@@ -179,11 +179,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </a>
                     <ul class="sub">
 						<li><a href="{{URL::to('/???')}}">Cập nhật trạng thái đơn đặt hàng</a></li> <!-- chi_tiet trang_thai: edit => duoc_quan_ly_boi: add  => nếu bước này là xử lý => duoc_xu_ly: add--> 
-						<li><a href="{{URL::to('/???')}}">Liệt kê trạng thái đơn đặt hàng</a></li><!-- chi_tiet trang_thai--> 
-						<li><a href="{{URL::to('/???')}}">Liệt kê thông tin sửa đổi trạng thái đơn đặt hàng</a></li><!-- duoc_quan_ly_boi--> 
-						<li><a href="{{URL::to('/???')}}">Liệt kê người xử lý đơn hàng</a></li><!-- duoc_xu_ly--> 
-						<li><a href="{{URL::to('/???')}}">Liệt kê các đơn đặt hàng</a></li> <!-- in cả sách? số lượng? đơn giá? --> 
-						<li><a href="{{URL::to('/???')}}">Liệt kê các đơn đặt hàng chưa xử lý</a></li> <!-- in cả sách? số lượng? đơn giá? --> 
+						<li><a href="{{URL::to('/???N')}}">Liệt kê trạng thái đơn đặt hàng</a></li><!-- chi_tiet trang_thai--> 
+						<li><a href="{{URL::to('/???N')}}">Liệt kê thông tin sửa đổi trạng thái đơn đặt hàng</a></li><!-- duoc_quan_ly_boi--> 
+						<li><a href="{{URL::to('/???N')}}">Liệt kê người xử lý đơn hàng</a></li><!-- duoc_xu_ly--> 
+						<li><a href="{{URL::to('/???D')}}">Liệt kê các đơn đặt hàng</a></li> <!-- in cả sách? số lượng? đơn giá? --> 
+						<li><a href="{{URL::to('/???D')}}">Liệt kê các đơn đặt hàng chưa xử lý</a></li> <!-- in cả sách? số lượng? đơn giá? --> 
 						<!-- hinh_thuc_thanh_toan --> 
 						<li><a href="{{URL::to('/??')}}">Thêm hình thức thanh toán đơn đặt hàng</a></li>
 						<li><a href="{{URL::to('/??')}}">Liệt kê hình thức thanh toán đơn đặt hàng</a></li>
@@ -224,14 +224,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </ul>
                 </li>
 				<li class="sub-menu">
-                    <a href="javascript:;">
+                    <a href="{{URL::to('/thong-ke')}}">
                         <i class="fa fa-bar-chart-o"></i>
                         <span>Thống kê</span>
                     </a>
-                    <ul class="sub">
+                    <!--<ul class="sub">
 						<li><a href="typography.html">Thêm danh mục</a></li>
 						<li><a href="glyphicon.html">Liệt kê danh mục</a></li>
-                    </ul>
+                    </ul>-->
                 </li>
 				<li class="sub-menu">
                     <a href="javascript:;">
@@ -239,10 +239,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <span>Quản lý tài khoản</span>
                     </a>
                     <ul class="sub">
-						<li><a href="{{URL::to('/??')}}">Thêm chức vụ</a></li>
+						<li><a href="{{URL::to('/??H')}}">Thêm chức vụ</a></li>
 						<li><a href="{{URL::to('/add-employee')}}">Thêm nhân viên</a></li>
 						<li><a href="{{URL::to('/all-employee')}}">Liệt kê nhân viên</a></li>
-						<li><a href="{{URL::to('/???')}}">Liệt kê khách hàng</a></li>
+						<li><a href="{{URL::to('/???H')}}">Liệt kê khách hàng</a></li>
                     </ul>
                 </li>
                 

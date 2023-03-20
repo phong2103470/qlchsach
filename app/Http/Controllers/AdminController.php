@@ -7,6 +7,8 @@ use DB;
 use Session;
 use App\Http\Requests;
 use Illuminate\Support\Facades\Redirect;
+
+use Carbon\Carbon;
 session_start();
 
 class AdminController extends Controller
@@ -140,5 +142,23 @@ class AdminController extends Controller
         Session::put('NV_MA',null);
         Session::put('NV_DUONGDANANHDAIDIEN',null);
         return Redirect::to('/admin');
+    }
+
+    public function thong_ke(){
+        $this->AuthLogin();
+        Session::put('TGBDau', null);
+        Session::put('TGKThuc', null);
+        return view('admin.dashboard.thong_ke');
+    }
+    public function thong_ke_tg(Request $request){
+        $this->AuthLogin();
+        $homnay=Carbon::now('Asia/Ho_Chi_Minh');
+        if ($request->TGBDau && $request->TGKThuc && $request->TGBDau<=$request->TGKThuc && $request->TGKThuc<=$homnay ){
+            Session::put('TGBDau', $request->TGBDau);
+            Session::put('TGKThuc', $request->TGKThuc);
+            return view('admin.dashboard.thong_ke');
+        }
+        Session::put('message','Xin kiểm tra lại dữ liệu đầu vào');
+        return view('admin.dashboard.thong_ke');
     }
 }

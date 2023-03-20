@@ -164,3 +164,7 @@ Route::get('/all-chitiet-loxuat', 'App\Http\Controllers\Chitietloxuat@all_chitie
 Route::post('/save-chitiet-loxuat', 'App\Http\Controllers\Chitietloxuat@save_chitiet_loxuat');
 Route::post('/update-chitiet-loxuat/lo={LX_MA}&sach={SACH_MA}', 'App\Http\Controllers\Chitietloxuat@update_chitiet_loxuat');
 
+//Thống kê
+Route::get('/thong-ke', 'App\Http\Controllers\AdminController@thong_ke');
+Route::post('/thong-ke-thoi-gian', 'App\Http\Controllers\AdminController@thong_ke_tg');
+

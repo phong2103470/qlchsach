@@ -51,7 +51,7 @@ class EmployeeController extends Controller
     }
 
     public function save_employee(Request $request){//thêm nhân viên
-        $this->AuthLoginChu();
+        $this->AuthLogin();
         $data = array();
         $data['NV_HOTEN'] = $request->NV_HOTEN;
         //$data['NV_DUONGDAN'] = $request->NV_DUONGDAN;  
