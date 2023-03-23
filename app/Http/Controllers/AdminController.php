@@ -58,15 +58,18 @@ class AdminController extends Controller
         $query = DB::table('trang_thai as t') ->select('c.', 't.')
         ->join(DB::raw('(SELECT c1.DDH_MA ddh, c1.TT_MA tt from chi_tiet_trang_thai c1 join (SELECT ddh_ma, max(cttt_ngaycapnhat) cap_nhat from chi_tiet_trang_thai GROUP BY ddh_ma) c2 on c1.ddh_ma = c2.ddh_ma
         WHERE c1.CTTT_NGAYCAPNHAT = c2.cap_nhat) c'),'t.TT_MA', '=', 'c.tt')
-        ->where('t.TT_TEN', 'Da dat hang nhung chua xu ly') ->get();*/
+        ->where('t.TT_TEN', 'Da dat hang nhung chua xu ly') ->get();
 
         $ddh_cxl = DB::table('trang_thai as t') ->select('c.*', 't.*')
         ->join(DB::raw('(SELECT c1.DDH_MA ddh, c1.TT_MA tt from chi_tiet_trang_thai c1
                         join (SELECT ddh_ma, max(cttt_ngaycapnhat) cap_nhat from chi_tiet_trang_thai
                         GROUP BY ddh_ma) c2 on c1.ddh_ma = c2.ddh_ma
                         WHERE c1.CTTT_NGAYCAPNHAT = c2.cap_nhat) c'),'t.TT_MA', '=', 'c.tt')
-        ->where('t.TT_TEN', 'Đã đặt hàng nhưng chưa xử lý')->count();
+        ->where('t.TT_TEN', 'Đã đặt hàng nhưng chưa xử lý')->count();*/
 
+        $ddh_cxl = DB::table('don_dat_hang')
+        ->join('chi_tiet_trang_thai','don_dat_hang.DDH_MA','=','chi_tiet_trang_thai.DDH_MA')
+        ->where('chi_tiet_trang_thai.TT_MA', 1)->count();
 
         Session::put('SO_DDH_CXL',$ddh_cxl);
 
@@ -92,7 +95,7 @@ class AdminController extends Controller
                             ON t.TT_MA = c.tt
                             WHERE t.TT_TEN = "Da thanh toan") c'), 'd.DDH_MA', '=', 'c.ddh')
             ->select(DB::raw('SUM(d.ddh_tongtien)'))
-            ->get(); */
+            ->get(); 
 
             $ddh_dtt = DB::table('don_dat_hang as d')
             ->join(DB::raw('(SELECT c.*, t.*
@@ -100,7 +103,11 @@ class AdminController extends Controller
                                     from chi_tiet_trang_thai c1 join (SELECT ddh_ma, max(cttt_ngaycapnhat)cap_nhat
                             from chi_tiet_trang_thai GROUP BY ddh_ma) c2 on c1.ddh_ma = c2.ddh_ma
                             WHERE c1.CTTT_NGAYCAPNHAT = c2.cap_nhat) c on t.TT_MA = c.tt
-                            WHERE t.TT_TEN="Đã thanh toán") c'), 'd.ddh_ma', '=', 'c.ddh')->sum('ddh_tongtien');
+                            WHERE t.TT_TEN="Đã thanh toán") c'), 'd.ddh_ma', '=', 'c.ddh')->sum('ddh_tongtien');*/
+
+            $ddh_dtt = DB::table('don_dat_hang')
+            ->join('chi_tiet_trang_thai','don_dat_hang.DDH_MA','=','chi_tiet_trang_thai.DDH_MA')
+            ->where('chi_tiet_trang_thai.TT_MA', 5)->sum('ddh_tongtien');
 
             $ctlx = DB::table('chi_tiet_lo_xuat')->sum('CTLX_GIA');
 
