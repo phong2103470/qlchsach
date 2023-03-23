@@ -146,10 +146,53 @@ class AdminController extends Controller
 
     public function thong_ke(){
         $this->AuthLogin();
-        Session::put('TGBDau', null);
-        Session::put('TGKThuc', null);
+
+        $dayprev=Carbon::now('Asia/Ho_Chi_Minh')->subMonths(3);
+        $daynow=Carbon::now('Asia/Ho_Chi_Minh');
+        //echo $dayprev .";". $daynow;
+
+        Session::put('TGBDau', $dayprev);
+        Session::put('TGKThuc', $daynow);
+
+        /*
+        SELECT s.*, c.* FROM sach s JOIN chi_tiet_don_dat_hang c on s.SACH_MA = c.SACH_MA 
+        JOIN don_dat_hang d on c.DDH_MA = d.DDH_MA
+        WHERE d.DDH_NGAYDAT BETWEEN '2023-02-01' AND '2023-03-21' 
+        GROUP by s.SACH_MA HAVING SUM(ctddh_soluong) = (SELECT max(tongsoluong) FROM (SELECT c.SACH_MA, SUM(ctddh_soluong) tongsoluong FROM chi_tiet_don_dat_hang c JOIN don_dat_hang d on c.DDH_MA = d.DDH_MA WHERE d.DDH_NGAYDAT BETWEEN '2023-02-01' AND '2023-03-21' GROUP BY (c.SACH_MA)) sum_sach);
+
+        $query = DB::table('sach as s')
+           ->join('chi_tiet_don_dat_hang as c', 's.SACH_MA', '=', 'c.SACH_MA')
+           ->join('don_dat_hang as d', 'c.DDH_MA', '=', 'd.DDH_MA')
+           ->select('s.*', 'c.*')
+           ->whereBetween('d.DDH_NGAYDAT', ['2023-02-01', '2023-03-21'])
+           ->groupBy('s.SACH_MA')
+           ->havingRaw('SUM(ctddh_soluong) = (SELECT max(tongsoluong) FROM (SELECT c.SACH_MA, SUM(ctddh_soluong) tongsoluong FROM chi_tiet_don_dat_hang c JOIN don_dat_hang d on c.DDH_MA = d.DDH_MA WHERE d.DDH_NGAYDAT BETWEEN '2023-02-01' AND '2023-03-21' GROUP BY (c.SACH_MA)) sum_sach)')
+           ->get();
+        
+        $sachbannhieu = DB::table('sach as s')
+        ->join('chi_tiet_don_dat_hang as c', 's.SACH_MA', '=', 'c.SACH_MA')
+        ->join('don_dat_hang as d', 'c.DDH_MA', '=', 'd.DDH_MA')
+        ->select('s.*', 'c.*')
+        ->whereBetween('d.DDH_NGAYDAT', [$dayprev, $dayprev])
+        ->groupBy('s.SACH_MA')
+        ->havingRaw("SUM(ctddh_soluong) = (SELECT max(tongsoluong) FROM (SELECT c.SACH_MA, SUM(ctddh_soluong) tongsoluong FROM chi_tiet_don_dat_hang c JOIN don_dat_hang d on c.DDH_MA = d.DDH_MA WHERE d.DDH_NGAYDAT BETWEEN '".$dayprev."' AND '".$daynow."' GROUP BY (c.SACH_MA)) sum_sach)")
+        ->get();
+
+        $sachbannhieu = DB::table('sach as s')
+        ->join('chi_tiet_don_dat_hang as c', 's.SACH_MA', '=', 'c.SACH_MA')
+        ->join('don_dat_hang as d', 'c.DDH_MA', '=', 'd.DDH_MA')
+        ->select('s.*', 'c.*')
+        ->whereBetween('d.DDH_NGAYDAT', ['2023-02-01', '2023-03-21'])
+        ->groupBy('s.SACH_MA')
+        ->havingRaw('SUM(ctddh_soluong) = (SELECT max(tongsoluong) FROM (SELECT c.SACH_MA, SUM(ctddh_soluong) tongsoluong FROM chi_tiet_don_dat_hang c JOIN don_dat_hang d on c.DDH_MA = d.DDH_MA WHERE d.DDH_NGAYDAT BETWEEN "2023-02-01" AND "2023-03-21" GROUP BY (c.SACH_MA)) sum_sach)')
+        ->get();
+
+        echo '<pre>';
+        print_r ($sachbannhieu);
+        echo '</pre>';*/
         return view('admin.dashboard.thong_ke');
     }
+
     public function thong_ke_tg(Request $request){
         $this->AuthLogin();
         $homnay=Carbon::now('Asia/Ho_Chi_Minh');
@@ -158,6 +201,7 @@ class AdminController extends Controller
             Session::put('TGKThuc', $request->TGKThuc);
             return view('admin.dashboard.thong_ke');
         }
+        
         Session::put('message','Xin kiểm tra lại dữ liệu đầu vào');
         return view('admin.dashboard.thong_ke');
     }
