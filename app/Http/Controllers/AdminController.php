@@ -104,8 +104,8 @@ class AdminController extends Controller
 
             $ctlx = DB::table('chi_tiet_lo_xuat')->sum('CTLX_GIA');
 
-            Session::put('DOANH_THU',$ctlx + $ddh_dtt);
-
+            Session::put('DOANH_THU_L',$ctlx);
+            Session::put('DOANH_THU_S',$ddh_dtt);
 
     	return view('admin.dashboard');
     }

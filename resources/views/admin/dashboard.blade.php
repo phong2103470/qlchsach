@@ -122,13 +122,26 @@
 						<h4>Tổng doanh thu</h4>
 						<h3>
 							<?php
-								$dt= Session::get('DOANH_THU');
+								$dtl= Session::get('DOANH_THU_L');
+								$dts= Session::get('DOANH_THU_S');
+								$dt = $dtl+$dts;
 								if ($dt) {
 									echo number_format($dt);
 								}
 							?>
 						VNĐ</h3>
-						<a href="#"><p>Xem thêm</p></a>
+						<h4>(Bán sách:
+							<?php
+								if ($dts) {
+									echo number_format($dts);
+								}
+							?> VNĐ |  Bán lại sách:
+							<?php
+								if ($dtl) {
+									echo number_format($dtl);
+								} 
+							?> VNĐ)
+						</h4>
 					</div>
 				  <div class="clearfix"> </div>
 				</div>
