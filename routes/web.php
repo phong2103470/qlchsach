@@ -168,3 +168,6 @@ Route::post('/update-chitiet-loxuat/lo={LX_MA}&sach={SACH_MA}', 'App\Http\Contro
 Route::get('/thong-ke', 'App\Http\Controllers\AdminController@thong_ke');
 Route::post('/thong-ke-thoi-gian', 'App\Http\Controllers\AdminController@thong_ke_tg');
 
+//Trạng thái đơn đặt hàng
+Route::get('/update-status-order/{DDH_MA}', 'App\Http\Controllers\OrderController@update_status_order');
+

@@ -178,7 +178,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <span>Quản lý đơn đặt hàng</span>
                     </a>
                     <ul class="sub">
-						<li><a href="{{URL::to('/???')}}">Cập nhật trạng thái đơn đặt hàng</a></li> <!-- chi_tiet trang_thai: edit => duoc_quan_ly_boi: add  => nếu bước này là xử lý => duoc_xu_ly: add--> 
+						<!-- <li><a href="{{URL::to('/update-status-order')}}">Cập nhật trạng thái đơn đặt hàng</a></li>  chi_tiet trang_thai: edit => duoc_quan_ly_boi: add  => nếu bước này là xử lý => duoc_xu_ly: add--> 
 						<li><a href="{{URL::to('/???N')}}">Liệt kê trạng thái đơn đặt hàng</a></li><!-- chi_tiet trang_thai--> 
 						<li><a href="{{URL::to('/???N')}}">Liệt kê thông tin sửa đổi trạng thái đơn đặt hàng</a></li><!-- duoc_quan_ly_boi--> 
 						<li><a href="{{URL::to('/???N')}}">Liệt kê người xử lý đơn hàng</a></li><!-- duoc_xu_ly--> 
