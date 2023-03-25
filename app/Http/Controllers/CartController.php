@@ -110,7 +110,10 @@ class CartController extends Controller
         $this->AuthLogin();
         $KH_MA = Session::get('KH_MA');
         $all_category_product = DB::table('the_loai_sach')->get();
-        $all_DDH=  DB::table('don_dat_hang')->where('don_dat_hang.KH_MA', $KH_MA)->get();
+        $all_DDH=  DB::table('don_dat_hang')
+        ->join('chi_tiet_trang_thai','chi_tiet_trang_thai.DDH_MA','=','don_dat_hang.DDH_MA')
+        ->join('trang_thai','chi_tiet_trang_thai.TT_MA','=','trang_thai.TT_MA')
+        ->where('don_dat_hang.KH_MA', $KH_MA)->get();
         $group_DDH = DB::table('don_dat_hang')
         ->join('chi_tiet_don_dat_hang','don_dat_hang.DDH_MA','=','chi_tiet_don_dat_hang.DDH_MA')
         ->join('sach','sach.SACH_MA','=','chi_tiet_don_dat_hang.SACH_MA')
