@@ -134,7 +134,7 @@ class CostumerController extends Controller
         $KH_MA = Session::get('KH_MA');
         $all_category_product = DB::table('the_loai_sach')->get();
 
-        $ttp= DB::table('tinh_thanh_pho')->orderby('TTP_MA')->get();
+        $ttp= DB::table('tinh_thanh_pho')->orderby('TTP_TEN')->get();
         //$hq= DB::table('huyen_quan')->orderby('HQ_MA')->get();
         //$xp= DB::table('xa_phuong')->orderby('XP_MA')->get();
         
@@ -148,7 +148,7 @@ class CostumerController extends Controller
     	if($data['action']){
     		$output = '';
     		if($data['action']=="TTP_MA"){
-    			$select_HQ = DB::table('huyen_quan')->where('TTP_MA',$data['ma_id'])->orderby('HQ_MA')->get();
+    			$select_HQ = DB::table('huyen_quan')->where('TTP_MA',$data['ma_id'])->orderby('HQ_TEN')->get();
     			$output.='<option value="">-- Chọn huyện / quận --</option>';
     			foreach($select_HQ as $key => $hq){
     				$output.='<option value="'.$hq->HQ_MA.'">'.$hq->HQ_TEN.'</option>';
@@ -156,7 +156,7 @@ class CostumerController extends Controller
     		}
             else{
 
-                $select_XP = DB::table('xa_phuong')->where('HQ_MA',$data['ma_id'])->orderby('XP_MA')->get();
+                $select_XP = DB::table('xa_phuong')->where('HQ_MA',$data['ma_id'])->orderby('XP_TEN')->get();
     			$output.='<option value="">-- Chọn xã / phường --</option>';
     			foreach($select_XP as $key => $xp){
     				$output.='<option value="'.$xp->XP_MA.'">'.$xp->XP_TEN.'</option>';
@@ -197,9 +197,9 @@ class CostumerController extends Controller
         $KH_MA = Session::get('KH_MA');
         $all_category_product = DB::table('the_loai_sach')->get();
 
-        $ttp= DB::table('tinh_thanh_pho')->orderby('TTP_MA')->get();
-        $hq= DB::table('huyen_quan')->orderby('HQ_MA')->get();
-        $xp= DB::table('xa_phuong')->orderby('XP_MA')->get();
+        $ttp= DB::table('tinh_thanh_pho')->orderby('TTP_TEN')->get();
+        $hq= DB::table('huyen_quan')->orderby('HQ_TEN')->get();
+        $xp= DB::table('xa_phuong')->orderby('XP_TEN')->get();
         $edit_location = DB::table('dia_chi_giao_hang')
         ->join('xa_phuong','dia_chi_giao_hang.XP_MA','=','xa_phuong.XP_MA')
         ->join('huyen_quan','huyen_quan.HQ_MA','=','xa_phuong.HQ_MA')

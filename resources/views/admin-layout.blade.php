@@ -142,9 +142,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<!-- co_tac_gia --> 
 						<li><a href="{{URL::to('/???N')}}">Thêm tác giả của sách</a></li>
 						<li><a href="{{URL::to('/???N')}}">Liệt kê tác giả của sách</a></li>
-						<!-- ngon_ngu --> 
-						<li><a href="{{URL::to('/??H')}}">Thêm ngôn ngữ sách</a></li>
-						<li><a href="{{URL::to('/??H')}}">Liệt kê ngôn ngữ sách</a></li>
                     </ul>  
                 </li>
 				<li class="sub-menu">
@@ -185,8 +182,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<li><a href="{{URL::to('/???D')}}">Liệt kê các đơn đặt hàng</a></li> <!-- in cả sách? số lượng? đơn giá? --> 
 						<!-- <li><a href="{{URL::to('/???D')}}">Liệt kê các đơn đặt hàng chưa xử lý</a></li> in cả sách? số lượng? đơn giá? --> 
 						<!-- hinh_thuc_thanh_toan --> 
-						<li><a href="{{URL::to('/??')}}">Thêm hình thức thanh toán đơn đặt hàng</a></li>
-						<li><a href="{{URL::to('/??')}}">Liệt kê hình thức thanh toán đơn đặt hàng</a></li>
+						<li><a href="{{URL::to('/??H')}}">Thêm hình thức thanh toán đơn đặt hàng</a></li>
+						<li><a href="{{URL::to('/??H')}}">Liệt kê hình thức thanh toán đơn đặt hàng</a></li>
                     </ul>
                 </li>
 				<li class="sub-menu">
@@ -210,28 +207,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </ul>
                 </li>
 				<li class="sub-menu">
-                    <a href="javascript:;"> 
-						<i class="fa fa-th-list"></i> 
-                        <span>Các danh mục quản lý khác</span> 
+                    <a href="{{URL::to('/show_feeship')}}"> 
+						<i class="fa fa-truck"></i> 
+                        <span>Quản lý phí ship</span> 
                     </a>
-                    <ul class="sub">
-						<!-- -->  
-						<li><a href="{{URL::to('/??')}}">Thêm phí ship</a></li>
-						<li><a href="{{URL::to('/??')}}">Liệt kê phí ship</a></li>
-						<!-- trang_thai -->  
-						<li><a href="{{URL::to('/??')}}">Thêm trạng thái đơn đặt hàng</a></li>
-						<li><a href="{{URL::to('/??')}}">Liệt kê trạng thái đơn đặt hàng</a></li>
-                    </ul>
                 </li>
 				<li class="sub-menu">
                     <a href="{{URL::to('/thong-ke')}}">
                         <i class="fa fa-bar-chart-o"></i>
                         <span>Thống kê</span>
                     </a>
-                    <!--<ul class="sub">
-						<li><a href="typography.html">Thêm danh mục</a></li>
-						<li><a href="glyphicon.html">Liệt kê danh mục</a></li>
-                    </ul>-->
                 </li>
 				<li class="sub-menu">
                     <a href="javascript:;">

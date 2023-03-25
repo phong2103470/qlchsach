@@ -13,6 +13,18 @@ session_start();
 
 class AdminController extends Controller
 {
+    public function AuthLoginChu(){
+        $NV_MA = Session::get('NV_MA');
+        if($NV_MA){
+            if($NV_MA != 1){
+                return Redirect::to('dashboard')->send();
+            }
+            
+        }else{
+            return Redirect::to('admin')->send();
+        }
+    }
+
     public function AuthLogin(){
         $NV_MA = Session::get('NV_MA');
         if($NV_MA){
@@ -151,6 +163,7 @@ class AdminController extends Controller
         return Redirect::to('/admin');
     }
 
+    //Thống kê
     public function thong_ke(){
         $this->AuthLogin();
 
@@ -211,5 +224,34 @@ class AdminController extends Controller
         
         Session::put('message','Xin kiểm tra lại dữ liệu đầu vào');
         return view('admin.dashboard.thong_ke');
+    }
+
+    //Phí ship (select_location nằm ở CostumerController)
+    public function show_feeship(){
+        $this->AuthLoginChu();
+        $count_feeship = DB::table('xa_phuong')->count('XP_MA');
+        Session::put('count_feeship',$count_feeship);
+        $dc = DB::table('tinh_thanh_pho')
+        ->join('huyen_quan','tinh_thanh_pho.TTP_MA','=','huyen_quan.TTP_MA')
+        ->join('xa_phuong','xa_phuong.HQ_MA','=','huyen_quan.HQ_MA')->get();
+        return view('admin.dashboard.show_feeship')->with('dc',$dc);
+    }
+    
+    public function edit_feeship($XP_MA){
+        $this->AuthLoginChu();
+        $dc = DB::table('tinh_thanh_pho')
+        ->join('huyen_quan','tinh_thanh_pho.TTP_MA','=','huyen_quan.TTP_MA')
+        ->join('xa_phuong','xa_phuong.HQ_MA','=','huyen_quan.HQ_MA')
+        ->where('xa_phuong.XP_MA','=',$XP_MA)->get();
+        return view('admin.dashboard.edit_feeship')->with('dc',$dc);
+    }
+
+    public function update_feeship(Request $request, $XP_MA){
+        $this->AuthLoginChu();
+        $data = array();
+        $data['XP_CHIPHIGIAOHANG'] = $request->XP_CHIPHIGIAOHANG;
+        DB::table('xa_phuong')->where('XP_MA',$XP_MA)->update($data);
+        Session::put('message','Cập nhật phí ship thành công');
+        return Redirect::to('show_feeship');
     }
 }
