@@ -6,6 +6,7 @@ use DB;
 use Session;
 use App\Http\Requests;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Http\Request;
 
 use Carbon\Carbon;
 session_start();
@@ -24,11 +25,52 @@ class OrderController extends Controller
     public function update_status_order($DDH_MA){
         $this->AuthLogin();
         $NV_MA_get = Session::get('NV_MA');
-        $this->AuthLogin();
+
         $trangthai = DB::table('TRANG_THAI')->get(); 
+        $nhanvienxl = DB::table('NHANVIEN')-> orderby('NV_MA','desc')->get(); 
         $edit_order = DB::table('chi_tiet_trang_thai')->where('DDH_MA',$DDH_MA)->get();
         Session::put('NV_MA_get',$NV_MA_get);
-        $manager_order = view('admin.dashboard.update_status_order')->with('edit_order', $edit_order)->with('trangthai',$trangthai);
+        $manager_order = view('admin.dashboard.update_status_order')->with('edit_order', $edit_order)
+        ->with('trangthai',$trangthai)->with('nhanvienxl',$nhanvienxl);
         return view('admin-layout')->with('admin.dashboard.update_status_order', $manager_order);
+    }
+
+    public function update_status(Request $request, $DDH_MA, $TT_MA){
+        $this->AuthLogin();
+        $NV_MA = Session::get('NV_MA');
+
+        $data = array();
+        $data['DDH_MA'] = $request->DDH_MA;
+        $data['TT_MA'] = $request->TT_MA;
+        $data['CTTT_NGAYCAPNHAT'] = Carbon::now('Asia/Ho_Chi_Minh');
+        $data['CTTT_GHICHU'] =  $request->CTTT_GHICHU;
+        DB::table('chi_tiet_trang_thai')->insert($data);
+
+
+        $data2 = array();
+        $data2['DDH_MA'] = $request->DDH_MA;
+        $data2['TT_MA'] = $request->TT_MA;
+        $data2['NV_MA'] = $NV_MA;
+        DB::table('duoc_quan_ly_boi')->insert($data2);
+
+        
+        
+        if($request->TT_MABD==1){
+            $data3 = array();
+            $data3['DDH_MA'] = $request->DDH_MA;
+            $data3['NV_MA'] = $request->NVXL_MA;
+            DB::table('duoc_xu_ly')->insert($data3);
+            /*echo '<pre>';
+            print_r ($data);
+            print_r ($data2);
+            print_r ($data3);
+            echo '</pre>';*/
+        }
+        
+
+        DB::table('duoc_quan_ly_boi')->where('TT_MA', $request->TT_MABD)->where('DDH_MA', $request->DDH_MA)->delete();
+        DB::table('chi_tiet_trang_thai')->where('TT_MA', $request->TT_MABD)->where('DDH_MA', $request->DDH_MA)->delete();
+        Session::put('message','Cập nhật trạng thái đơn đặt hàng thành công');
+        return Redirect::to('all-product');
     }
 }

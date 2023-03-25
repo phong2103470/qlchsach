@@ -170,4 +170,5 @@ Route::post('/thong-ke-thoi-gian', 'App\Http\Controllers\AdminController@thong_k
 
 //Trạng thái đơn đặt hàng
 Route::get('/update-status-order/{DDH_MA}', 'App\Http\Controllers\OrderController@update_status_order');
+Route::post('/update_status/ddh={DDH_MA}&tt={TT_MA}', 'App\Http\Controllers\OrderController@update_status');
 
