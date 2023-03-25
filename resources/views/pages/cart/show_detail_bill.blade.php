@@ -14,6 +14,12 @@
                 <label for="exampleInputEmail1"><b>Mã đơn đặt hàng:</b></label>
                 <input type="text" name="DDH_MA" disabled value="{{$all_DDH->DDH_MA}}" class="form-control" id="exampleInputEmail1">
             </div>
+            
+            <div class="form-group">
+                <label for="exampleInputEmail1"><b>Trạng thái đơn hàng:</b></label>
+                <input type="text" name="DDH_MA" disabled value="{{$all_DDH->TT_TEN}}" class="form-control" id="exampleInputEmail1">
+            </div>
+
             <div class="form-group">
                 <label for="exampleInputEmail1"><b>Họ tên người nhận:</b></label>
                 <input type="text" name="DDH_MA" disabled value="{{$all_DDH->DCGH_HOTENNGUOINHAN}}" class="form-control" id="exampleInputEmail1">

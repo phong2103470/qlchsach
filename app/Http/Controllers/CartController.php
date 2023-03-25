@@ -127,6 +127,8 @@ class CartController extends Controller
         $KH_MA = Session::get('KH_MA');
         $all_category_product = DB::table('the_loai_sach')->get();
         $all_DDH=  DB::table('don_dat_hang')
+        ->join('chi_tiet_trang_thai','chi_tiet_trang_thai.DDH_MA','=','don_dat_hang.DDH_MA')
+        ->join('trang_thai','chi_tiet_trang_thai.TT_MA','=','trang_thai.TT_MA')
         ->join('dia_chi_giao_hang','dia_chi_giao_hang.DCGH_MA','=','don_dat_hang.DCGH_MA')
         ->join('hinh_thuc_thanh_toan','hinh_thuc_thanh_toan.HTTT_MA','=','don_dat_hang.HTTT_MA')
         ->join('xa_phuong','dia_chi_giao_hang.XP_MA','=','xa_phuong.XP_MA')
