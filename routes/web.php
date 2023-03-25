@@ -176,3 +176,12 @@ Route::post('/update_status/ddh={DDH_MA}&tt={TT_MA}', 'App\Http\Controllers\Orde
 Route::get('/show_feeship', 'App\Http\Controllers\AdminController@show_feeship');
 Route::get('/edit_feeship/{XP_MA}', 'App\Http\Controllers\AdminController@edit_feeship');
 Route::post('/update_feeship/{XP_MA}', 'App\Http\Controllers\AdminController@update_feeship');
+
+// chuc vu 
+Route::get('/add-chucvu', 'App\Http\Controllers\Chucvu@add_chucvu');
+Route::get('/edit-chucvu/{CV_MA}', 'App\Http\Controllers\Chucvu@edit_chucvu');
+Route::get('/delete-chucvu/{CV_MA}', 'App\Http\Controllers\Chucvu@delete_chucvu');
+Route::get('/all-chucvu', 'App\Http\Controllers\Chucvu@all_chucvu');
+
+Route::post('/save-chucvu', 'App\Http\Controllers\Chucvu@save_chucvu');
+Route::post('/update-chucvu/{CV_MA}', 'App\Http\Controllers\Chucvu@update_chucvu');

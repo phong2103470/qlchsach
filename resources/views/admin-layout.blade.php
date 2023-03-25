@@ -224,7 +224,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <span>Quản lý tài khoản</span>
                     </a>
                     <ul class="sub">
-						<li><a href="{{URL::to('/??H')}}">Thêm chức vụ</a></li>
+						<li><a href="{{URL::to('/add-chucvu')}}">Thêm chức vụ</a></li>
+						<li><a href="{{URL::to('/all-chucvu')}}">Liệt kê chức vụ</a></li>
 						<li><a href="{{URL::to('/add-employee')}}">Thêm nhân viên</a></li>
 						<li><a href="{{URL::to('/all-employee')}}">Liệt kê nhân viên</a></li>
 						<li><a href="{{URL::to('/???H')}}">Liệt kê khách hàng</a></li>
