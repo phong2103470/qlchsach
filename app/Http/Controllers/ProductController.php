@@ -142,14 +142,37 @@ class ProductController extends Controller
         ->whereNotIn('sach.SACH_MA', [$SACH_MA])
         ->limit(4)->get();
 
+        //Show đánh giá cũ
+        $danh_gia = DB::table('danh_gia')
+        ->join('khach_hang','khach_hang.KH_MA','=','danh_gia.KH_MA')
+        ->where('SACH_MA', $SACH_MA)->orderby('DG_MA','desc')->get();
+
+        $countdg = DB::table('danh_gia')
+        ->join('khach_hang','khach_hang.KH_MA','=','danh_gia.KH_MA')
+        ->where('SACH_MA', $SACH_MA)->count();
+
+        Session::put('countdg',$countdg);
+
+        //Cho phép nhập đánh giá mới
+        $KH_MA = Session::get('KH_MA');
+        Session::put('kh',$KH_MA);
+        
+        $binh_luan=  DB::table('khach_hang')
+        ->join('don_dat_hang','khach_hang.KH_MA','=','don_dat_hang.KH_MA')
+        ->join('chi_tiet_trang_thai','chi_tiet_trang_thai.DDH_MA','=','don_dat_hang.DDH_MA')
+        ->join('chi_tiet_don_dat_hang','chi_tiet_don_dat_hang.DDH_MA','=','don_dat_hang.DDH_MA')
+        ->where('TT_MA', 5)
+        ->where('SACH_MA', $SACH_MA)->get();
 
         return view('pages.product.show_details_product')->with('category', $all_category_product)
         ->with('product_detail', $details_product)
         ->with('product_relate', $related_product)
         ->with('category_product', $category_product)
-        ->with('author_product', $author_product);
+        ->with('author_product', $author_product)
+        ->with('binh_luan', $binh_luan)
+        ->with('danh_gia', $danh_gia);
         /*echo '<pre>';
-        print_r ($details_product);
+        print_r ($binh_luan);
         echo '</pre>';*/
     }
 
@@ -180,5 +203,27 @@ class ProductController extends Controller
             return view('admin.search_product')->with('category', $all_category_product)
             ->with('search_product', $search_product)
             ->with('all_product', $all_product);
+        }
+
+        public function danh_gia(Request $request, $SACH_MA){
+
+            //Cho phép nhập đánh giá mới
+            $KH_MA = Session::get('KH_MA');
+            $check= DB::table('danh_gia')->where('KH_MA',$KH_MA)->where('SACH_MA',$SACH_MA)->delete();
+            
+            $data = array();
+            //$data['SACH_MA'] = $request->product_desc;
+            $data['KH_MA'] = $KH_MA;
+            $data['SACH_MA'] = $SACH_MA;
+            $data['DG_NOIDUNG'] = $request->DG_NOIDUNG;
+            $data['DG_DIEM'] = $request->DG_DIEM;
+            $data['DG_THOIGIAN'] =  Carbon::now('Asia/Ho_Chi_Minh');
+            DB::table('danh_gia')->insert($data);
+            Session::put('message','Cập nhật sách thành công');
+            return Redirect::to('chi-tiet-san-pham/'.$SACH_MA);
+
+            /*echo '<pre>';
+            print_r ($binh_luan);
+            echo '</pre>';*/
         }
 }

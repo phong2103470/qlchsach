@@ -23,6 +23,7 @@ Route::post('/tim-kiem', 'App\Http\Controllers\HomeController@search');
 Route::get('/danh-muc-san-pham/{TLS_MA}', 'App\Http\Controllers\CategoryProduct@show_category_home');
 Route::get('/chi-tiet-san-pham/{SACH_MA}', 'App\Http\Controllers\ProductController@detail_product');
 
+Route::post('/danh-gia/{SACH_MA}', 'App\Http\Controllers\ProductController@danh_gia');
 
 //Login
 Route::get('/dang-nhap','App\Http\Controllers\CostumerController@dang_nhap');
