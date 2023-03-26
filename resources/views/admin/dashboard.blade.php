@@ -21,7 +21,7 @@
 							}
 						?>
 					</h3>
-					<a href="#"><p>Xem thêm</p></a>
+					<a href="{{URL::to('/trang-thai/tat-ca')}}"><p>Xem thêm</p></a>
 				  </div>
 				  <div class="clearfix"> </div>
 				</div>
@@ -39,7 +39,7 @@
 									echo $ddh_cxl;
 							?>
 						</h3>
-						<a href="#"><p>Xem thêm</p></a>
+						<a href="{{URL::to('/danh-muc-trang-thai/1')}}"><p>Xem thêm</p></a>
 					</div>
 				  <div class="clearfix"> </div>
 				</div>

@@ -5,19 +5,35 @@
     <div class="panel-heading">
       Liệt kê sách
     </div>
-    <?php
-      $message = Session::get('message');
-      if($message){
-          echo '<span class="text-alert">'.$message.'</span></br>';
-          Session::put('message',null);
-      }
-    ?>
+    <div class="row w3-res-tb">
+      <div class="col-sm-5 m-b-xs">
         <?php
-				$count= Session::get('count_product');
-							if ($count) {
-								echo "Tổng số dòng dữ liệu: ".$count;
-							}
-		?>
+          $message = Session::get('message');
+          if($message){
+              echo '<span class="text-alert">'.$message.'</span></br>';
+              Session::put('message',null);
+          }
+        ?>
+        <?php
+            $count= Session::get('count_product');
+                  if ($count) {
+                    echo "Tổng số dòng dữ liệu: ".$count;
+                  }
+        ?>
+      </div>
+      <div class="col-sm-4">
+        <p style="text-align: right;">Tìm sách:</p>
+      </div>
+      <div class="col-sm-3">
+        <div class="input-group">
+        <form class="d-flex" action="{{ URL::to('/search-product') }}" method="POST">
+          {{ csrf_field() }}
+            <input type="text" class="input-sm form-control" name="keywords_submit" style="width: 70%; margin: 0 10px" placeholder="Nhập sách cần tìm...">
+            <button type="submit" class="btn btn-sm btn-default"><i class="fa fa-search icon-white"></i></a></button>
+          </form>
+        </div>
+      </div>
+    </div>
     <div class="table-responsive">
       <table class="table table-striped b-t b-light">
         <thead>

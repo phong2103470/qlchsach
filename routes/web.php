@@ -98,6 +98,7 @@ Route::get('/all-product', 'App\Http\Controllers\ProductController@all_product')
 
 Route::post('/save-product', 'App\Http\Controllers\ProductController@save_product');
 Route::post('/update-product/{SACH_MA}', 'App\Http\Controllers\ProductController@update_product');
+Route::post('/search-product', 'App\Http\Controllers\ProductController@search_product');
 
 //Product Image
 Route::get('/add-product-image', 'App\Http\Controllers\ImageProductController@add_product_image');
@@ -167,6 +168,13 @@ Route::post('/update-chitiet-loxuat/lo={LX_MA}&sach={SACH_MA}', 'App\Http\Contro
 //Thống kê
 Route::get('/thong-ke', 'App\Http\Controllers\AdminController@thong_ke');
 Route::post('/thong-ke-thoi-gian', 'App\Http\Controllers\AdminController@thong_ke_tg');
+
+//Đơn đặt hàng
+//Route::get('/liet-ke-don-hang', 'App\Http\Controllers\AdminController@liet_ke_dh');
+Route::get('/trang-thai/tat-ca', 'App\Http\Controllers\AdminController@all_status');
+Route::get('/danh-muc-trang-thai/{TT_MA}', 'App\Http\Controllers\AdminController@show_status_order');
+Route::post('/search-all-order', 'App\Http\Controllers\AdminController@search_all_order');
+Route::get('/show-detail/{DDH_MA}','App\Http\Controllers\AdminController@show_detail');
 
 //Trạng thái đơn đặt hàng
 Route::get('/update-status-order/{DDH_MA}', 'App\Http\Controllers\OrderController@update_status_order');

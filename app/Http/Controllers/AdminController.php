@@ -213,6 +213,137 @@ class AdminController extends Controller
         return view('admin.dashboard.thong_ke');
     }
 
+    //Liệt kê các đơn hàng
+
+    public function all_order(){
+        $this->AuthLogin();
+
+        $all_DDH = DB::table('don_dat_hang')
+        ->join('chi_tiet_don_dat_hang','don_dat_hang.DDH_MA','=','chi_tiet_don_dat_hang.DDH_MA')
+        ->join('sach','sach.SACH_MA','=','chi_tiet_don_dat_hang.SACH_MA')
+        ->orderby('don_dat_hang.DDH_MA','desc')->get();
+        $manager_order = view('admin.all_order')->with('all_DDH', $all_DDH);
+
+        $count_order = DB::table('don_dat_hang')->count('DDH_MA');
+        Session::put('count_order',$count_order);
+        return view('admin-layout')->with('admin.all_order', $manager_order);
+    }
+
+        //Tất cả trạng thái
+    public function all_status(){
+
+        $all_status = DB::table('trang_thai')->get();
+
+        $all_DDH=  DB::table('don_dat_hang')
+        ->join('chi_tiet_trang_thai', 'don_dat_hang.DDH_MA', '=', 'chi_tiet_trang_thai.DDH_MA')
+        ->join('trang_thai', 'trang_thai.TT_MA', '=', 'chi_tiet_trang_thai.TT_MA')
+        ->orderby('don_dat_hang.DDH_MA','desc')->get();
+
+
+        $group_DDH = DB::table('don_dat_hang')
+        ->join('chi_tiet_don_dat_hang','don_dat_hang.DDH_MA','=','chi_tiet_don_dat_hang.DDH_MA')
+        ->join('sach','sach.SACH_MA','=','chi_tiet_don_dat_hang.SACH_MA')->get();
+
+        $count_order = DB::table('don_dat_hang')->count('DDH_MA');
+        Session::put('count_order',$count_order);
+
+        return view('admin.all_order')
+        ->with('all_status', $all_status)
+        ->with('all_DDH', $all_DDH)
+        ->with('group_DDH', $group_DDH);
+    }
+        //Danh mục trạng thái
+    public function show_status_order($TT_MA){
+
+        $all_status = DB::table('trang_thai')->get();
+
+        $status_by_id = DB::table('don_dat_hang')
+        ->join('chi_tiet_trang_thai', 'don_dat_hang.DDH_MA', '=', 'chi_tiet_trang_thai.DDH_MA')
+        ->join('trang_thai', 'trang_thai.TT_MA', '=', 'chi_tiet_trang_thai.TT_MA')
+        ->orderby('don_dat_hang.DDH_MA','desc')
+        ->where('trang_thai.TT_MA', $TT_MA)->get();
+
+        $status_count = DB::table('don_dat_hang')
+        ->join('chi_tiet_trang_thai', 'don_dat_hang.DDH_MA', '=', 'chi_tiet_trang_thai.DDH_MA')
+        ->join('trang_thai', 'trang_thai.TT_MA', '=', 'chi_tiet_trang_thai.TT_MA')
+        ->orderby('don_dat_hang.DDH_MA','desc')
+        ->where('trang_thai.TT_MA', $TT_MA)->count();
+        Session::put('status_count',$status_count);
+
+        $status_name = DB::table('trang_thai')->where('trang_thai.TT_MA', $TT_MA )->get();
+
+        $all_DDH=  DB::table('don_dat_hang')->orderby('don_dat_hang.DDH_MA','desc')->get();
+
+
+        $group_DDH = DB::table('don_dat_hang')
+        ->join('chi_tiet_don_dat_hang','don_dat_hang.DDH_MA','=','chi_tiet_don_dat_hang.DDH_MA')
+        ->join('sach','sach.SACH_MA','=','chi_tiet_don_dat_hang.SACH_MA')->get();
+
+
+        return view('admin.show_status_order')
+        ->with('all_status', $all_status)
+        ->with('id_status', $status_by_id)
+        ->with('status_name', $status_name)
+        ->with('all_DDH', $all_DDH)
+        ->with('group_DDH', $group_DDH);
+    }
+
+    //Tìm kiếm sản phẩm trong tất cả các đơn đặt hàng
+    public function search_all_order(Request $request){
+        $this->AuthLogin();
+
+        $all_status = DB::table('trang_thai')->get();
+
+        $keywords = $request ->keywords_submit;
+
+        $all_DDH=  DB::table('don_dat_hang')
+        ->join('chi_tiet_don_dat_hang','don_dat_hang.DDH_MA','=','chi_tiet_don_dat_hang.DDH_MA')
+        ->join('sach','sach.SACH_MA','=','chi_tiet_don_dat_hang.SACH_MA')
+        ->join('chi_tiet_trang_thai', 'don_dat_hang.DDH_MA', '=', 'chi_tiet_trang_thai.DDH_MA')
+        ->join('trang_thai', 'trang_thai.TT_MA', '=', 'chi_tiet_trang_thai.TT_MA')
+        //->where('sach.SACH_MA', 'like', '%'.$keywords.'%')
+        ->where('don_dat_hang.DDH_MA', '=', $keywords)
+        ->orderby('don_dat_hang.DDH_MA','desc')->get();
+
+        $group_DDH = DB::table('don_dat_hang')
+        ->join('chi_tiet_don_dat_hang','don_dat_hang.DDH_MA','=','chi_tiet_don_dat_hang.DDH_MA')
+        ->join('sach','sach.SACH_MA','=','chi_tiet_don_dat_hang.SACH_MA')->get();
+
+        return view('admin.search_all_order')
+        ->with('all_status', $all_status)
+        ->with('all_DDH', $all_DDH)->with('group_DDH', $group_DDH);
+    }
+
+    //Xem chi tiết đơn hàng
+    public function show_detail($DDH_MA){
+        $all_category_product = DB::table('the_loai_sach')->get();
+        $all_DDH=  DB::table('don_dat_hang')
+        ->join('khach_hang','khach_hang.KH_MA','=','don_dat_hang.KH_MA')
+        ->join('dia_chi_giao_hang','dia_chi_giao_hang.DCGH_MA','=','don_dat_hang.DCGH_MA')
+        ->join('hinh_thuc_thanh_toan','hinh_thuc_thanh_toan.HTTT_MA','=','don_dat_hang.HTTT_MA')
+        ->join('xa_phuong','dia_chi_giao_hang.XP_MA','=','xa_phuong.XP_MA')
+        ->join('huyen_quan','huyen_quan.HQ_MA','=','xa_phuong.HQ_MA')
+        ->join('tinh_thanh_pho','huyen_quan.TTP_MA','=','tinh_thanh_pho.TTP_MA')
+        ->where('don_dat_hang.DDH_MA', $DDH_MA)->get();
+
+
+        $group_DDH = DB::table('chi_tiet_don_dat_hang')
+        ->join('sach','sach.SACH_MA','=','chi_tiet_don_dat_hang.SACH_MA')
+        ->join('hinh_anh_sach','sach.SACH_MA','=','hinh_anh_sach.SACH_MA')
+        ->where('chi_tiet_don_dat_hang.DDH_MA', $DDH_MA)->get();
+
+        $TT_MA = Session::get('TT_MA');
+
+        $all_status = DB::table('trang_thai')
+        ->where('trang_thai.TT_MA', $TT_MA)
+        ->get();
+
+        return view('admin.show_detail')->with('category', $all_category_product)
+        ->with('all_DDH', $all_DDH)->with('group_DDH', $group_DDH)
+        ->with('all_status', $all_status);
+
+    }
+    
     public function thong_ke_tg(Request $request){
         $this->AuthLogin();
         $homnay=Carbon::now('Asia/Ho_Chi_Minh');

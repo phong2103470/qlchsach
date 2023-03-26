@@ -151,6 +151,34 @@ class ProductController extends Controller
         /*echo '<pre>';
         print_r ($details_product);
         echo '</pre>';*/
-
     }
+
+        //Tìm kiếm sản phẩm
+        public function search_product(Request $request){
+
+            $keywords = $request ->keywords_submit;
+    
+            $all_category_product = DB::table('the_loai_sach')->get();
+    
+            $all_product = DB::table('sach')
+            ->join('nha_xuat_ban','nha_xuat_ban.NXB_MA','=','sach.NXB_MA')
+            ->join('ngon_ngu','ngon_ngu.NN_MA','=','sach.NN_MA')
+            ->orderby('SACH_MA','desc')->get();
+    
+            $search_product = DB::table('sach')
+            ->join('nha_xuat_ban','nha_xuat_ban.NXB_MA','=','sach.NXB_MA')
+            ->join('ngon_ngu','ngon_ngu.NN_MA','=','sach.NN_MA')
+            ->join('hinh_anh_sach','sach.SACH_MA','=','hinh_anh_sach.SACH_MA')
+            ->join('co_tac_gia', 'sach.SACH_MA', '=', 'co_tac_gia.SACH_MA')
+            ->join('tac_gia', 'tac_gia.TG_MA', '=', 'co_tac_gia.TG_MA')
+            ->where('sach.SACH_TEN', 'like', '%'.$keywords.'%')
+            ->orWhere('sach.SACH_MOTA', 'like', '%'.$keywords.'%')
+            ->orWhere('nha_xuat_ban.NXB_TEN', 'like', '%'.$keywords.'%')
+            ->orWhere('tac_gia.TG_HOTEN', 'like', '%'.$keywords.'%')
+            ->get();
+    
+            return view('admin.search_product')->with('category', $all_category_product)
+            ->with('search_product', $search_product)
+            ->with('all_product', $all_product);
+        }
 }

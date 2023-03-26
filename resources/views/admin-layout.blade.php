@@ -175,11 +175,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <span>Quản lý đơn đặt hàng</span>
                     </a>
                     <ul class="sub">
-						<!-- <li><a href="{{URL::to('/update-status-order')}}">Cập nhật trạng thái đơn đặt hàng</a></li>  chi_tiet trang_thai: edit => duoc_quan_ly_boi: add  => nếu bước này là xử lý => duoc_xu_ly: add--> 
-						<li><a href="{{URL::to('/???N')}}">Liệt kê trạng thái đơn đặt hàng</a></li><!-- chi_tiet trang_thai--> 
+						<li><a href="{{URL::to('/trang-thai/tat-ca')}}">Liệt kê các đơn đặt hàng</a></li> <!-- in cả sách? số lượng? đơn giá? -->
 						<li><a href="{{URL::to('/???N')}}">Liệt kê thông tin sửa đổi trạng thái đơn đặt hàng</a></li><!-- duoc_quan_ly_boi--> 
 						<li><a href="{{URL::to('/???N')}}">Liệt kê người xử lý đơn hàng</a></li><!-- duoc_xu_ly--> 
-						<li><a href="{{URL::to('/???D')}}">Liệt kê các đơn đặt hàng</a></li> <!-- in cả sách? số lượng? đơn giá? --> 
+				
 						<!-- <li><a href="{{URL::to('/???D')}}">Liệt kê các đơn đặt hàng chưa xử lý</a></li> in cả sách? số lượng? đơn giá? --> 
 						<!-- hinh_thuc_thanh_toan --> 
 						<li><a href="{{URL::to('/??H')}}">Thêm hình thức thanh toán đơn đặt hàng</a></li>
