@@ -181,8 +181,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				
 						<!-- <li><a href="{{URL::to('/???D')}}">Liệt kê các đơn đặt hàng chưa xử lý</a></li> in cả sách? số lượng? đơn giá? --> 
 						<!-- hinh_thuc_thanh_toan --> 
-						<li><a href="{{URL::to('/??H')}}">Thêm hình thức thanh toán đơn đặt hàng</a></li>
-						<li><a href="{{URL::to('/??H')}}">Liệt kê hình thức thanh toán đơn đặt hàng</a></li>
+						<li><a href="{{URL::to('/add-hinhthu-thanhtoan')}}">Thêm hình thức thanh toán đơn đặt hàng</a></li>
+						<li><a href="{{URL::to('/all-hinhthu-thanhtoan')}}">Liệt kê hình thức thanh toán đơn đặt hàng</a></li>
                     </ul>
                 </li>
 				<li class="sub-menu">
@@ -206,6 +206,19 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </ul>
                 </li>
 				<li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa fa-user"></i>
+                        <span>Quản lý tài khoản</span>
+                    </a>
+                    <ul class="sub">
+						<li><a href="{{URL::to('/add-chucvu')}}">Thêm chức vụ</a></li>
+						<li><a href="{{URL::to('/all-chucvu')}}">Liệt kê chức vụ</a></li>
+						<li><a href="{{URL::to('/add-employee')}}">Thêm nhân viên</a></li>
+						<li><a href="{{URL::to('/all-employee')}}">Liệt kê nhân viên</a></li>
+						<li><a href="{{URL::to('/all-khachhang')}}">Liệt kê khách hàng</a></li>
+                    </ul>
+                </li>
+				<li class="sub-menu">
                     <a href="{{URL::to('/show_feeship')}}"> 
 						<i class="fa fa-truck"></i> 
                         <span>Quản lý phí ship</span> 
@@ -216,19 +229,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <i class="fa fa-bar-chart-o"></i>
                         <span>Thống kê</span>
                     </a>
-                </li>
-				<li class="sub-menu">
-                    <a href="javascript:;">
-                        <i class="fa fa-user"></i>
-                        <span>Quản lý tài khoản</span>
-                    </a>
-                    <ul class="sub">
-						<li><a href="{{URL::to('/add-chucvu')}}">Thêm chức vụ</a></li>
-						<li><a href="{{URL::to('/all-chucvu')}}">Liệt kê chức vụ</a></li>
-						<li><a href="{{URL::to('/add-employee')}}">Thêm nhân viên</a></li>
-						<li><a href="{{URL::to('/all-employee')}}">Liệt kê nhân viên</a></li>
-						<li><a href="{{URL::to('/???H')}}">Liệt kê khách hàng</a></li>
-                    </ul>
                 </li>
                 
             </ul>            </div>

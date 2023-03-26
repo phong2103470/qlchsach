@@ -193,3 +193,18 @@ Route::get('/all-chucvu', 'App\Http\Controllers\Chucvu@all_chucvu');
 
 Route::post('/save-chucvu', 'App\Http\Controllers\Chucvu@save_chucvu');
 Route::post('/update-chucvu/{CV_MA}', 'App\Http\Controllers\Chucvu@update_chucvu');
+
+// hinh thuc thanh toan
+Route::get('/add-hinhthu-thanhtoan', 'App\Http\Controllers\Hinhthucthanhtoan@add_hinhthuc_thanhtoan');
+Route::get('/edit-hinhthu-thanhtoan/{HTTT_MA}', 'App\Http\Controllers\Hinhthucthanhtoan@edit_hinhthuc_thanhtoan');
+Route::get('/delete-hinhthu-thanhtoan/{HTTT_MA}', 'App\Http\Controllers\Hinhthucthanhtoan@delete_hinhthuc_thanhtoan');
+Route::get('/all-hinhthu-thanhtoan', 'App\Http\Controllers\Hinhthucthanhtoan@all_hinhthuc_thanhtoan');
+
+Route::post('/save-hinhthu-thanhtoan', 'App\Http\Controllers\Hinhthucthanhtoan@save_hinhthuc_thanhtoan');
+Route::post('/update-hinhthu-thanhtoan/{HTTT_MA}', 'App\Http\Controllers\Hinhthucthanhtoan@update_hinhthuc_thanhtoan');
+
+//khachhang
+Route::get('/add-khachhang', 'App\Http\Controllers\Khachhang@add_khachhang');
+Route::get('/edit-khachhang/{KH_MA}', 'App\Http\Controllers\Khachhang@edit_khachhang');
+Route::get('/delete-khachhang/{KH_MA}', 'App\Http\Controllers\Khachhang@delete_khachhang');
+Route::get('/all-khachhang', 'App\Http\Controllers\Khachhang@all_khachhang');

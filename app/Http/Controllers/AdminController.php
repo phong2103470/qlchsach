@@ -297,8 +297,8 @@ class AdminController extends Controller
         $keywords = $request ->keywords_submit;
 
         $all_DDH=  DB::table('don_dat_hang')
-        ->join('chi_tiet_don_dat_hang','don_dat_hang.DDH_MA','=','chi_tiet_don_dat_hang.DDH_MA')
-        ->join('sach','sach.SACH_MA','=','chi_tiet_don_dat_hang.SACH_MA')
+        //->join('chi_tiet_don_dat_hang','don_dat_hang.DDH_MA','=','chi_tiet_don_dat_hang.DDH_MA')
+        //->join('sach','sach.SACH_MA','=','chi_tiet_don_dat_hang.SACH_MA')
         ->join('chi_tiet_trang_thai', 'don_dat_hang.DDH_MA', '=', 'chi_tiet_trang_thai.DDH_MA')
         ->join('trang_thai', 'trang_thai.TT_MA', '=', 'chi_tiet_trang_thai.TT_MA')
         //->where('sach.SACH_MA', 'like', '%'.$keywords.'%')
