@@ -59,7 +59,7 @@
 							}
 						?>
 						</h3>
-						<a href="#"><p>Xem thêm</p></a>
+						<a href="{{URL::to('/all-khachhang')}}"><p>Xem thêm</p></a>
 					</div>
 				  <div class="clearfix"> </div>
 				</div>
