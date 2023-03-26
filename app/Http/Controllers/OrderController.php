@@ -71,6 +71,6 @@ class OrderController extends Controller
         DB::table('duoc_quan_ly_boi')->where('TT_MA', $request->TT_MABD)->where('DDH_MA', $request->DDH_MA)->delete();
         DB::table('chi_tiet_trang_thai')->where('TT_MA', $request->TT_MABD)->where('DDH_MA', $request->DDH_MA)->delete();
         Session::put('message','Cập nhật trạng thái đơn đặt hàng thành công');
-        return Redirect::to('all-product');
+        return Redirect::to('/trang-thai/tat-ca');
     }
 }

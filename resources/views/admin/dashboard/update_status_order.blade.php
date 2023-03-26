@@ -15,7 +15,7 @@
 
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Mã đơn đặt hàng</label>
-                                    <input type="text" value="{{$edit_value->DDH_MA}}" name="DDH_MA" class="form-control" id="exampleInputEmail1">
+                                    <input type="text" disabled value="{{$edit_value->DDH_MA}}" name="DDH_MA" class="form-control" id="exampleInputEmail1">
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Tên trạng thái</label>

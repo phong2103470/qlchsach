@@ -41,6 +41,13 @@
 			echo "Tổng số dòng dữ liệu: ".$count;
         }
 	?>
+      <?php
+      $message = Session::get('message');
+      if($message){
+          echo '<br><span class="text-alert">'.$message.'</span>';
+          Session::put('message',null);
+      }
+    ?>
     <div class="table-responsive">
       <table class="table table-striped b-t b-light">
         <thead>
@@ -82,7 +89,10 @@
                   <td>{{number_format($all_DDH->DDH_TONGTIEN)}} đ</td>
                   <td>{{$all_DDH->TT_TEN}}</td>
 
-                  <td><a href="{{URL::to('/show-detail/'.$all_DDH->DDH_MA)}}"><button style= {width:100%} type = "submit" class="btn btn-outline-dark btn-sm">Xem chi tiết</button></a></td>
+                  <td >
+                    <a href="{{URL::to('/show-detail/'.$all_DDH->DDH_MA)}}"><button style= {width:100%} type = "submit" class="btn btn-outline-dark btn-success btn-sm ">Xem chi tiết</button></a>
+                    <a href="{{URL::to('/update-status-order/'.$all_DDH->DDH_MA)}}"><button style= {width:100%} type = "submit" class="btn btn-outline-dark btn-warning btn-sm">Cập nhật trạng thái</button></a>
+                </td>
               </tr>
               @endforeach
         </tbody>
