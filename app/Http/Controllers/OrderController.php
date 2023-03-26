@@ -73,4 +73,34 @@ class OrderController extends Controller
         Session::put('message','Cập nhật trạng thái đơn đặt hàng thành công');
         return Redirect::to('/trang-thai/tat-ca');
     }
+
+    public function all_lktt_trangthaiddh(){ //Hien thi tat ca lo nhap
+        $this->AuthLogin(); 
+
+        $all_lktt_trangthaiddh = DB::table('duoc_quan_ly_boi')
+        ->join('nhanvien','nhanvien.NV_MA','=','duoc_quan_ly_boi.NV_MA')
+        ->join('trang_thai','trang_thai.TT_MA','=','duoc_quan_ly_boi.TT_MA')
+        ->orderby('nhanvien.NV_MA')->get();
+
+        
+        $manager_lktt_trangthaiddh = view('admin.all_lktt_trangthaiddh')->with('all_lktt_trangthaiddh', $all_lktt_trangthaiddh);
+        //->with('all_lonhap', $all_lonhap);
+        return view('admin-layout')->with('admin.all_lktt_trangthaiddh', $manager_lktt_trangthaiddh); 
+    }
+
+    public function all_nguoixuly(){ //Hien thi tat ca lo nhap
+        $this->AuthLogin(); 
+
+        $all_nguoixuly = DB::table('duoc_xu_ly')
+        ->join('nhanvien','nhanvien.NV_MA','=','duoc_xu_ly.NV_MA')
+        
+        ->orderby('nhanvien.NV_MA')->get();
+
+        
+        $manager_nguoixuly = view('admin.all_nguoixuly')->with('all_nguoixuly', $all_nguoixuly);
+        //->with('all_lonhap', $all_lonhap);
+        return view('admin-layout')->with('admin.all_nguoixuly', $manager_nguoixuly); 
+    }
+
+
 }

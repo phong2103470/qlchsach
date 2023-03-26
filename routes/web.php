@@ -180,6 +180,10 @@ Route::get('/show-detail/{DDH_MA}','App\Http\Controllers\AdminController@show_de
 Route::get('/update-status-order/{DDH_MA}', 'App\Http\Controllers\OrderController@update_status_order');
 Route::post('/update_status/ddh={DDH_MA}&tt={TT_MA}', 'App\Http\Controllers\OrderController@update_status');
 
+//Liet ke thong tin trang thai ddh
+Route::get('/all-lktt-trangthaiddh', 'App\Http\Controllers\OrderController@all_lktt_trangthaiddh');
+Route::get('/all-nguoixuly', 'App\Http\Controllers\OrderController@all_nguoixuly');
+
 //Phí ship
 Route::get('/show_feeship', 'App\Http\Controllers\AdminController@show_feeship');
 Route::get('/edit_feeship/{XP_MA}', 'App\Http\Controllers\AdminController@edit_feeship');
