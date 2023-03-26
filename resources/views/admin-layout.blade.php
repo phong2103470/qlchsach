@@ -140,8 +140,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<li><a href="{{URL::to('/add-tacgia-product')}}">Thêm tác giả</a></li> 
 						<li><a href="{{URL::to('/all-tacgia-product')}}">Liệt kê tác giả</a></li>
 						<!-- co_tac_gia --> 
-						<li><a href="{{URL::to('/???N')}}">Thêm tác giả của sách</a></li>
-						<li><a href="{{URL::to('/???N')}}">Liệt kê tác giả của sách</a></li>
+						<li><a href="{{URL::to('/add-tacgia-cuasach')}}">Thêm tác giả của sách</a></li>
+						<li><a href="{{URL::to('/all-tacgia-cuasach')}}">Liệt kê tác giả của sách</a></li>
                     </ul>  
                 </li>
 				<li class="sub-menu">
@@ -154,8 +154,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<li><a href="{{URL::to('/add-category-product')}}">Thêm thể loại sách</a></li>
 						<li><a href="{{URL::to('/all-category-product')}}">Liệt kê thể loại sách</a></li>
 						<!-- cua_sach -->
-						<li><a href="{{URL::to('/???N')}}">Thêm chi tiết thể loại sách</a></li>
-						<li><a href="{{URL::to('/???N')}}">Liệt kê chi tiết thể loại sách</a></li>
+						<li><a href="{{URL::to('/add-cttheloai-cuasach')}}">Thêm chi tiết thể loại sách</a></li>
+						<li><a href="{{URL::to('/all-cttheloai-cuasach')}}">Liệt kê chi tiết thể loại sách</a></li>
                     </ul>
                 </li>
 				<li class="sub-menu">

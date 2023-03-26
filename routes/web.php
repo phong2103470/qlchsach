@@ -208,3 +208,22 @@ Route::get('/add-khachhang', 'App\Http\Controllers\Khachhang@add_khachhang');
 Route::get('/edit-khachhang/{KH_MA}', 'App\Http\Controllers\Khachhang@edit_khachhang');
 Route::get('/delete-khachhang/{KH_MA}', 'App\Http\Controllers\Khachhang@delete_khachhang');
 Route::get('/all-khachhang', 'App\Http\Controllers\Khachhang@all_khachhang');
+
+//tacgia cuasach
+
+Route::get('/add-tacgia-cuasach', 'App\Http\Controllers\TacGiaCuaSach@add_tacgia_cuasach');
+Route::get('/edit-tacgia-cuasach/sach={SACH_MA}&tacgia={TG_MA}', 'App\Http\Controllers\TacGiaCuaSach@edit_tacgia_cuasach');
+Route::get('/delete-tacgia-cuasach/sach={SACH_MA}&tacgia={TG_MA}', 'App\Http\Controllers\TacGiaCuaSach@delete_tacgia_cuasach');
+Route::get('/all-tacgia-cuasach', 'App\Http\Controllers\TacGiaCuaSach@all_tacgia_cuasach');
+
+Route::post('/save-tacgia-cuasach', 'App\Http\Controllers\TacGiaCuaSach@save_tacgia_cuasach');
+Route::post('/update-tacgia-cuasach/sach={SACH_MA}&tacgia={TG_MA}', 'App\Http\Controllers\TacGiaCuaSach@update_tacgia_cuasach');
+
+//theloai cuasach
+Route::get('/add-cttheloai-cuasach', 'App\Http\Controllers\ChiTietTLSach@add_cttheloai_cuasach');
+Route::get('/edit-cttheloai-cuasach/sach={SACH_MA}&theloai={TLS_MA}', 'App\Http\Controllers\ChiTietTLSach@edit_cttheloai_cuasach');
+Route::get('/delete-cttheloai-cuasach/sach={SACH_MA}&theloai={TLS_MA}', 'App\Http\Controllers\ChiTietTLSach@delete_cttheloai_cuasach');
+Route::get('/all-cttheloai-cuasach', 'App\Http\Controllers\ChiTietTLSach@all_cttheloai_cuasach');
+
+Route::post('/save-cttheloai-cuasach', 'App\Http\Controllers\ChiTietTLSach@save_cttheloai_cuasach');
+Route::post('/update-cttheloai-cuasach/sach={SACH_MA}&theloai={TLS_MA}', 'App\Http\Controllers\ChiTietTLSach@update_cttheloai_cuasach');
