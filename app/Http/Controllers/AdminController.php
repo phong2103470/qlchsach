@@ -126,7 +126,16 @@ class AdminController extends Controller
             Session::put('DOANH_THU_L',$ctlx);
             Session::put('DOANH_THU_S',$ddh_dtt);
 
-    	return view('admin.dashboard');
+            $danh_gia = DB::table('danh_gia')
+            ->join('khach_hang','khach_hang.KH_MA','=','danh_gia.KH_MA')
+            ->orderby('DG_MA','desc')->get();
+
+            $countdg = DB::table('danh_gia')
+            ->join('khach_hang','khach_hang.KH_MA','=','danh_gia.KH_MA')->count();
+    
+            Session::put('countdg',$countdg);
+            
+    	return view('admin.dashboard')->with('danh_gia',$danh_gia);
     }
 
     public function dashboard(Request $request){
