@@ -80,6 +80,7 @@
                         }
                         $point = "select ROUND(AVG(DG_DIEM)) dg from Danh_gia group by SACH_MA having SACH_MA ='".$product->SACH_MA."'";
                         $result = $conn->query($point);
+                        $dg=0;
                         while ($row = $result->fetch_assoc()) {
                             $dg= $row['dg']."<br>";
                         }
@@ -125,6 +126,7 @@
                         }
                         $point = "select ROUND(AVG(DG_DIEM)) dg from Danh_gia group by SACH_MA having SACH_MA ='".$product->SACH_MA."'";
                         $result = $conn->query($point);
+                        $dg=0;
                         while ($row = $result->fetch_assoc()) {
                             $dg= $row['dg']."<br>";
                         }

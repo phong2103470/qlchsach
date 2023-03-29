@@ -21,6 +21,7 @@
                         }
                         $point = "select ROUND(AVG(DG_DIEM)) dg from Danh_gia group by SACH_MA having SACH_MA ='".$value->SACH_MA."'";
                         $result = $conn->query($point);
+                        $dg=0;
                         while ($row = $result->fetch_assoc()) {
                             $dg= $row['dg']."<br>";
                         }
@@ -232,6 +233,7 @@
                                 }
                                 $point = "select DG_DIEM dg from Danh_gia where DG_MA ='".$dg->DG_MA."'";
                                 $result = $conn->query($point);
+                                $dg=0;
                                 while ($row = $result->fetch_assoc()) {
                                     $dg= $row['dg']."<br>";
                                 }
@@ -270,8 +272,9 @@
                         if ($conn->connect_error) {
                         die("Connection failed: " . $conn->connect_error);
                         }
-                        $point = "select ROUND(AVG(DG_DIEM)) dg from Danh_gia group by SACH_MA having SACH_MA ='".$value->SACH_MA."'";
+                        $point = "select ROUND(AVG(DG_DIEM)) dg from Danh_gia group by SACH_MA having SACH_MA ='".$relate->SACH_MA."'";
                         $result = $conn->query($point);
+                        $dg=0;
                         while ($row = $result->fetch_assoc()) {
                             $dg= $row['dg']."<br>";
                         }
