@@ -37,14 +37,14 @@
                             <hr>
                             <form action="{{URL::to('/dang-ky')}}" method="post" enctype= "multipart/form-data">
                                 {{ csrf_field() }}
-                                <input type="text" class="ggg" name="KH_SODIENTHOAI" placeholder="Nhập số điện thoại" required="">
+                                <input type="text" class="ggg" name="KH_SODIENTHOAI" placeholder="Nhập số điện thoại" required="" pattern="[0-9]{10,11}">
 			                    <input type="password" class="ggg" name="KH_MATKHAU" placeholder="Nhập password" required="">
                                 <input type="text" class="ggg" name="KH_HOTEN" placeholder="Nhập họ tên" required="">
-                                <input type="date" class="ggg" name="KH_NGAYSINH" placeholder="Nhập ngày sinh" required="">
+                                <input type="date" class="ggg" name="KH_NGAYSINH" placeholder="Nhập ngày sinh" max="<?php echo date('Y-m-d', strtotime('-12 years')); ?>" required="">
 			                    <input type="text" class="ggg" name="KH_GIOITINH" placeholder="Nhập giới tính" required="">
                                 <input type="text" class="ggg" name="KH_DIACHI" placeholder="Nhập địa chỉ" required="">
-                                <input type="text" class="ggg" name="KH_EMAIL" placeholder="Nhập email" required="">
-			                    <input type="file" class="ggg" name="KH_DUONGDANANHDAIDIEN" placeholder="Chọn ảnh đại diện" required="">
+                                <input type="text" class="ggg" name="KH_EMAIL" placeholder="Nhập email"  required="" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}">
+			                    <input type="file" class="ggg" name="KH_DUONGDANANHDAIDIEN" placeholder="Chọn ảnh đại diện">
                                 <button type="submit" class="btn btn-default">Đăng ký</button>
                             </form>
 
