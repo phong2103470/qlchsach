@@ -77,7 +77,17 @@
                         </div>
                     </div>
                 </section>
-                
+                <section class="panel"> 
+                    <header class="panel-sub-heading">
+                            Thống kê thể loại sách
+                    </header>
+                    <div class="panel-body">                    
+                        <div class="panel">
+                        <div id="pie-chart" style="font:Arial" ></div>
+                        </div>
+                    </div>
+                </section>
+
                 <section class="panel">
                     <header class="panel-sub-heading" >
                             Sách bán nhiều nhất
@@ -224,6 +234,29 @@ Morris.Bar({
  labels:['Doanh thu'],
  hideHover:'auto',
  stacked:true
+});
+Morris.Donut({
+  element: 'pie-chart',
+  data: [
+    <?php
+            
+        $query ="SELECT t.*, SUM(ctddh_soluong) tong FROM the_loai_sach t
+        JOIN cua_sach s on s.TLS_MA = t.TLS_MA 
+        JOIN chi_tiet_don_dat_hang c on s.SACH_MA = c.SACH_MA 
+        JOIN don_dat_hang d on c.DDH_MA = d.DDH_MA
+        WHERE d.DDH_NGAYDAT BETWEEN '".$TGBDau."' AND '".$TGKThuc."'
+        GROUP by t.TLS_MA ORDER BY tong;";
+        $result = mysqli_query($connect, $query);
+            /*$row = mysqli_fetch_array($result);
+            echo '<pre>';
+            print_r ($row);
+            echo '</pre>';*/
+
+        while($row = mysqli_fetch_array($result)){
+            echo '{label: "'. $row["TLS_TEN"].'", value: '. $row["tong"].'},';
+        }
+        ?>
+  ]
 });
 </script>
 @endsection

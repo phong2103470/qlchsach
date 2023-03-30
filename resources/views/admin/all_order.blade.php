@@ -68,7 +68,10 @@
         </thead>
         <tbody>
          @foreach($all_DDH as $key => $all_DDH)
-              <tr>
+            @if ($all_DDH->TT_TEN == "Đơn hàng đã được xử lý") <tr style="background-color:#FCDAD5" >
+            @elseif ($all_DDH->TT_TEN == "Đã nhận hàng") <tr style="background-color:#C9E4D6" >
+            @else <tr>
+            @endif
                 <td><label class="i-checks m-b-none"><input type="checkbox" name="post[]"><i></i></label></td>
                   <td>{{$all_DDH->DDH_MA}}</td>
                   <td>{{$all_DDH->DDH_NGAYDAT}}</td>
