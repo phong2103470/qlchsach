@@ -28,8 +28,10 @@ class HomeController extends Controller
         ->orderby('sach.SACH_NGAYTAO','desc')->limit(12)->get();
         $exp_product = DB::table('sach') -> join('hinh_anh_sach','sach.SACH_MA','=','hinh_anh_sach.SACH_MA')
         ->orderby('sach.SACH_GIA','desc')->limit(12)->get();
+        $cheap_product = DB::table('sach') -> join('hinh_anh_sach','sach.SACH_MA','=','hinh_anh_sach.SACH_MA')
+        ->orderby('sach.SACH_GIA')->limit(12)->get();
         return view('pages.home')->with('category', $all_category_product)->with('all_product', $all_product)
-        ->with('exp_product', $exp_product);
+        ->with('exp_product', $exp_product)->with('cheap_product', $cheap_product);
     }
 
     public function all_product(){

@@ -107,8 +107,63 @@
                     </div>
                 </section>
             </div>
+            <style>
+                #re {
+                display: block;
+                }
+                #dat {
+                display: none;
+                }
+            </style>
+            <button class ="btn btn-dark" id="toggle-btn">
+            <i class="fa-solid fa-filter"></i> XEM SÁCH ĐẮT/RẺ NHẤT
+            </button>
+            <div id ="re">
             <section id="clothes" class="my-5">
-            <div class="container text-center mt-5 py-5">
+            <div class="container text-center mt-5 py-1">
+                <h3>SÁCH RẺ NHẤT</h3>
+                <hr class="mx-auto">
+            </div>    
+               
+            <div class="row mx-auto container-fluid">
+                @foreach($cheap_product as $key => $product)
+                <div class="product text-center col-lg-3 col-md-4 col-12">
+                    <img class="img-fluid mb-3" src="public/frontend/img/sach/{{$product->HAS_DUONGDAN}}" alt="">
+
+                    <div class="star">
+                        <?php
+                        // Create connection
+                        $conn = new mysqli('localhost', 'root', '', 'qlchsach');
+                        // Check connection
+                        if ($conn->connect_error) {
+                        die("Connection failed: " . $conn->connect_error);
+                        }
+                        $point = "select ROUND(AVG(DG_DIEM)) dg, COUNT('DG_MA') sl  from Danh_gia group by SACH_MA having SACH_MA ='".$product->SACH_MA."'";
+                        $result = $conn->query($point);
+                        $dg=0; $sl=0;
+                        while ($row = $result->fetch_assoc()) {
+                            $dg= $row['dg']."<br>";
+                            $sl= $row['sl'];
+                        }
+                        $x = 1;
+                        for ($x = 1; $x <= $dg; $x++) {
+                        echo '<i class="fas fa-star"></i>';
+                        } 
+                        echo '<i> ('.$sl.')</i>';
+                        
+                        ?>
+                    </div>
+                    <h5 class="p-name">{{$product->SACH_TEN}}</h5>
+                    <h4 class="p-price">{{number_format($product->SACH_GIA)}} đ</h4>
+                    <a href="{{ URL::to('/chi-tiet-san-pham/'. $product->SACH_MA) }}"><button class="buy-btn">XEM NGAY</button></a>
+                </div>
+                @endforeach
+            </div>
+        </section>
+        </div>
+            <div id ="dat" >
+            <section id="clothes" class="my-5">
+            <div class="container text-center mt-5 py-1">
                 <h3>SÁCH ĐẮT NHẤT</h3>
                 <hr class="mx-auto">
             </div>    
@@ -148,6 +203,21 @@
                 @endforeach
             </div>
         </section>
+        </div>
+<script>
+    document.getElementById('toggle-btn').addEventListener('click', function() {
+        var re = document.getElementById('re');
+        var dat = document.getElementById('dat');
+        
+        if (re.style.display !== 'none') {
+            re.style.display = 'none';
+            dat.style.display = 'block';
+        } else {
+            re.style.display = 'block';
+            dat.style.display = 'none';
+        }
+    });
+</script>
             
         
 
