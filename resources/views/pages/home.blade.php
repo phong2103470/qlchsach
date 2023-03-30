@@ -78,16 +78,18 @@
                         if ($conn->connect_error) {
                         die("Connection failed: " . $conn->connect_error);
                         }
-                        $point = "select ROUND(AVG(DG_DIEM)) dg from Danh_gia group by SACH_MA having SACH_MA ='".$product->SACH_MA."'";
+                        $point = "select ROUND(AVG(DG_DIEM)) dg, COUNT('DG_MA') sl from Danh_gia group by SACH_MA having SACH_MA ='".$product->SACH_MA."'";
                         $result = $conn->query($point);
-                        $dg=0;
+                        $dg=0; $sl=0;
                         while ($row = $result->fetch_assoc()) {
                             $dg= $row['dg']."<br>";
+                            $sl= $row['sl'];
                         }
                         $x = 1;
                         for ($x = 1; $x <= $dg; $x++) {
                         echo '<i class="fas fa-star"></i>';
-                        }
+                        } 
+                        echo '<i> ('.$sl.')</i>';
                         ?>
                     </div>
                     <h5 class="p-name">{{$product->SACH_TEN}}</h5>
@@ -124,16 +126,19 @@
                         if ($conn->connect_error) {
                         die("Connection failed: " . $conn->connect_error);
                         }
-                        $point = "select ROUND(AVG(DG_DIEM)) dg from Danh_gia group by SACH_MA having SACH_MA ='".$product->SACH_MA."'";
+                        $point = "select ROUND(AVG(DG_DIEM)) dg, COUNT('DG_MA') sl  from Danh_gia group by SACH_MA having SACH_MA ='".$product->SACH_MA."'";
                         $result = $conn->query($point);
-                        $dg=0;
+                        $dg=0; $sl=0;
                         while ($row = $result->fetch_assoc()) {
                             $dg= $row['dg']."<br>";
+                            $sl= $row['sl'];
                         }
                         $x = 1;
                         for ($x = 1; $x <= $dg; $x++) {
                         echo '<i class="fas fa-star"></i>';
-                        }
+                        } 
+                        echo '<i> ('.$sl.')</i>';
+                        
                         ?>
                     </div>
                     <h5 class="p-name">{{$product->SACH_TEN}}</h5>

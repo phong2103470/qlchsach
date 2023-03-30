@@ -163,6 +163,19 @@ class ProductController extends Controller
         ->join('chi_tiet_don_dat_hang','chi_tiet_don_dat_hang.DDH_MA','=','don_dat_hang.DDH_MA')
         ->where('TT_MA', 5)
         ->where('SACH_MA', $SACH_MA)->get();
+        
+        //Số lượng tồn
+
+        $ddh = DB::table('chi_tiet_don_dat_hang')
+            ->where('SACH_MA', $SACH_MA)->sum('CTDDH_SOLUONG');
+        Session::put('ban',$ddh);
+
+        $nhap = DB::table('chi_tiet_lo_nhap')
+            ->where('SACH_MA', $SACH_MA)->sum('CTLN_SOLUONG');
+        $xuat = DB::table('chi_tiet_lo_xuat')
+            ->where('SACH_MA', $SACH_MA)->sum('CTLX_SOLUONG');
+
+        Session::put('ton',$nhap-$xuat-$ddh);
 
         return view('pages.product.show_details_product')->with('category', $all_category_product)
         ->with('product_detail', $details_product)
@@ -171,6 +184,8 @@ class ProductController extends Controller
         ->with('author_product', $author_product)
         ->with('binh_luan', $binh_luan)
         ->with('danh_gia', $danh_gia);
+
+
         /*echo '<pre>';
         print_r ($binh_luan);
         echo '</pre>';*/

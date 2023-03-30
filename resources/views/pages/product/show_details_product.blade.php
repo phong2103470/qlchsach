@@ -33,11 +33,24 @@
                     </div>
                 <form action="{{URL::to('/save-cart')}}" method="POST">
                     {{ csrf_field() }}
-                                          
+                    <?php
+                    $ton = Session::get('ton');
+                    ?>
                     <h2>{{number_format($value->SACH_GIA)}} đ</h2>
-                    <p>Số lượng: <input name="qty" type="number" min="1" value="1"></p>
+                    <p>Số lượng: <input name="qty" type="number" min="1" max="<?php echo $ton; ?>" value="1"> |
+                    Số lượng tồn: 
+                        <?php
+                            echo $ton;
+                            Session::put('ton',null);
+                        ?> |
+                    Đã bán: 
+                        <?php
+                            $ban = Session::get('ban');
+                            echo $ban;
+                            Session::put('ban',null);
+                        ?> |
+                    </p>
 					<input name="productid_hidden" type="hidden"  value="{{$value->SACH_MA}}" />
-
                     <button type = "submit" class="buy-btn">THÊM GIỎ HÀNG</button>
                 </form>
                 <?php
