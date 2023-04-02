@@ -15,11 +15,11 @@
 
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Mã đơn đặt hàng</label>
-                                    <input type="text" disabled value="{{$edit_value->DDH_MA}}" name="DDH_MA" class="form-control" id="exampleInputEmail1">
+                                    <input type="text" disabled value="{{$edit_value->DDH_MA}}" name="DDH_MA" class="form-control" id="exampleInputEmail1" required="">
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Tên trạng thái</label>
-                                      <select name="TT_MA" class="form-control input-sm m-bot15">
+                                      <select name="TT_MA" class="form-control input-sm m-bot15" required="">
 
                                         @foreach($trangthai as $key => $tt)
                                             
@@ -36,7 +36,7 @@
                                 @if($edit_value->TT_MA==1)
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Nhân viên xử lý</label>
-                                      <select name="NVXL_MA" class="form-control input-sm m-bot15">
+                                      <select name="NVXL_MA" class="form-control input-sm m-bot15" required="">
 
                                         @foreach($nhanvienxl as $key => $nv)
                                             <option selected value="{{$nv->NV_MA}}">{{$nv->NV_HOTEN}}</option>
@@ -46,11 +46,11 @@
                                 @endif
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Ngày cập nhật</label>
-                                    <input type="text" disabled  value="{{$edit_value->CTTT_NGAYCAPNHAT}}" name="CTTT_NGAYCAPNHAT" class="form-control" id="exampleInputEmail1">
+                                    <input type="text" disabled  value="{{$edit_value->CTTT_NGAYCAPNHAT}}" name="CTTT_NGAYCAPNHAT" class="form-control" id="exampleInputEmail1" required="">
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Ghi chú</label>
-                                    <input type="text" value="{{$edit_value->CTTT_GHICHU}}" name="CTTT_GHICHU" class="form-control" id="exampleInputEmail1">
+                                    <input type="text" value="{{$edit_value->CTTT_GHICHU}}" name="CTTT_GHICHU" class="form-control" id="exampleInputEmail1" required="">
                                 </div>
 
                                 

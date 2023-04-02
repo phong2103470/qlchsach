@@ -23,15 +23,15 @@
                                 </div>-->
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Ngày nhập lô</label>
-                                    <input type="Date" name="ngaynhap_product_name" class="form-control" id="exampleInputEmail1" placeholder="Ngày nhập lô">
+                                    <input type="Date" name="ngaynhap_product_name" class="form-control" id="exampleInputEmail1" placeholder="Ngày nhập lô" required="">
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Nội dung lô</label>
-                                    <input type="text" name="noidung_product_name" class="form-control" id="exampleInputEmail1" placeholder="Nội dung lô nhập">
+                                    <input type="text" name="noidung_product_name" class="form-control" id="exampleInputEmail1" placeholder="Nội dung lô nhập" required="">
                                 </div>
                                 <div class="form-group"> 
                                     <label for="exampleInputEmail1">Nhân viên</label>
-                                      <select name="manv_product_name" class="form-control input-sm m-bot15">
+                                      <select name="manv_product_name" class="form-control input-sm m-bot15" required="">
                                         @foreach($nvien as $key => $nv)
                                             <option value="{{$nv->NV_MA}}">{{$nv->NV_HOTEN}}</option> 
                                             

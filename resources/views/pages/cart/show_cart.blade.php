@@ -46,7 +46,7 @@
                         <form action="{{URL::to('/update-cart')}}" method="POST">
                             {{ csrf_field() }}
                                                 
-                            <input class="w-25 pl-1" name="qty" value="{{$cart_pro->CTGH_SOLUONGSACH}}" type="number" min="1" id="amount1" required="">
+                            <input class="w-25 pl-1" name="qty" value="{{$cart_pro->CTGH_SOLUONGSACH}}" type="number" min="1" id="amount1">
                             <input name="productid_hidden" type="hidden"  value="{{$cart_pro->SACH_MA}}" />
                             <button type = "submit" class="btn btn-outline-dark btn-sm">Cập nhật</button>
                         </form>

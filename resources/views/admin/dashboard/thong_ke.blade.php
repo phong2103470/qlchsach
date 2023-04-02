@@ -51,8 +51,8 @@
                                 {{csrf_field() }}
                             <div class="form-group">
                                         <label for="exampleInputEmail1">Thống kê theo thời gian:</label>
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Từ: &nbsp;&nbsp; <input type="date" name="TGBDau"  placeholder="Thời gian bắt đầu">
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Đến: &nbsp;&nbsp; <input type="date" name="TGKThuc"  placeholder="Thời gian kết thúc">
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Từ: &nbsp;&nbsp; <input type="date" name="TGBDau"  placeholder="Thời gian bắt đầu" required="">
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Đến: &nbsp;&nbsp; <input type="date" name="TGKThuc"  placeholder="Thời gian kết thúc" required="">
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
                                 <button type="submit" class="btn btn-success">Thông kê</button>
                             </div>

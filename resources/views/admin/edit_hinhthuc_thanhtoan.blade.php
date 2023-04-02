@@ -14,7 +14,7 @@
                                     {{csrf_field() }}
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Tên hình thức thanh toán</label>
-                                    <input type="text" value="{{$edit_value->HTTT_TEN}}" name="hinhthuc_thanhtoan_name" class="form-control" id="exampleInputEmail1" placeholder="Tên hình thức thanh toán">
+                                    <input type="text" value="{{$edit_value->HTTT_TEN}}" name="hinhthuc_thanhtoan_name" class="form-control" id="exampleInputEmail1" placeholder="Tên hình thức thanh toán" required="">
                                 </div>
                                 <!--<div class="form-group">
                                     <label for="exampleInputPassword1">Mã hình thức thanh toán</label>

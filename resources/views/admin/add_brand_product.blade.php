@@ -19,7 +19,7 @@
                                     {{csrf_field() }}
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Tên thể nhà xuất bản</label>
-                                    <input type="text" name="brand_product_name" class="form-control" id="exampleInputEmail1" placeholder="Tên nhà xuất bản">
+                                    <input type="text" name="brand_product_name" class="form-control" id="exampleInputEmail1" placeholder="Tên nhà xuất bản" required="">
                                 </div>
                                 <!--<div class="form-group">
                                     <label for="exampleInputPassword1">Mã thể nhà xuất bản</label>
@@ -27,15 +27,15 @@
                                 </div>-->
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">Số điện thoại</label>
-                                    <input  type ="text" class="form-control" name="brand_product_phone" id="exampleInputPassword1" placeholder="Số điện thoại nhà xuất bản">
+                                    <input  type ="text" class="form-control" name="brand_product_phone" id="exampleInputPassword1" placeholder="Số điện thoại nhà xuất bản" required=""  pattern="[0-9]{10,11}">
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">Địa chỉ</label>
-                                    <textarea class="form-control" style="resize:none" rows=5 name="brand_product_address" id="exampleInputPassword1" placeholder="Địa chỉ nhà xuất bản"></textarea>
+                                    <textarea class="form-control" style="resize:none" rows=5 name="brand_product_address" id="exampleInputPassword1" placeholder="Địa chỉ nhà xuất bản" required=""></textarea>
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">Email</label>
-                                    <input type ="text" class="form-control" name="brand_product_email" id="exampleInputPassword1" placeholder="Email nhà xuất bản">
+                                    <input type ="text" class="form-control" name="brand_product_email" id="exampleInputPassword1" placeholder="Email nhà xuất bản" required="" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}">
                                 </div>
                                 
                                 

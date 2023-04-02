@@ -21,7 +21,7 @@
                                 
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Tên nhân viên</label>
-                                    <input type="text" value="{{$edit_value->NV_HOTEN}}" name="NV_HOTEN" class="form-control" id="exampleInputEmail1" placeholder="Tên nhân viên">
+                                    <input type="text" value="{{$edit_value->NV_HOTEN}}" name="NV_HOTEN" class="form-control" id="exampleInputEmail1" placeholder="Tên nhân viên" required="">
                                 </div>
                                 <?php
                                     $NV_MA_get = Session::get('NV_MA_get');
@@ -29,7 +29,7 @@
                                 @if($NV_MA_get==1)
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">Chức vụ</label>
-                                      <select name="CV_MA" class="form-control input-sm m-bot15">
+                                      <select name="CV_MA" class="form-control input-sm m-bot15" required="">
 
                                         @foreach($position as $key => $pos)
                                             
@@ -45,23 +45,23 @@
                                 
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Số điện thoại</label>
-                                    <input type="text" value="{{$edit_value->NV_SODIENTHOAI}}" name="NV_SODIENTHOAI" class="form-control" id="exampleInputEmail1" placeholder="Tên nhân viên">
+                                    <input type="text" value="{{$edit_value->NV_SODIENTHOAI}}" name="NV_SODIENTHOAI" class="form-control" id="exampleInputEmail1" placeholder="Tên nhân viên" required="" pattern="[0-9]{10,11}">
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Địa chỉ</label>
-                                    <input type="text" value="{{$edit_value->NV_DIACHI}}" name="NV_DIACHI" class="form-control" id="exampleInputEmail1" placeholder="Tên nhân viên">
+                                    <input type="text" value="{{$edit_value->NV_DIACHI}}" name="NV_DIACHI" class="form-control" id="exampleInputEmail1" placeholder="Tên nhân viên" required="">
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Ngày sinh</label>
-                                    <input type="date" value="{{$edit_value->NV_NGAYSINH}}" name="NV_NGAYSINH" class="form-control" id="exampleInputEmail1" placeholder="Tên nhân viên">
+                                    <input type="date" value="{{$edit_value->NV_NGAYSINH}}" name="NV_NGAYSINH" class="form-control" id="exampleInputEmail1" placeholder="Tên nhân viên" required="">
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Giới tính</label>
-                                    <input type="text" value="{{$edit_value->NV_GIOITINH}}" name="NV_GIOITINH" class="form-control" id="exampleInputEmail1" placeholder="Tên nhân viên">
+                                    <input type="text" value="{{$edit_value->NV_GIOITINH}}" name="NV_GIOITINH" class="form-control" id="exampleInputEmail1" placeholder="Tên nhân viên" required="">
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Email</label>
-                                    <input type="text" value="{{$edit_value->NV_EMAIL}}" name="NV_EMAIL" class="form-control" id="exampleInputEmail1" placeholder="Tên nhân viên">
+                                    <input type="text" value="{{$edit_value->NV_EMAIL}}" name="NV_EMAIL" class="form-control" id="exampleInputEmail1" placeholder="Tên nhân viên" required="" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}">
                                 </div>
 
                                 <div class="form-group">

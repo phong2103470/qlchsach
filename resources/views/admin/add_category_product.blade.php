@@ -19,7 +19,7 @@
                                     {{csrf_field() }}
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Tên thể loại</label>
-                                    <input type="text" name="category_product_name" class="form-control" id="exampleInputEmail1" placeholder="Tên thể loại">
+                                    <input type="text" name="category_product_name" class="form-control" id="exampleInputEmail1" placeholder="Tên thể loại" required="">
                                 </div>
                                 <!--
                                 <div class="form-group">

@@ -86,8 +86,25 @@ class CartController extends Controller
         print_r ($data);
         echo '</pre>';*/
 
-        DB::table('gio_hang')->where('GH_MA', $all_cart_product->GH_MA)->update(['GH_NGAYCAPNHATLANCUOI' => Carbon::now('Asia/Ho_Chi_Minh')]);
-        DB::table('chi_tiet_gio_hang')->where('GH_MA', $all_cart_product->GH_MA)->where('SACH_MA', $request->productid_hidden)->update(['CTGH_SOLUONGSACH' => $request->qty]);
+        //Số lượng tồn
+         $ddh = DB::table('chi_tiet_don_dat_hang')
+            ->where('SACH_MA', $request->productid_hidden)->sum('CTDDH_SOLUONG');
+
+        $nhap = DB::table('chi_tiet_lo_nhap')
+            ->where('SACH_MA', $request->productid_hidden)->sum('CTLN_SOLUONG');
+        $xuat = DB::table('chi_tiet_lo_xuat')
+            ->where('SACH_MA', $request->productid_hidden)->sum('CTLX_SOLUONG');
+
+        if ($nhap-$xuat-$ddh>=$request->qty){
+            /*echo $nhap-$xuat-$ddh;
+            echo ' ';
+            echo $request->qty;*/
+            DB::table('gio_hang')->where('GH_MA', $all_cart_product->GH_MA)->update(['GH_NGAYCAPNHATLANCUOI' => Carbon::now('Asia/Ho_Chi_Minh')]);
+            DB::table('chi_tiet_gio_hang')->where('GH_MA', $all_cart_product->GH_MA)->where('SACH_MA', $request->productid_hidden)->update(['CTGH_SOLUONGSACH' => $request->qty]);
+        }
+        else{
+            Session::put('message','Số lượng yêu cầu cần nhỏ hơn hoặc bằng số lượng tồn kho: '.$nhap-$xuat-$ddh.'');
+        }
         
         return Redirect::to('show-cart');
     }

@@ -20,7 +20,7 @@
                                     {{csrf_field() }}
                                     <div class="form-group"> 
                                     <label for="exampleInputEmail1">Mã lô xuất</label>
-                                      <select disabled name="loxuat_product_name" class="form-control input-sm m-bot15">
+                                      <select disabled name="loxuat_product_name" class="form-control input-sm m-bot15" required="">
                                         @foreach($loxuat_product as $key => $maloxuat)
                                            
 
@@ -39,7 +39,7 @@
 
                                 <div class="form-group"> 
                                     <label for="exampleInputEmail1">Tên sách xuất</label>
-                                      <select disabled name="masach_product_name" class="form-control input-sm m-bot15">
+                                      <select disabled name="masach_product_name" class="form-control input-sm m-bot15" required="">
                                         @foreach($sach as $key => $masach)
                                             
                                                
@@ -54,12 +54,12 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Số lượng</label>
-                                    <input type="text" value="{{$edit_value->CTLX_SOLUONG}}" name="soluong_product_name" class="form-control" id="exampleInputEmail1" placeholder="Số lượng">
+                                    <input type="text" value="{{$edit_value->CTLX_SOLUONG}}" name="soluong_product_name" class="form-control" id="exampleInputEmail1" placeholder="Số lượng" required=""  pattern="[0-9]+">
                                 </div>
                                 
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Giá</label>
-                                    <input type="text" value="{{$edit_value->CTLX_GIA}}" name="gia_product_name" class="form-control" id="exampleInputEmail1" placeholder="Giá">
+                                    <input type="text" value="{{$edit_value->CTLX_GIA}}" name="gia_product_name" class="form-control" id="exampleInputEmail1" placeholder="Giá" required=""  pattern="[0-9]+">
                                 </div>
                                 
                                 <button type="submit" name="add_chitiet_loxuat" class="btn btn-info">Cập nhật chi tiết lô xuất</button>

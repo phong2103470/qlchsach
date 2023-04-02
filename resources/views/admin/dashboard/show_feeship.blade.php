@@ -41,7 +41,7 @@
                         <td>{{$dchi->TTP_TEN }}</td>
                         <td>{{$dchi->HQ_TEN}}</td>
                         <td>{{$dchi->XP_TEN }}</td>
-                        <td>{{$dchi->XP_CHIPHIGIAOHANG}}</td>
+                        <td>{{number_format($dchi->XP_CHIPHIGIAOHANG)}} đ</td>
                         <td>
                         <a href="{{URL::to('/edit_feeship/'.$dchi -> XP_MA)}}" class="active styling-edit" ui-toggle-class=""><i class="fa fa-pencil-square-o text-success text-active"></i></a>
                         </td>

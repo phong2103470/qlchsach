@@ -20,11 +20,11 @@
                                     {{csrf_field() }}
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Tên nhân viên</label>
-                                    <input type="text" disabled value="{{$edit_value->NV_HOTEN}}" name="NV_HOTEN" class="form-control" id="exampleInputEmail1" placeholder="Tên nhân viên">
+                                    <input type="text" disabled value="{{$edit_value->NV_HOTEN}}" name="NV_HOTEN" class="form-control" id="exampleInputEmail1" placeholder="Tên nhân viên" required="">
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">Chức vụ</label>
-                                      <select disabled name="CV_MA" class="form-control input-sm m-bot15">
+                                      <select disabled name="CV_MA" class="form-control input-sm m-bot15" required="">
 
                                         @foreach($position as $key => $pos)
                                             
@@ -38,23 +38,23 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Số điện thoại</label>
-                                    <input type="text" disabled value="{{$edit_value->NV_SODIENTHOAI}}" name="NV_SODIENTHOAI" class="form-control" id="exampleInputEmail1" placeholder="Tên nhân viên">
+                                    <input type="text" disabled value="{{$edit_value->NV_SODIENTHOAI}}" name="NV_SODIENTHOAI" class="form-control" id="exampleInputEmail1" placeholder="Tên nhân viên" required="">
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Địa chỉ</label>
-                                    <input type="text"disabled value="{{$edit_value->NV_DIACHI}}" name="NV_DIACHI" class="form-control" id="exampleInputEmail1" placeholder="Tên nhân viên">
+                                    <input type="text"disabled value="{{$edit_value->NV_DIACHI}}" name="NV_DIACHI" class="form-control" id="exampleInputEmail1" placeholder="Tên nhân viên" required="">
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Ngày sinh</label>
-                                    <input type="date" disabled value="{{$edit_value->NV_NGAYSINH}}" name="NV_NGAYSINH" class="form-control" id="exampleInputEmail1" placeholder="Tên nhân viên">
+                                    <input type="date" disabled value="{{$edit_value->NV_NGAYSINH}}" name="NV_NGAYSINH" class="form-control" id="exampleInputEmail1" placeholder="Tên nhân viên" required="">
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Giới tính</label>
-                                    <input type="text" disabled value="{{$edit_value->NV_GIOITINH}}" name="NV_GIOITINH" class="form-control" id="exampleInputEmail1" placeholder="Tên nhân viên">
+                                    <input type="text" disabled value="{{$edit_value->NV_GIOITINH}}" name="NV_GIOITINH" class="form-control" id="exampleInputEmail1" placeholder="Tên nhân viên" required="">
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Email</label>
-                                    <input type="text" disabled value="{{$edit_value->NV_EMAIL}}" name="NV_EMAIL" class="form-control" id="exampleInputEmail1" placeholder="Tên nhân viên">
+                                    <input type="text" disabled value="{{$edit_value->NV_EMAIL}}" name="NV_EMAIL" class="form-control" id="exampleInputEmail1" placeholder="Tên nhân viên" required="">
                                 </div>
 
                                 <div class="form-group">

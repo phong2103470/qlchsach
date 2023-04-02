@@ -20,7 +20,7 @@
                                 {{csrf_field() }}
                                 <div class="form-group"> 
                                     <label for="exampleInputEmail1">Tên sách</label>
-                                    <select name="sach" class="form-control input-sm m-bot15">
+                                    <select name="sach" class="form-control input-sm m-bot15" required="">
                                         @foreach($sach as $key => $MS)
                                             
                                             @if($MS->SACH_MA==$edit_value->SACH_MA)
@@ -34,7 +34,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">Tên thể loại</label>
-                                      <select name="theloai" class="form-control input-sm m-bot15">
+                                      <select name="theloai" class="form-control input-sm m-bot15" required="">
                                         @foreach($theloai as $key => $TL)
                                             
                                             @if($TL->TLS_MA==$edit_value->TLS_MA)

@@ -20,19 +20,19 @@
                                     {{csrf_field() }}
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Ngày nhập lô</label>
-                                    <input type="text" value="{{$edit_value->LN_NGAYNHAP}}" name="ngaynhap_product_name" class="form-control" id="exampleInputEmail1" placeholder="Tên tác giả">
+                                    <input type="text" value="{{$edit_value->LN_NGAYNHAP}}" name="ngaynhap_product_name" class="form-control" id="exampleInputEmail1" placeholder="Tên tác giả" required="">
                                 </div>
                                 <div class="form-group">
                                     
-                                    <input type="hidden" value="{{$edit_value->LN_MA}}" name="maln_product_name" class="form-control" id="exampleInputEmail1" placeholder="Mã lô nhập">
+                                    <input type="hidden" value="{{$edit_value->LN_MA}}" name="maln_product_name" class="form-control" id="exampleInputEmail1" placeholder="Mã lô nhập" required="">
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Nội dung lô</label>
-                                    <input type="text" value="{{$edit_value->LN_NOIDUNG}}" name="noidung_product_name" class="form-control" id="exampleInputEmail1" placeholder="Tên tác giả">
+                                    <input type="text" value="{{$edit_value->LN_NOIDUNG}}" name="noidung_product_name" class="form-control" id="exampleInputEmail1" placeholder="Tên tác giả" required="">
                                 </div> 
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">Nhân viên phụ trách</label>
-                                      <select name="manv_product_name" class="form-control input-sm m-bot15">
+                                      <select name="manv_product_name" class="form-control input-sm m-bot15" required="">
                                         @foreach($nvien as $key => $nv)
                                             
                                             @if($nv->NV_MA==$edit_value->NV_MA)

@@ -14,7 +14,7 @@
                                     {{csrf_field() }}
                                     <div class="form-group">
                                     <label for="exampleInputEmail1">Tên hình ảnh sách</label>
-                                    <input type="text" name="HAS_TEN" class="form-control" id="exampleInputEmail1" value="{{$edit_value->HAS_TEN}}">
+                                    <input type="text" name="HAS_TEN" class="form-control" id="exampleInputEmail1" value="{{$edit_value->HAS_TEN}}" required="">
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Đường dẫn hình ảnh sách</label>
@@ -26,7 +26,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">Hình ảnh của sách</label>
-                                      <select name="SACH_MA" class="form-control input-sm m-bot15">
+                                      <select name="SACH_MA" class="form-control input-sm m-bot15" required="">
                                         @foreach($product as $key => $prod)
                                             
                                             @if($prod->SACH_MA==$edit_value->SACH_MA)

@@ -24,7 +24,7 @@
                                 
                                 <div class="form-group"> 
                                     <label for="exampleInputEmail1">Sách</label>
-                                      <select name="sach" class="form-control input-sm m-bot15">
+                                      <select name="sach" class="form-control input-sm m-bot15" required="">
                                         @foreach($sach as $key => $MS)
                                             <option value="{{$MS->SACH_MA}}">{{$MS->SACH_TEN}}</option> 
                                             
@@ -34,7 +34,7 @@
                                 </div>
                                 <div class="form-group"> 
                                     <label for="exampleInputEmail1">Tác giả</label>
-                                      <select name="tacgia" class="form-control input-sm m-bot15">
+                                      <select name="tacgia" class="form-control input-sm m-bot15" required="">
                                         @foreach($tacgia as $key => $MTG)
                                             <option value="{{$MTG->TG_MA}}">{{$MTG->TG_HOTEN}}</option> 
                                             

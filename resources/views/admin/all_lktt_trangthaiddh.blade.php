@@ -41,7 +41,7 @@
             
             
             <td>
-              <a href="{{URL::to('/all-lktt-trangthaiddh')}}" class="active styling-edit" ui-toggle-class=""><i class="fa fa-pencil-square-o text-success text-active"></i></a>
+              <a href="{{URL::to('/update-status-order/'.$pro->DDH_MA)}}" class="active styling-edit" ui-toggle-class=""><i class="fa fa-pencil-square-o text-success text-active"></i></a>
               
             </td>
           </tr>
