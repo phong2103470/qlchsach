@@ -83,6 +83,13 @@ class CostumerController extends Controller
             $data['KH_DUONGDANANHDAIDIEN'] = 'macdinh.png';
         }
 
+        $dskh=DB::table('khach_hang')->get();
+        foreach ($dskh as $ds){
+            if ($ds->KH_SODIENTHOAI==$request->KH_SODIENTHOAI) {
+                Session::put('message','Số điện thoại này đã có trong hệ thống, vui lòng đăng ký bằng số khác!');
+                return Redirect::to('/dang-nhap');
+            }
+        }
         DB::table('khach_hang')->insert($data);
 
         $KH_MA=DB::table('khach_hang')
