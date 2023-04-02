@@ -20,12 +20,12 @@
             {{ csrf_field() }}
             <div class="form-group">
                 <label for="exampleInputEmail1"><b>Họ tên người nhận:</b></label>
-                <input type="text" name="DCGH_HOTENNGUOINHAN" class="form-control" id="exampleInputEmail1" placeholder="Họ tên người nhận">
+                <input type="text" name="DCGH_HOTENNGUOINHAN" class="form-control" id="exampleInputEmail1" placeholder="Họ tên người nhận" required="">
             </div>
 
             <div class="form-group">
                 <label for="exampleInputPassword1"><b>Chọn tỉnh/thành phố:</b></label>
-                <select name="TTP_MA" id="TTP_MA" class="form-control input-sm m-bot15 choose TTP_MA">
+                <select name="TTP_MA" id="TTP_MA" class="form-control input-sm m-bot15 choose TTP_MA" required="">
                     <option value="">-- Chọn tỉnh / thành phố --</option>
                     @foreach($ttp as $key => $ttp)
                         <option value="{{$ttp->TTP_MA}}">{{$ttp->TTP_TEN}}</option>
@@ -35,7 +35,7 @@
             </div>
             <div class="form-group">
                 <label for="exampleInputPassword1"><b>Chọn huyện/quận:</b></label>
-                <select name="HQ_MA" id="HQ_MA" class="form-control input-sm m-bot15 choose HQ_MA">
+                <select name="HQ_MA" id="HQ_MA" class="form-control input-sm m-bot15 choose HQ_MA" required="">
                     <option value="">-- Chọn huyện / quận --</option>
                     
                                             
@@ -43,14 +43,14 @@
             </div>
             <div class="form-group">
                 <label for="exampleInputPassword1"><b>Chọn xã/phường:</b></label>
-                <select name="XP_MA" id="XP_MA" class="form-control input-sm m-bot15 XP_MA">
+                <select name="XP_MA" id="XP_MA" class="form-control input-sm m-bot15 XP_MA" required="">
                     <option value="">-- Chọn xã / phường --</option>
                                             
                 </select>
             </div>
             <div class="form-group">
                 <label for="exampleInputEmail1"><b>Số nhà:</b></label>
-                <input type="text" name="DCGH_SONHA" class="form-control" placeholder="Số nhà">
+                <input type="text" name="DCGH_SONHA" class="form-control" placeholder="Số nhà" required="">
             </div>
 
             <div class="form-group">

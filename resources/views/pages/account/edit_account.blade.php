@@ -56,30 +56,30 @@
                 <div class="col-lg-9 col-md-6 col-12 mb-3">
                     <div class="form-group">
                         <label for="exampleInputEmail1"><b>Họ tên:</b></label>
-                        <input type="text" name="KH_HOTEN" value="{{$account_info->KH_HOTEN}}" class="form-control" id="exampleInputEmail1">
+                        <input type="text" name="KH_HOTEN" value="{{$account_info->KH_HOTEN}}" class="form-control" id="exampleInputEmail1" required="">
                     </div>
                     <div class="form-group">
                         <label for="exampleInputEmail1"><b>Ngày sinh:</b></label>
-                        <input type="date" name="KH_NGAYSINH" value="{{$account_info->KH_NGAYSINH}}" class="form-control" id="exampleInputEmail1">
+                        <input type="date" name="KH_NGAYSINH" value="{{$account_info->KH_NGAYSINH}}" class="form-control" id="exampleInputEmail1" required="">
                     </div>
                     <div class="form-group">
                         <label for="exampleInputEmail1"><b>Giới tính:</b></label>
-                        <input type="text" name="KH_GIOITINH" value="{{$account_info->KH_GIOITINH}}" class="form-control" id="exampleInputEmail1">
+                        <input type="text" name="KH_GIOITINH" value="{{$account_info->KH_GIOITINH}}" class="form-control" id="exampleInputEmail1" required="">
                     </div>
                 </div>
                 
             </div>
             <div class="form-group">
                 <label for="exampleInputEmail1"><b>Số điện thoại:</b></label>
-                <input type="text" name="KH_SODIENTHOAI" value="{{$account_info->KH_SODIENTHOAI}}" class="form-control" id="exampleInputEmail1">
+                <input type="text" name="KH_SODIENTHOAI" value="{{$account_info->KH_SODIENTHOAI}}" class="form-control" id="exampleInputEmail1"required=""  pattern="[0-9]{10,11}">
             </div>
             <div class="form-group">
                 <label for="exampleInputEmail1"><b>Địa chỉ:</b></label>
-                <input type="text" name="KH_DIACHI" value="{{$account_info->KH_DIACHI}}" class="form-control" id="exampleInputEmail1">
+                <input type="text" name="KH_DIACHI" value="{{$account_info->KH_DIACHI}}" class="form-control" id="exampleInputEmail1" required="">
             </div>
             <div class="form-group">
                 <label for="exampleInputEmail1"><b>Email:</b></label>
-                <input type="text" name="KH_EMAIL" value="{{$account_info->KH_EMAIL}}" class="form-control" id="exampleInputEmail1">
+                <input type="text" name="KH_EMAIL" value="{{$account_info->KH_EMAIL}}" class="form-control" id="exampleInputEmail1" required=""  pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}">
             </div>
             <button type="submit" style="width:100%" class="btn btn-info btn-sm">Lưu cập nhật</button>
         </form>

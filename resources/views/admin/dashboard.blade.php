@@ -127,8 +127,8 @@
 								$dtl= Session::get('DOANH_THU_L');
 								$dts= Session::get('DOANH_THU_S');
 								$dt = $dtl+$dts;
-								if ($dt) {
-									echo number_format($dt);
+								if ($dtl+$dts) {
+									echo number_format($dtl+$dts);
 								}
 							?>
 						VNĐ</h3>
